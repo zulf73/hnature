@@ -1,0 +1,53 @@
+\documentclass{amsart} 
+\usepackage{amsmath}
+\usepackage{verse}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Religious Organisation Memebership has Weak Positive Effect on Happiness}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+Percentage of world membership in religious organisations have a positive effect on Happiness but explains only 2.5 percent of variation.
+
+\section{Result}
+
+\begin{verbatim}
+> summary(mod.relhap)
+
+Call:
+lm(formula = log(hap + 1) ~ log(actRel + 1), data = relhap)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.47539 -0.04287  0.03187  0.06401  0.14922 
+
+Coefficients:
+                Estimate Std. Error t value
+(Intercept)      4.40191    0.03986 110.443
+log(actRel + 1)  0.01609    0.01455   1.106
+                Pr(>|t|)    
+(Intercept)       <2e-16 ***
+log(actRel + 1)    0.274    
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.1092 on 49 degrees of freedom
+Multiple R-squared:  0.02436,	Adjusted R-squared:  0.004451 
+F-statistic: 1.224 on 1 and 49 DF,  p-value: 0.2741
+\end{verbatim}
+
+
+\section{Interpretation}
+
+Membership in a religious organisation is less effective in improving happiness than trust in most people, financial satsfaction and autonomy.  However,  it is {\em positive}.  I will comment that I have seen numerous articles about whether religious people are happier or not.  We claim our results are stronger than these because $N=51$ and the quality of our data are good.  Our results are Human Race oriented rather than national.
+
+\end{document}

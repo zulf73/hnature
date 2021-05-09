@@ -1,0 +1,54 @@
+\documentclass{amsart} 
+\usepackage{amsmath}
+\usepackage{verse}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Around the World Wanting Respect for Authority is anticorrelated with Confidence in Police}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+A counter-intuitive result we have here, that demand for Respect for Authority is anticorrelated with Confidence for the Police.
+
+\[
+\rho(AuthResp, ConfPolice) = -0.28
+\]
+
+\section{A model with 15\% variation explained}
+
+\begin{verbatim}
+> summary( mod.authresp)
+
+Call:
+lm(formula = confPolice ~ AuthResp + ncorrupt, data = xx)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-37.499 -14.258   0.611  11.434  50.321 
+
+Coefficients:
+            Estimate Std. Error t value
+(Intercept)  49.1085     9.7325   5.046
+AuthResp     -0.2178     0.1133  -1.922
+ncorrupt      0.2902     0.1193   2.434
+            Pr(>|t|)    
+(Intercept)    3e-06 ***
+AuthResp      0.0583 .  
+ncorrupt      0.0173 *  
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 19.54 on 76 degrees of freedom
+Multiple R-squared:  0.1455,	Adjusted R-squared:  0.123 
+F-statistic:  6.47 on 2 and 76 DF,  p-value: 0.002543
+\end{verbatim}
+
+\end{document}

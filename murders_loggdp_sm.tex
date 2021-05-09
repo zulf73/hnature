@@ -1,0 +1,83 @@
+\documentclass{amsart} 
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Log Per-Capita GDP and Single Motnerhood Predicts Murder Rates Explaining 39 percent of Variation}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\begin{epigram}{You're now tuned into the motherfucking greatest
+
+Turn the music up in the headphones
+
+Tim, you can go and brush your shoulder off
+
+I probably owe it to you all, proud to be locked by the force
+
+Trying to hustle some things, that go with the Porsche
+
+Feeling no remorse, feeling like my hand was forced
+
+Middle finger to the law, nigga griping my balls
+
+All the ladies they love me, from the bleachers they screaming
+
+All the ballers is bouncing they like the way I be leaning
+
+All the rappers be hating, off the track that I'm making
+
+But all the hustlers they love it just to see one of us make it
+
+Came from the bottom the bottom, to the "Top of the Pops"
+
+Nigga London, Japan and I'm straight off the block
+
+Like a running back, get it man, I'm straight off the block
+
+I can run it back nigga 'cause I'm straight with the Roc}{Jay-Z, "Dirt off your Shoulders"}
+
+
+\section{Linear Model}
+
+\begin{verbatim}
+> smrob<-lm( robs$Murder ~ robs$LogGDP + robs$SingleMother)
+> summary(smrob)
+
+Call:
+lm(formula = robs$Murder ~ robs$LogGDP + robs$SingleMother)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.8114 -1.0733 -0.6414  0.5594  5.9281 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)       11.18110    2.89399   3.864 0.000634 ***
+robs$LogGDP       -2.70835    0.72268  -3.748 0.000859 ***
+robs$SingleMother  0.18204    0.06702   2.716 0.011377 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.194 on 27 degrees of freedom
+Multiple R-squared:  0.3913,	Adjusted R-squared:  0.3462 
+F-statistic: 8.677 on 2 and 27 DF,  p-value: 0.00123
+\end{verbatim}
+
+\section{Data}
+
+\csvautotabular{smrob.csv}
+
+\section{Interpretation}
+
+Univariate model predicting Rape Rates from logGDP (per capita) showed rise of rape with logGDP.  Here in the multivariate model we see Murder rates fall with logGDP and rise with Single Motherhood.  
+
+Univariate model predicting Robbery Rates rise with Single Motherhood.
+
+We offer no theoretical explanation of these empirical discoveries.
+
+\end{document}

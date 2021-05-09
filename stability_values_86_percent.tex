@@ -1,0 +1,305 @@
+\documentclass{amsart} 
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Around 86\% World Values Have Distributions Stable over Randomisation of Countries}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+The World Values Survey Wave 6 Data were used.  The total number of measurements were 430.  We subselected 235 of these where we could estimate the standard deviation of the curve by randomizing and ensuring pooling of at least 20 countries in each sampling.  Now the frequencies add up to 1.0 in each case, so we decided to take a reasonable threshold for {\em narrow spread} of 5\%. We found that in 86\% of the cases, the distributions had mean standard deviations of smaller than 5\%.
+
+
+\section{Interpretation}
+
+We would summarise our discovery by saying that around 86\% of values of the Human Race are Nation-independent.  This is one of the most profound evidence for strong non-trivial Human Nature at play, for these are extremely unbiased measurements and they are telling us that for most value questions people are remarkably uniform in their distribution across the world.
+
+\section{Full Results}
+
+Here are the mean standard deviations of the frequencies of survey responses.  They generally fall into either 1-4 or 0-3 etc.  We removed all other answers placing NA in the dataset.  Then we simply ensured that our Monte Carlo sampling to estimate density curve standard deviations include 20 countries at least.  
+
+% latex table generated in R 4.0.3 by xtable 1.8-4 package
+% Fri Apr 16 04:39:29 2021
+\begin{longtable}{rlr}
+  \hline
+ & name & sds \\ 
+  \hline
+2 & V2 & 0.0597 \\ 
+  3 & V2A & 0.0604 \\ 
+  4 & V3 & 0.1089 \\ 
+  6 & V5 & 0.0112 \\ 
+  7 & V6 & 0.0125 \\ 
+  8 & V7 & 0.0136 \\ 
+  9 & V8 & 0.0110 \\ 
+  10 & V9 & 0.0127 \\ 
+  11 & V10 & 0.0115 \\ 
+  12 & V11 & 0.0128 \\ 
+  24 & V23 & 0.0353 \\ 
+  51 & V49 & 0.0118 \\ 
+  52 & V50 & 0.0134 \\ 
+  53 & V51 & 0.0136 \\ 
+  54 & V52 & 0.0128 \\ 
+  55 & V53 & 0.0137 \\ 
+  56 & V54 & 0.0133 \\ 
+  57 & V55 & 0.0397 \\ 
+  58 & V56 & 0.0252 \\ 
+  60 & V57 & 0.0101 \\ 
+  61 & V58 & 0.0147 \\ 
+  62 & V59 & 0.0265 \\ 
+  63 & V60 & 0.0120 \\ 
+  64 & V61 & 0.0140 \\ 
+  65 & V62 & 0.0131 \\ 
+  66 & V63 & 0.0139 \\ 
+  67 & V64 & 0.0122 \\ 
+  68 & V65 & 0.0137 \\ 
+  73 & V70 & 0.0146 \\ 
+  74 & V71 & 0.0175 \\ 
+  75 & V72 & 0.0139 \\ 
+  76 & V73 & 0.0158 \\ 
+  77 & V74 & 0.0144 \\ 
+  78 & V74B & 0.0204 \\ 
+  79 & V75 & 0.0151 \\ 
+  80 & V76 & 0.0173 \\ 
+  81 & V77 & 0.0144 \\ 
+  82 & V78 & 0.0142 \\ 
+  83 & V79 & 0.0143 \\ 
+  84 & V80 & 0.0124 \\ 
+  88 & V84 & 0.0134 \\ 
+  94 & V90 & 0.0321 \\ 
+  96 & V92 & 0.0405 \\ 
+  97 & V93 & 0.0476 \\ 
+  99 & V95 & 0.0314 \\ 
+  100 & V96 & 0.0216 \\ 
+  101 & V97 & 0.0242 \\ 
+  102 & V98 & 0.0185 \\ 
+  103 & V99 & 0.0169 \\ 
+  104 & V100 & 0.0174 \\ 
+  105 & V101 & 0.0285 \\ 
+  107 & V103 & 0.0125 \\ 
+  108 & V104 & 0.0124 \\ 
+  109 & V105 & 0.0123 \\ 
+  110 & V106 & 0.0132 \\ 
+  111 & V107 & 0.0131 \\ 
+  112 & V108 & 0.0135 \\ 
+  113 & V109 & 0.0134 \\ 
+  114 & V110 & 0.0130 \\ 
+  115 & V111 & 0.0131 \\ 
+  116 & V112 & 0.0138 \\ 
+  117 & V113 & 0.0133 \\ 
+  118 & V114 & 0.0134 \\ 
+  119 & V115 & 0.0136 \\ 
+  120 & V116 & 0.0133 \\ 
+  121 & V117 & 0.0134 \\ 
+  122 & V118 & 0.0133 \\ 
+  123 & V119 & 0.0129 \\ 
+  124 & V120 & 0.0134 \\ 
+  125 & V121 & 0.0134 \\ 
+  126 & V122 & 0.0133 \\ 
+  127 & V123 & 0.0138 \\ 
+  128 & V124 & 0.0134 \\ 
+  129 & V125\_00 & 0.0293 \\ 
+  136 & V125\_07 & 0.0391 \\ 
+  137 & V125\_08 & 0.0377 \\ 
+  141 & V125\_12 & 0.0590 \\ 
+  147 & V126 & 0.0141 \\ 
+  148 & V127 & 0.0141 \\ 
+  149 & V128 & 0.0136 \\ 
+  150 & V129 & 0.0139 \\ 
+  151 & V130 & 0.0120 \\ 
+  152 & V131 & 0.0260 \\ 
+  153 & V132 & 0.0174 \\ 
+  154 & V133 & 0.0411 \\ 
+  155 & V134 & 0.0318 \\ 
+  156 & V135 & 0.0182 \\ 
+  157 & V136 & 0.0370 \\ 
+  158 & V137 & 0.0244 \\ 
+  159 & V138 & 0.0248 \\ 
+  160 & V139 & 0.0401 \\ 
+  161 & V140 & 0.0584 \\ 
+  162 & V141 & 0.0283 \\ 
+  163 & V142 & 0.0131 \\ 
+  164 & V143 & 0.0124 \\ 
+  165 & V144 & 0.0562 \\ 
+  166 & V145 & 0.0179 \\ 
+  167 & V146 & 0.0162 \\ 
+  173 & V152 & 0.0331 \\ 
+  174 & V153 & 0.0143 \\ 
+  175 & V154 & 0.0143 \\ 
+  176 & V155 & 0.0143 \\ 
+  177 & V156 & 0.0135 \\ 
+  178 & V157 & 0.0234 \\ 
+  179 & V158 & 0.0433 \\ 
+  180 & V159 & 0.0248 \\ 
+  181 & V160 & 0.0356 \\ 
+  182 & V161 & 0.0151 \\ 
+  183 & V162 & 0.0153 \\ 
+  184 & V163 & 0.0162 \\ 
+  185 & V164 & 0.0268 \\ 
+  186 & V165 & 0.0134 \\ 
+  187 & V166 & 0.0132 \\ 
+  188 & V167 & 0.0124 \\ 
+  189 & V168 & 0.0138 \\ 
+  190 & V169 & 0.0138 \\ 
+  191 & V160A & 0.0238 \\ 
+  192 & V160B & 0.0233 \\ 
+  193 & V160C & 0.0221 \\ 
+  194 & V160D & 0.0227 \\ 
+  195 & V160E & 0.0230 \\ 
+  196 & V160F & 0.0233 \\ 
+  197 & V160G & 0.0227 \\ 
+  198 & V160H & 0.0238 \\ 
+  199 & V160I & 0.0230 \\ 
+  200 & V160J & 0.0235 \\ 
+  201 & V170 & 0.0121 \\ 
+  202 & V171 & 0.0127 \\ 
+  203 & V172 & 0.0136 \\ 
+  204 & V173 & 0.0114 \\ 
+  205 & V174 & 0.0113 \\ 
+  206 & V175 & 0.0125 \\ 
+  212 & V181 & 0.0139 \\ 
+  213 & V182 & 0.0133 \\ 
+  214 & V183 & 0.0136 \\ 
+  215 & V184 & 0.0133 \\ 
+  216 & V185 & 0.0142 \\ 
+  217 & V186 & 0.0142 \\ 
+  219 & V188 & 0.0111 \\ 
+  220 & V189 & 0.0113 \\ 
+  221 & V190 & 0.0117 \\ 
+  222 & V191 & 0.0128 \\ 
+  223 & V192 & 0.0456 \\ 
+  224 & V193 & 0.0473 \\ 
+  225 & V194 & 0.0234 \\ 
+  226 & V195 & 0.0238 \\ 
+  227 & V196 & 0.0197 \\ 
+  228 & V197 & 0.0411 \\ 
+  229 & V198 & 0.0125 \\ 
+  230 & V199 & 0.0125 \\ 
+  231 & V200 & 0.0093 \\ 
+  232 & V201 & 0.0115 \\ 
+  233 & V202 & 0.0099 \\ 
+  234 & V203 & 0.0124 \\ 
+  235 & V203A & 0.0141 \\ 
+  236 & V204 & 0.0136 \\ 
+  237 & V205 & 0.0173 \\ 
+  238 & V206 & 0.0165 \\ 
+  239 & V207 & 0.0107 \\ 
+  240 & V207A & 0.0187 \\ 
+  241 & V208 & 0.0099 \\ 
+  242 & V209 & 0.0126 \\ 
+  243 & V210 & 0.0101 \\ 
+  244 & V211 & 0.0110 \\ 
+  245 & V212 & 0.0130 \\ 
+  246 & V213 & 0.0121 \\ 
+  247 & V214 & 0.0103 \\ 
+  248 & V215\_01 & 0.0313 \\ 
+  257 & V215\_11 & 0.0384 \\ 
+  265 & V216 & 0.0134 \\ 
+  266 & V217 & 0.0152 \\ 
+  267 & V218 & 0.0172 \\ 
+  268 & V219 & 0.0093 \\ 
+  269 & V220 & 0.0143 \\ 
+  270 & V221 & 0.0142 \\ 
+  271 & V222 & 0.0193 \\ 
+  272 & V223 & 0.0168 \\ 
+  273 & V224 & 0.0122 \\ 
+  282 & V225 & 0.0123 \\ 
+  285 & V228 & 0.1921 \\ 
+  286 & V228\_2 & 0.1025 \\ 
+  287 & V228A & 0.0173 \\ 
+  288 & V228B & 0.0178 \\ 
+  289 & V228C & 0.0179 \\ 
+  290 & V228D & 0.0183 \\ 
+  291 & V228E & 0.0171 \\ 
+  292 & V228F & 0.0177 \\ 
+  293 & V228G & 0.0184 \\ 
+  294 & V228H & 0.0172 \\ 
+  295 & V228I & 0.0174 \\ 
+  296 & V228J & 0.0141 \\ 
+  297 & V228K & 0.0135 \\ 
+  298 & V229 & 0.0157 \\ 
+  299 & V230 & 0.0134 \\ 
+  300 & V231 & 0.0220 \\ 
+  301 & V232 & 0.0210 \\ 
+  302 & V233 & 0.0310 \\ 
+  306 & V237 & 0.0130 \\ 
+  307 & V238 & 0.0132 \\ 
+  308 & V239 & 0.0213 \\ 
+  310 & V241 & 0.0936 \\ 
+  311 & V242 & 0.1007 \\ 
+  318 & V247 & 0.1277 \\ 
+  319 & V248 & 0.0244 \\ 
+  320 & V248\_CS & 0.1022 \\ 
+  321 & V249 & 0.1177 \\ 
+  325 & V253 & 0.0220 \\ 
+  326 & V253\_CS & 0.1022 \\ 
+  327 & V254 & 0.0570 \\ 
+  329 & V256 & 0.1017 \\ 
+  330 & V256B & 0.1144 \\ 
+  331 & V256C & 0.1146 \\ 
+  332 & V256\_MAP & 0.0614 \\ 
+  333 & V257 & 0.1476 \\ 
+  334 & V258 & 0.0671 \\ 
+  335 & V258A & 0.0067 \\ 
+  336 & V260 & 0.0131 \\ 
+  337 & V261 & 0.0978 \\ 
+  338 & V262 & 0.0135 \\ 
+  339 & S024 & 0.0601 \\ 
+  340 & S025 & 0.0600 \\ 
+  341 & V265 & 0.1261 \\ 
+  342 & Y001 & 0.0143 \\ 
+  346 & MN\_163A & 0.0455 \\ 
+  347 & MN\_163B & 0.0458 \\ 
+  348 & MN\_163C & 0.0454 \\ 
+  350 & MN\_228M & 0.1052 \\ 
+  351 & MN\_228N & 0.1056 \\ 
+  352 & MN\_228O & 0.0973 \\ 
+  354 & MN\_228Q & 0.0438 \\ 
+  356 & MN\_228S1 & 0.0428 \\ 
+  357 & MN\_228S2 & 0.0429 \\ 
+  358 & MN\_228S3 & 0.0420 \\ 
+  359 & MN\_228S4 & 0.0430 \\ 
+  360 & MN\_228S5 & 0.0462 \\ 
+  361 & MN\_228S6 & 0.0429 \\ 
+  362 & MN\_228S7 & 0.0424 \\ 
+  363 & MN\_228S8 & 0.0431 \\ 
+  367 & MN\_233A & 0.0504 \\ 
+  368 & MN\_233B & 0.0519 \\ 
+  387 & sacsecval & 0.1272 \\ 
+  388 & secvalwgt & 0.0277 \\ 
+  389 & resemaval & 0.0932 \\ 
+  392 & I\_NATIONALISM & 0.0107 \\ 
+  393 & I\_DEVOUT & 0.0116 \\ 
+  394 & defiance & 0.0273 \\ 
+  396 & I\_RELIGIMP & 0.0128 \\ 
+  398 & I\_RELIGPRAC & 0.0177 \\ 
+  399 & disbelief & 0.0240 \\ 
+  404 & relativism & 0.0810 \\ 
+  406 & I\_TRUSTARMY & 0.0135 \\ 
+  407 & I\_TRUSTPOLICE & 0.0131 \\ 
+  408 & I\_TRUSTCOURTS & 0.0134 \\ 
+  409 & scepticism & 0.1104 \\ 
+  414 & autonomy & 0.0678 \\ 
+  417 & I\_WOMPOL & 0.0136 \\ 
+  418 & I\_WOMEDU & 0.0131 \\ 
+  419 & equality & 0.1517 \\ 
+  421 & I\_HOMOLIB & 0.0124 \\ 
+  422 & I\_ABORTLIB & 0.0134 \\ 
+  423 & I\_DIVORLIB & 0.0174 \\ 
+  424 & choice & 0.0339 \\ 
+  426 & I\_VOICE1 & 0.0133 \\ 
+  428 & I\_VOI2\_00 & 0.0181 \\ 
+  429 & voice & 0.0182 \\ 
+   \hline
+\hline
+\end{longtable}
+
+\section{PR}
+
+The strongest evidence in Human History of Humanity of Universal Human Nature we present by our discovery that for 86\% of the value variables (suitably restricted to avoid technical problems) the stability of the distribution of answers is very strong independently of country.  This suggests that people have extremely uniform values across the globe.  This is a very very strong result on existence of a Single Human Nature.  All our previous notions of how we are as a people, the Single Human Race, are completely negated and my discovery here leaves very little doubt that Human Race is not just technically a single race but we are strongly similar in our VALUES across the globe.
+
+\end{document}

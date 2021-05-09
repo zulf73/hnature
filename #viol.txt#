@@ -1,0 +1,6 @@
+> gp.violence %>% group_by(Group) %>% summarise(m=mean(Always),s=sd(Always))
+# A tibble: 2 x 3
+  Group     m     s
+  <chr> <dbl> <dbl>
+1 n      4.51  5.26
+2 w      2.3   1.38

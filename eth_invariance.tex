@@ -1,0 +1,391 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{epigraph}
+\title{Strong Invariance Of Moral Value Distribution By Ethnicity}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+\epigraph{
+
+ When old age shall
+ 
+  this generation waste,
+  
+                Thou shalt remain, in midst
+                 of other woe
+
+Than ours, a friend to 
+
+man, to whom thou say'st,
+
+
+         "Beauty is truth, truth beauty,—that is all
+
+                Ye know on earth, and all ye need to know."}{John Keats, "Ode On a Grecian Urn"}
+                
+
+\section{Invariance of Moral Values}
+
+I discovered the distributional invariance of Moral Values in the Human Race by various factors.  
+
+Here I show you that the invariance of moral values by ordinary paired t-tests is extremely strong.  The differences are small enough that a paired t-test gives almost equality and the p-value is either 1 or tiny deviations from 1.
+
+\section{The Code}
+
+\begin{verbatim}
+tts2<-function(var){
+  X<-table(polv[,c("eth",var)])
+  weth<-row.names(X)
+  N<-length(weth)
+  for( j in 1:N){
+    X[j,]<-nrm(X[j,])
+  }
+  out<-data.frame()
+  for (j in 2:N){
+    for (k in 1:(j-1)){
+      print(weth[j])
+      x<-as.numeric(X[j,])
+      print(x)
+      y<-as.numeric(X[k,])
+      print(y)
+      res<-t.test(x,y,paired=T)$p.value
+      print(res)
+      out<-rbind(out,c(var,weth[j],weth[k],res))
+    } 
+  }
+  names(out)<-c("var","eth1","eth2","pval")
+  out
+}
+
+moral.diff<-function(){
+  mvars <-names(polv)[4:22]
+  out<-data.frame()
+  for (v in mvars){
+    mdiff<-tts2( v )
+    out<-rbind(out,mdiff)
+  }
+  out
+}
+
+\end{verbatim}
+
+
+\section{The Data}
+
+The data are boring -- all the p-values are close to 1.
+% latex table generated in R 4.0.3 by xtable 1.8-4 package
+% Fri May  7 18:28:19 2021
+\begin{longtable}{rlllll}
+  \hline
+ & var & eth1 & eth2 & tstat & pval \\ 
+  \hline
+1 & Q177 & Black & Arab & -6.5943174756813e-16 & 1 \\ 
+  2 & Q177 & East Asian & Arab & -2.09151809218106e-17 & 1 \\ 
+  3 & Q177 & East Asian & Black & 1.93017644119163e-16 & 1 \\ 
+  4 & Q177 & Indian & Arab & -5.45754343037701e-16 & 1 \\ 
+  5 & Q177 & Indian & Black & 9.62962546198253e-17 & 1 \\ 
+  6 & Q177 & Indian & East Asian & -1.4020354068741e-16 & 1 \\ 
+  7 & Q177 & Other & Arab & -2.2810951401316e-16 & 1 \\ 
+  8 & Q177 & Other & Black & 1.93471098886179e-16 & 1 \\ 
+  9 & Q177 & Other & East Asian & -2.83976658570684e-16 & 1 \\ 
+  10 & Q177 & Other & Indian & 8.64675416508808e-17 & 1 \\ 
+  11 & Q177 & White & Arab & -1.90595566860918e-16 & 1 \\ 
+  12 & Q177 & White & Black & 8.75309011575723e-16 & 0.999999999999999 \\ 
+  13 & Q177 & White & East Asian & -4.41923673665075e-17 & 1 \\ 
+  14 & Q177 & White & Indian & 4.45440271985035e-16 & 1 \\ 
+  15 & Q177 & White & Other & 1.52383020361882e-16 & 1 \\ 
+  16 & Q178 & Black & Arab & 2.65424362814135e-16 & 1 \\ 
+  17 & Q178 & East Asian & Arab & 4.89596468154862e-17 & 1 \\ 
+  18 & Q178 & East Asian & Black & -1.93372940819371e-16 & 1 \\ 
+  19 & Q178 & Indian & Arab & 3.6360139717541e-17 & 1 \\ 
+  20 & Q178 & Indian & Black & -2.46836176518927e-16 & 1 \\ 
+  21 & Q178 & Indian & East Asian & -2.30412179154906e-17 & 1 \\ 
+  22 & Q178 & Other & Arab & -9.8316154705943e-17 & 1 \\ 
+  23 & Q178 & Other & Black & -2.78989628253453e-16 & 1 \\ 
+  24 & Q178 & Other & East Asian & -1.41363674643569e-16 & 1 \\ 
+  25 & Q178 & Other & Indian & -1.16306246089802e-16 & 1 \\ 
+  26 & Q178 & White & Arab & 3.68178364872789e-16 & 1 \\ 
+  27 & Q178 & White & Black & -7.00365013392565e-17 & 1 \\ 
+  28 & Q178 & White & East Asian & 4.05995358704305e-16 & 1 \\ 
+  29 & Q178 & White & Indian & 2.77598332874733e-16 & 1 \\ 
+  30 & Q178 & White & Other & 4.42419505223133e-16 & 1 \\ 
+  31 & Q179 & Black & Arab & -2.92058008391139e-17 & 1 \\ 
+  32 & Q179 & East Asian & Arab & -7.47335971423948e-16 & 0.999999999999999 \\ 
+  33 & Q179 & East Asian & Black & -3.00849923229058e-16 & 1 \\ 
+  34 & Q179 & Indian & Arab & 2.93370199612586e-16 & 1 \\ 
+  35 & Q179 & Indian & Black & 1.47398368272377e-16 & 1 \\ 
+  36 & Q179 & Indian & East Asian & 2.29445094359138e-15 & 0.999999999999998 \\ 
+  37 & Q179 & Other & Arab & -1.83433720157743e-16 & 1 \\ 
+  38 & Q179 & Other & Black & -9.13910245048457e-17 & 1 \\ 
+  39 & Q179 & Other & East Asian & 7.19244380021114e-16 & 0.999999999999999 \\ 
+  40 & Q179 & Other & Indian & -4.9839334560456e-16 & 1 \\ 
+  41 & Q179 & White & Arab & -2.97039993027571e-16 & 1 \\ 
+  42 & Q179 & White & Black & -2.69857811842185e-16 & 1 \\ 
+  43 & Q179 & White & East Asian & 2.79380754972173e-16 & 1 \\ 
+  44 & Q179 & White & Indian & -2.78080118358238e-16 & 1 \\ 
+  45 & Q179 & White & Other & -6.70862711297642e-18 & 1 \\ 
+  46 & Q180 & Black & Arab & -6.63368149782125e-17 & 1 \\ 
+  47 & Q180 & East Asian & Arab & -1.70434020467327e-16 & 1 \\ 
+  48 & Q180 & East Asian & Black & -1.80548783960217e-17 & 1 \\ 
+  49 & Q180 & Indian & Arab & -1.24179320683337e-15 & 0.999999999999999 \\ 
+  50 & Q180 & Indian & Black & -3.07014296409848e-16 & 1 \\ 
+  51 & Q180 & Indian & East Asian & -1.8829722084945e-15 & 0.999999999999999 \\ 
+  52 & Q180 & Other & Arab & -4.84899623044755e-16 & 1 \\ 
+  53 & Q180 & Other & Black & -2.16567273154972e-16 & 1 \\ 
+  54 & Q180 & Other & East Asian & -6.98703459846272e-16 & 0.999999999999999 \\ 
+  55 & Q180 & Other & Indian & 4.31492215071517e-16 & 1 \\ 
+  56 & Q180 & White & Arab & -1.14513029767104e-15 & 0.999999999999999 \\ 
+  57 & Q180 & White & Black & -6.45826809741249e-16 & 1 \\ 
+  58 & Q180 & White & East Asian & -5.98469889381606e-16 & 1 \\ 
+  59 & Q180 & White & Indian & 8.16927211832119e-17 & 1 \\ 
+  60 & Q180 & White & Other & -2.23925698558155e-16 & 1 \\ 
+  61 & Q181 & Black & Arab & 4.35724660413265e-16 & 1 \\ 
+  62 & Q181 & East Asian & Arab & 8.29485628481762e-16 & 0.999999999999999 \\ 
+  63 & Q181 & East Asian & Black & 3.17872176015104e-17 & 1 \\ 
+  64 & Q181 & Indian & Arab & -7.630601594932e-16 & 0.999999999999999 \\ 
+  65 & Q181 & Indian & Black & -5.51977854992858e-16 & 1 \\ 
+  66 & Q181 & Indian & East Asian & -1.23166570810035e-15 & 0.999999999999999 \\ 
+  67 & Q181 & Other & Arab & 6.44647317928548e-16 & 1 \\ 
+  68 & Q181 & Other & Black & 1.80692336382305e-17 & 1 \\ 
+  69 & Q181 & Other & East Asian & -1.38671844145401e-16 & 1 \\ 
+  70 & Q181 & Other & Indian & 8.43791472491537e-16 & 0.999999999999999 \\ 
+  71 & Q181 & White & Arab & 1.27530859248005e-15 & 0.999999999999999 \\ 
+  72 & Q181 & White & Black & 2.56112241007957e-16 & 1 \\ 
+  73 & Q181 & White & East Asian & 2.36832549046814e-17 & 1 \\ 
+  74 & Q181 & White & Indian & 1.1228764136289e-15 & 0.999999999999999 \\ 
+  75 & Q181 & White & Other & 7.86600902646529e-17 & 1 \\ 
+  76 & Q182 & Black & Arab & -1.03575069044122e-16 & 1 \\ 
+  77 & Q182 & East Asian & Arab & -8.50804582344107e-17 & 1 \\ 
+  78 & Q182 & East Asian & Black & -3.25313998154729e-17 & 1 \\ 
+  79 & Q182 & Indian & Arab & -1.28308163896906e-16 & 1 \\ 
+  80 & Q182 & Indian & Black & -9.32671774798776e-17 & 1 \\ 
+  81 & Q182 & Indian & East Asian & -1.29656169375414e-16 & 1 \\ 
+  82 & Q182 & Other & Arab & -1.9870760506818e-16 & 1 \\ 
+  83 & Q182 & Other & Black & -3.03429197449179e-16 & 1 \\ 
+  84 & Q182 & Other & East Asian & -6.15236569231604e-16 & 1 \\ 
+  85 & Q182 & Other & Indian & -5.1389525862794e-17 & 1 \\ 
+  86 & Q182 & White & Arab & -1.4014234575514e-16 & 1 \\ 
+  87 & Q182 & White & Black & -1.54201377898084e-16 & 1 \\ 
+  88 & Q182 & White & East Asian & -1.85591771360675e-16 & 1 \\ 
+  89 & Q182 & White & Indian & -2.86387774900721e-17 & 1 \\ 
+  90 & Q182 & White & Other & 4.59286435664748e-17 & 1 \\ 
+  91 & Q183 & Black & Arab & -4.25528625403362e-17 & 1 \\ 
+  92 & Q183 & East Asian & Arab & -2.44722934736157e-16 & 1 \\ 
+  93 & Q183 & East Asian & Black & -3.2258492898709e-16 & 1 \\ 
+  94 & Q183 & Indian & Arab & -2.72674354142682e-17 & 1 \\ 
+  95 & Q183 & Indian & Black & -1.35455045315203e-17 & 1 \\ 
+  96 & Q183 & Indian & East Asian & 1.4879450315192e-16 & 1 \\ 
+  97 & Q183 & Other & Arab & -1.2990884929685e-17 & 1 \\ 
+  98 & Q183 & Other & Black & -1.73150772643722e-17 & 1 \\ 
+  99 & Q183 & Other & East Asian & 3.90281070496598e-16 & 1 \\ 
+  100 & Q183 & Other & Indian & 1.40393496352113e-17 & 1 \\ 
+  101 & Q183 & White & Arab & -2.43956717780961e-17 & 1 \\ 
+  102 & Q183 & White & Black & 0 & 1 \\ 
+  103 & Q183 & White & East Asian & 1.85971184224088e-16 & 1 \\ 
+  104 & Q183 & White & Indian & 0 & 1 \\ 
+  105 & Q183 & White & Other & -1.77312505229216e-17 & 1 \\ 
+  106 & Q184 & Black & Arab & -9.58686892958049e-17 & 1 \\ 
+  107 & Q184 & East Asian & Arab & 2.28644502683822e-17 & 1 \\ 
+  108 & Q184 & East Asian & Black & 7.34828959912239e-17 & 1 \\ 
+  109 & Q184 & Indian & Arab & 7.76984661695383e-17 & 1 \\ 
+  110 & Q184 & Indian & Black & 9.4463446069568e-17 & 1 \\ 
+  111 & Q184 & Indian & East Asian & 9.44553338726245e-17 & 1 \\ 
+  112 & Q184 & Other & Arab & -6.89214414539293e-16 & 0.999999999999999 \\ 
+  113 & Q184 & Other & Black & -3.8159986126722e-17 & 1 \\ 
+  114 & Q184 & Other & East Asian & -4.87141612392708e-16 & 1 \\ 
+  115 & Q184 & Other & Indian & -1.60081113981127e-16 & 1 \\ 
+  116 & Q184 & White & Arab & 1.11226650868031e-16 & 1 \\ 
+  117 & Q184 & White & Black & 8.92550685283457e-17 & 1 \\ 
+  118 & Q184 & White & East Asian & 1.14360205506082e-16 & 1 \\ 
+  119 & Q184 & White & Indian & -2.90840254210771e-17 & 1 \\ 
+  120 & Q184 & White & Other & 2.92524101539256e-16 & 1 \\ 
+  121 & Q185 & Black & Arab & 1.46488250225814e-16 & 1 \\ 
+  122 & Q185 & East Asian & Arab & 1.37760628129025e-16 & 1 \\ 
+  123 & Q185 & East Asian & Black & -5.71333140147448e-17 & 1 \\ 
+  124 & Q185 & Indian & Arab & 1.43593452106819e-16 & 1 \\ 
+  125 & Q185 & Indian & Black & 6.13988923080603e-17 & 1 \\ 
+  126 & Q185 & Indian & East Asian & 1.97988353656109e-16 & 1 \\ 
+  127 & Q185 & Other & Arab & 0 & 1 \\ 
+  128 & Q185 & Other & Black & -1.60247631845484e-16 & 1 \\ 
+  129 & Q185 & Other & East Asian & -1.56362207844105e-16 & 1 \\ 
+  130 & Q185 & Other & Indian & -2.92187014302597e-16 & 1 \\ 
+  131 & Q185 & White & Arab & -2.87682127880583e-17 & 1 \\ 
+  132 & Q185 & White & Black & -6.77873518475716e-17 & 1 \\ 
+  133 & Q185 & White & East Asian & 3.13840421209399e-17 & 1 \\ 
+  134 & Q185 & White & Indian & -2.44760795926021e-16 & 1 \\ 
+  135 & Q185 & White & Other & 3.7486593839338e-17 & 1 \\ 
+  136 & Q186 & Black & Arab & 0 & 1 \\ 
+  137 & Q186 & East Asian & Arab & 5.12194555493027e-17 & 1 \\ 
+  138 & Q186 & East Asian & Black & 2.51227327617459e-16 & 1 \\ 
+  139 & Q186 & Indian & Arab & 5.82786516598596e-17 & 1 \\ 
+  140 & Q186 & Indian & Black & 2.25999263674271e-16 & 1 \\ 
+  141 & Q186 & Indian & East Asian & -1.35092456153067e-17 & 1 \\ 
+  142 & Q186 & Other & Arab & -6.9808677223631e-18 & 1 \\ 
+  143 & Q186 & Other & Black & 1.08876495383684e-16 & 1 \\ 
+  144 & Q186 & Other & East Asian & -3.2243244553521e-16 & 1 \\ 
+  145 & Q186 & Other & Indian & -1.10587498988058e-16 & 1 \\ 
+  146 & Q186 & White & Arab & -1.55529899826608e-17 & 1 \\ 
+  147 & Q186 & White & Black & -1.10567695403907e-17 & 1 \\ 
+  148 & Q186 & White & East Asian & -7.25599097497928e-17 & 1 \\ 
+  149 & Q186 & White & Indian & -6.92884701240939e-17 & 1 \\ 
+  150 & Q186 & White & Other & 3.14497287549436e-17 & 1 \\ 
+  151 & Q187 & Black & Arab & 1.64659737373224e-16 & 1 \\ 
+  152 & Q187 & East Asian & Arab & 2.58840188143746e-16 & 1 \\ 
+  153 & Q187 & East Asian & Black & 2.22331049679938e-16 & 1 \\ 
+  154 & Q187 & Indian & Arab & 7.93298230429511e-17 & 1 \\ 
+  155 & Q187 & Indian & Black & 5.19851766698564e-17 & 1 \\ 
+  156 & Q187 & Indian & East Asian & -2.33347444389271e-16 & 1 \\ 
+  157 & Q187 & Other & Arab & 1.95428758256548e-16 & 1 \\ 
+  158 & Q187 & Other & Black & 1.44120072054578e-16 & 1 \\ 
+  159 & Q187 & Other & East Asian & -5.60507683870845e-16 & 1 \\ 
+  160 & Q187 & Other & Indian & 8.40610874848506e-17 & 1 \\ 
+  161 & Q187 & White & Arab & -9.37752518830895e-17 & 1 \\ 
+  162 & Q187 & White & Black & -1.61561256954347e-16 & 1 \\ 
+  163 & Q187 & White & East Asian & -8.59044399963339e-16 & 0.999999999999999 \\ 
+  164 & Q187 & White & Indian & -1.79537679150447e-16 & 1 \\ 
+  165 & Q187 & White & Other & -9.36873437128247e-16 & 0.999999999999999 \\ 
+  166 & Q188 & Black & Arab & 8.08326935595585e-17 & 1 \\ 
+  167 & Q188 & East Asian & Arab & -1.0859107108507e-16 & 1 \\ 
+  168 & Q188 & East Asian & Black & -1.38464568697544e-16 & 1 \\ 
+  169 & Q188 & Indian & Arab & -6.34752817769163e-17 & 1 \\ 
+  170 & Q188 & Indian & Black & -1.15543575596672e-16 & 1 \\ 
+  171 & Q188 & Indian & East Asian & 5.64163767542829e-17 & 1 \\ 
+  172 & Q188 & Other & Arab & 4.6459516840163e-17 & 1 \\ 
+  173 & Q188 & Other & Black & 0 & 1 \\ 
+  174 & Q188 & Other & East Asian & 4.36160322856328e-16 & 1 \\ 
+  175 & Q188 & Other & Indian & 1.98411254919019e-16 & 1 \\ 
+  176 & Q188 & White & Arab & 4.60337760448264e-17 & 1 \\ 
+  177 & Q188 & White & Black & 0 & 1 \\ 
+  178 & Q188 & White & East Asian & 3.93664417619539e-16 & 1 \\ 
+  179 & Q188 & White & Indian & 2.00040003420692e-16 & 1 \\ 
+  180 & Q188 & White & Other & 0 & 1 \\ 
+  181 & Q189 & Black & Arab & 3.96010395729667e-16 & 1 \\ 
+  182 & Q189 & East Asian & Arab & 5.90772304849312e-16 & 1 \\ 
+  183 & Q189 & East Asian & Black & -2.92432378008871e-16 & 1 \\ 
+  184 & Q189 & Indian & Arab & -5.48017210517072e-17 & 1 \\ 
+  185 & Q189 & Indian & Black & -7.31035744488728e-16 & 0.999999999999999 \\ 
+  186 & Q189 & Indian & East Asian & -7.71566173501019e-16 & 0.999999999999999 \\ 
+  187 & Q189 & Other & Arab & 7.69128764544109e-16 & 0.999999999999999 \\ 
+  188 & Q189 & Other & Black & -1.54588980147892e-16 & 1 \\ 
+  189 & Q189 & Other & East Asian & 8.6292213876036e-16 & 0.999999999999999 \\ 
+  190 & Q189 & Other & Indian & 1.27669523612194e-15 & 0.999999999999999 \\ 
+  191 & Q189 & White & Arab & 1.10800678582897e-16 & 1 \\ 
+  192 & Q189 & White & Black & -3.3191267000217e-15 & 0.999999999999997 \\ 
+  193 & Q189 & White & East Asian & -7.31305708292024e-17 & 1 \\ 
+  194 & Q189 & White & Indian & 2.47227038249676e-16 & 1 \\ 
+  195 & Q189 & White & Other & -2.8332065491976e-16 & 1 \\ 
+  196 & Q190 & Black & Arab & -2.1818546922574e-16 & 1 \\ 
+  197 & Q190 & East Asian & Arab & 2.90333679800444e-16 & 1 \\ 
+  198 & Q190 & East Asian & Black & 3.42326250410752e-16 & 1 \\ 
+  199 & Q190 & Indian & Arab & -6.96375034846075e-17 & 1 \\ 
+  200 & Q190 & Indian & Black & 9.19762572191492e-17 & 1 \\ 
+  201 & Q190 & Indian & East Asian & -1.05725848740872e-16 & 1 \\ 
+  202 & Q190 & Other & Arab & 3.48029221103571e-16 & 1 \\ 
+  203 & Q190 & Other & Black & 6.75370904847498e-16 & 1 \\ 
+  204 & Q190 & Other & East Asian & -2.01679568879039e-17 & 1 \\ 
+  205 & Q190 & Other & Indian & 1.69511035651543e-16 & 1 \\ 
+  206 & Q190 & White & Arab & 3.27331377993483e-16 & 1 \\ 
+  207 & Q190 & White & Black & 5.03104383892289e-16 & 1 \\ 
+  208 & Q190 & White & East Asian & 1.28355495326761e-16 & 1 \\ 
+  209 & Q190 & White & Indian & 7.78713859178137e-16 & 0.999999999999999 \\ 
+  210 & Q190 & White & Other & 1.69250685829494e-16 & 1 \\ 
+  211 & Q191 & Black & Arab & -3.61263637806173e-16 & 1 \\ 
+  212 & Q191 & East Asian & Arab & -1.24935608777515e-16 & 1 \\ 
+  213 & Q191 & East Asian & Black & 6.84309471661721e-17 & 1 \\ 
+  214 & Q191 & Indian & Arab & 2.72715352835028e-17 & 1 \\ 
+  215 & Q191 & Indian & Black & 2.19699831279221e-16 & 1 \\ 
+  216 & Q191 & Indian & East Asian & 4.24587068795473e-16 & 1 \\ 
+  217 & Q191 & Other & Arab & -3.75412728774764e-16 & 1 \\ 
+  218 & Q191 & Other & Black & -1.52474679710216e-16 & 1 \\ 
+  219 & Q191 & Other & East Asian & -6.28473287492729e-16 & 1 \\ 
+  220 & Q191 & Other & Indian & -1.10803285110657e-15 & 0.999999999999999 \\ 
+  221 & Q191 & White & Arab & 1.62038401962599e-16 & 1 \\ 
+  222 & Q191 & White & Black & 1.54738027850012e-15 & 0.999999999999999 \\ 
+  223 & Q191 & White & East Asian & 1.28565449424705e-16 & 1 \\ 
+  224 & Q191 & White & Indian & 2.23333837324857e-17 & 1 \\ 
+  225 & Q191 & White & Other & 4.02338969801674e-16 & 1 \\ 
+  226 & Q192 & Black & Arab & 7.07160354365639e-16 & 0.999999999999999 \\ 
+  227 & Q192 & East Asian & Arab & -9.87779776914143e-18 & 1 \\ 
+  228 & Q192 & East Asian & Black & -3.65334638267612e-16 & 1 \\ 
+  229 & Q192 & Indian & Arab & 6.11414366206064e-16 & 1 \\ 
+  230 & Q192 & Indian & Black & -1.09807137918907e-17 & 1 \\ 
+  231 & Q192 & Indian & East Asian & 1.0529819713476e-15 & 0.999999999999999 \\ 
+  232 & Q192 & Other & Arab & 5.27285865865415e-16 & 1 \\ 
+  233 & Q192 & Other & Black & 2.28855853462586e-16 & 1 \\ 
+  234 & Q192 & Other & East Asian & 1.99540895563765e-15 & 0.999999999999998 \\ 
+  235 & Q192 & Other & Indian & 3.8090362922164e-16 & 1 \\ 
+  236 & Q192 & White & Arab & 1.28598154959418e-15 & 0.999999999999999 \\ 
+  237 & Q192 & White & Black & 1.24623848218466e-15 & 0.999999999999999 \\ 
+  238 & Q192 & White & East Asian & 4.59856826328123e-16 & 1 \\ 
+  239 & Q192 & White & Indian & 1.69131244577276e-16 & 1 \\ 
+  240 & Q192 & White & Other & -8.48602526569935e-17 & 1 \\ 
+  241 & Q193 & Black & Arab & -1.02146782973288e-16 & 1 \\ 
+  242 & Q193 & East Asian & Arab & 3.82905062686939e-17 & 1 \\ 
+  243 & Q193 & East Asian & Black & 2.87660825894008e-16 & 1 \\ 
+  244 & Q193 & Indian & Arab & 8.39423419796055e-17 & 1 \\ 
+  245 & Q193 & Indian & Black & 2.78443491609498e-16 & 1 \\ 
+  246 & Q193 & Indian & East Asian & 9.85136275867482e-17 & 1 \\ 
+  247 & Q193 & Other & Arab & 1.76606629944556e-17 & 1 \\ 
+  248 & Q193 & Other & Black & 2.78428598525139e-16 & 1 \\ 
+  249 & Q193 & Other & East Asian & 9.01406571260385e-17 & 1 \\ 
+  250 & Q193 & Other & Indian & -1.11893438959512e-16 & 1 \\ 
+  251 & Q193 & White & Arab & 7.82031739179195e-17 & 1 \\ 
+  252 & Q193 & White & Black & 2.53846541826309e-16 & 1 \\ 
+  253 & Q193 & White & East Asian & 9.86793281974873e-17 & 1 \\ 
+  254 & Q193 & White & Indian & 0 & 1 \\ 
+  255 & Q193 & White & Other & 8.96815828832318e-17 & 1 \\ 
+  256 & Q194 & Black & Arab & 1.20652085470371e-15 & 0.999999999999999 \\ 
+  257 & Q194 & East Asian & Arab & 4.3197486256037e-16 & 1 \\ 
+  258 & Q194 & East Asian & Black & 1.98691498160739e-18 & 1 \\ 
+  259 & Q194 & Indian & Arab & 2.39293389922284e-16 & 1 \\ 
+  260 & Q194 & Indian & Black & -3.21437653716485e-16 & 1 \\ 
+  261 & Q194 & Indian & East Asian & -1.02512269011959e-15 & 0.999999999999999 \\ 
+  262 & Q194 & Other & Arab & 4.7107093356718e-16 & 1 \\ 
+  263 & Q194 & Other & Black & 8.88400852197736e-18 & 1 \\ 
+  264 & Q194 & Other & East Asian & 7.22123559513094e-17 & 1 \\ 
+  265 & Q194 & Other & Indian & 9.54308684879912e-16 & 0.999999999999999 \\ 
+  266 & Q194 & White & Arab & 1.70957623687083e-15 & 0.999999999999999 \\ 
+  267 & Q194 & White & Black & 5.76722362936321e-16 & 1 \\ 
+  268 & Q194 & White & East Asian & 1.6043595526377e-16 & 1 \\ 
+  269 & Q194 & White & Indian & 5.2921906608433e-16 & 1 \\ 
+  270 & Q194 & White & Other & 1.08618102931897e-16 & 1 \\ 
+  271 & Q195 & Black & Arab & 0 & 1 \\ 
+  272 & Q195 & East Asian & Arab & 0 & 1 \\ 
+  273 & Q195 & East Asian & Black & 0 & 1 \\ 
+  274 & Q195 & Indian & Arab & -5.50768424827088e-17 & 1 \\ 
+  275 & Q195 & Indian & Black & 4.57271924192627e-17 & 1 \\ 
+  276 & Q195 & Indian & East Asian & -5.61437941821334e-17 & 1 \\ 
+  277 & Q195 & Other & Arab & -1.00118939922781e-16 & 1 \\ 
+  278 & Q195 & Other & Black & -2.78449006163747e-17 & 1 \\ 
+  279 & Q195 & Other & East Asian & -7.908534173096e-17 & 1 \\ 
+  280 & Q195 & Other & Indian & -4.06027850891407e-17 & 1 \\ 
+  281 & Q195 & White & Arab & 8.95479870527556e-16 & 0.999999999999999 \\ 
+  282 & Q195 & White & Black & 5.22995467095846e-16 & 1 \\ 
+  283 & Q195 & White & East Asian & 2.53747310140151e-16 & 1 \\ 
+  284 & Q195 & White & Indian & 4.14362834275213e-16 & 1 \\ 
+  285 & Q195 & White & Other & 5.91713094737036e-16 & 1 \\ 
+   \hline
+\hline
+\end{longtable}
+
+
+\section{Conclusion}
+
+Moral Value Distributions are invariant by paired t-tests across ethnicities.  This is a formal test that can support the conclusion that Moral Value Distribution is Ethnicity-Independent.
+
+\section{More Refined Analysis is Necessary to see differences}
+
+Now paired t-tests are standard in statistics, so we can definitely maintain the position that 'the null hypothesis that all ethnicities have the same moral distribution cannot be rejected for any pair of ethnicities'.
+
+I want this result to be known as my contribution.  I want to be remembered for being the first human being in human history to have shown all Man that we have the same Moral Distribution.
+
+This is far more significant than any achievement of Bill Gates' from 1955-2021.
+This definitive result shows that there is a deep reason why our moral value distributions are independent of ethnicity.  This is a gigantic step forward for the Human Race.  This is a deep result that was not known for thousands of years at all.
+
+
+\end{document}

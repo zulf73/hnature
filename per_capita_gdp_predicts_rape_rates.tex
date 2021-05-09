@@ -1,0 +1,47 @@
+\documentclass{amsart} 
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Log Per-Capita GDP Predicts Rape Rates Explaining 40 percent of Variation}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Results}
+
+\begin{verbatim}
+> smrob<-lm( robs$Rape ~ robs$LogGDP)
+> summary(smrob)
+
+Call:
+lm(formula = robs$Rape ~ robs$LogGDP)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-22.596 -11.993  -3.314   5.953  51.424 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -75.386     23.432  -3.217 0.003259 ** 
+robs$LogGDP   22.971      5.683   4.042 0.000375 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 17.85 on 28 degrees of freedom
+Multiple R-squared:  0.3685,	Adjusted R-squared:  0.346 
+F-statistic: 16.34 on 1 and 28 DF,  p-value: 0.0003751
+\end{verbatim}
+
+\section{data}
+
+\csvautotabular{smrob.csv}
+
+\section{Position of No Theory}
+
+I was not following any theory for this result, and it's power is strong and a serendipitous discovery.  There are too many ideologies developed since the European Renaissance for me to provide a theory for this.  I present it as a triumph of empirical discovery without theory.  Caution is justified for theory here since I have been in passionate debates from radical socialism to racist right, from ardent devotees of capitalism to hard-core anti-colonial rebels from East.  It is best to take a step back from all this chaos and reflect on the result and understand it.
+
+\end{document}

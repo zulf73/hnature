@@ -1,0 +1,131 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{epigraph}
+\title{Zulf's Persistence of Moral Character Hypothesis May 4 2021}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{May 4 2021  Hypothesis}
+
+I will make some precise hypotheses on persistence of moral character here.  Precision will be provided by moral questions Q177-Q195 and nothing else.  We won't bother to make the obvious generalisations.  
+
+Around early twentieth century, after the First World War, West decided in its top intellectual circles that character did not matter any more.  Now I have no secrets about my own influences.  I was totally untouched by Islamic ideas of virtues from 1979.  But I was touched deeply by Emerson's moral vision and individualism, and his views about Character in the beautiful essay by that title.  And after all sorts of academic nonsense about 'situationism' and others, I was once again seduced by James Hillman and his lament about the total annihilation of Character.  Now I am a strong proponent of Empirical Virtue Ethics.  
+
+Those are my personal prejudices.  My biases are clear.  But I am an honest and great scientist, and am quite willing to put my prejudices aside when producing a scientific theory.  And that is what I am doing now.  Scientific theories are hard; well they are not exactly harder than actually having a stellar character.  But they are harder than holding a large number of strong convictions about character which favour a subjective worldview. For me that is easier than drinking water.
+
+So I will suppress the urge to kick the data and mold the viewpoint till even Ptolemaic Astronomy looks parsimonious to try to produce a theory that fulfills my heart.  Yes, I have the skills for that sort of thing.  I can make data support all sorts of wild fantasies.  But the Human Race is fortunate because I take Science seriously, more seriously than my impulse to satify the longing of my heart to believe whatever I like and corrupt all of Science to its demands.  And if you have ever been a scientist without these conflicts, you are not worth your salt.  
+
+Anyway,  I will do something simple.  I will divide up 1--10 into three parts 1--3, 4--7, 8--10.  For the topics Q177-Q195, I will call these 'Good', 'Gray', and 'Bad'.  
+
+My main hypothesis will be that once in a category, always in that category.  This I will use as a simple test of {\em Persistence of Character} of people.
+
+\section{Sort of Thing I Seek}
+
+I want a table with five columns: iquest, tquest, iclass, psame, pdiff.  Here iquest is 'input question'; 'target question'; 'input class'; 'percentage same'; 'percentage different'.  For each class Good=1, Gray=2, Bad=3, we consider the corresponding hits for 'target question' and just record the percentage that fall in the corresponding class, and sum of the other classes.  Then we can decide on whether character is persistent or not based on whether 'percentage difference' column is sufficiently close to zero.
+
+\section{The Code}
+
+\begin{verbatim}
+# Persistence of Character
+
+collapse.byclass<-function(tenSquare){
+  threeSquare<-matrix(0,nrow=3,ncol=3)
+  S<-tenSquare
+  T<-threeSquare
+  
+  T[1,1]<-sum(S[1:3,1:3])
+  T[1,2]<-sum(S[1:3,4:7])
+  T[1,3]<-sum(S[1:3,8:10])
+
+  T[2,1]<-sum(S[4:7,1:3])
+  T[2,2]<-sum(S[4:7,4:7])
+  T[2,3]<-sum(S[4:7,8:10])
+  
+  T[3,1]<-sum(S[8:10,1:3])
+  T[3,2]<-sum(S[8:10,4:7])
+  T[3,3]<-sum(S[8:10,8:10])
+  
+  T
+}
+
+same.class.stats<-function( v1, v2 ){
+  A<-table(extreme[,c(v1,v2)])
+  B<-collapse.byclass(A)
+  iclass<-c(1,2,3)
+  psame<-rep(0,3)
+  pdiff<-rep(0,3)
+  psame[1] <- B[1,1]/sum(B[1,])
+  pdiff[1] <- 1 - psame[1]
+
+  psame[2] <- B[2,2]/sum(B[2,])
+  pdiff[2] <- 1 - psame[2]
+
+  psame[3] <- B[3,3]/sum(B[3,])
+  pdiff[3] <- 1 - psame[3]
+  
+  list(iclass=iclass,psame=psame,pdiff=pdiff)
+}
+
+vars <- names(extreme)[4:22]
+iquest <- c()
+tquest <- c()
+iclass <- c()
+psame  <- c()
+pdiff <- c()
+K<-length(vars)
+for (kt in 1:K){
+  for (jt in 1:K){
+    iq <- vars[kt]
+    tq <- vars[jt]
+    if ( iq == 'Q192' | tq == 'Q192' | iq == tq){
+      next
+    }
+    S<-same.class.stats( iq, tq )
+    J<-length( S$psame)
+    iquest<-append(iquest, rep(iq,J))
+    tquest<-append(tquest, rep(tq,J))
+    iclass<-S$iclass
+    psame<-S$psame
+    pdiff<-S$pdiff
+  }
+}
+char.persist<-data.frame( iq=iquest, tq=tquest, 
+                          ic=iclass, psame=psame, 
+                          pdiff=pdiff)
+                          \end{verbatim}
+
+\section{Persistence is Not Supported Cleanly}
+
+Our first checks do not support a clean persistence.
+
+\begin{verbatim}
+> collapse.byclass(table(extreme[,c("Q185","Q187")]))
+     [,1] [,2] [,3]
+[1,]  182   31   84
+[2,]   63   79  125
+[3,]  121   56  374
+> collapse.byclass(table(extreme[,c("Q182","Q187")]))
+     [,1] [,2] [,3]
+[1,]  211   35   79
+[2,]   53   75  106
+[3,]  102   56  398
+\end{verbatim}                          
+                          
+                        These are 3-class tables and shows quite a bit of spillover from one class to another.
+                    
+                    This tells us that the issues are quite a bit more subtle than simple persistence of character.  
+                    
+\section{My Comvictions Were Wrong}
+
+My convictions were wrong.  There is no uniformity across all questions in classes 1,2,3.  
+                      
+
+
+
+\end{document}

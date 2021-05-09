@@ -1,0 +1,60 @@
+\documentclass{article}
+\title{Quantitative Models for Romantic Coupling}
+\author{Zulfikar Moinuddin Ahmed}
+\begin{document}
+\date{\today}
+\maketitle
+\section{A Global Crisis of Relationships}
+Fatherless children and high divorce across the globe threaten smooth continuation of human species and civilization.  We want quantitative metrics that can be used to assess suitability of any given two people that can be used to choose mates for maximal probability of marital satisfaction and stability.
+
+\section{Ordering Metrics given Correlation Matrices}
+Quite often in psychology, correlation matrices between large numbers of variables are computed and there is not much more quantitative control in the relations between them.  Suppose $X_1, \dots, X_n$ are random variables and we have the $n\times n$ correlation matrix $M$ computed from measurements.  This is not very satisfying for quantitative use.  We promote the ideas that
+\begin{itemize}
+\item $(X_1, \dots, X_n)$ joint distribution ought to be treated as a generalized hyperbolic (non-Gaussian infinitely divisible) distribution on $\mathbf{R}^n$
+\item The covariance matrix and a couple of parameters $\gamma$ and $\bar{\alpha}$ are sufficient to specify it and so we ought to have a reasonably accurate model for inference
+\end{itemize}
+
+We then can consider $n$ univariate generalized hyperbolic distributions $D_1,\dots,D_n$ and the joint distribution $D_{*}$ and then we can consider the log-likelihood 
+\[
+Q(x_1, \dots, x_n) = \log( p_{*}(x_1, \dots, x_n)) - \sum_{r=1}^n \log p_r(x_r).
+\]
+Now this gives us a measure of whether a given set of measurements $x_1, \dots, x_n$ arise from the joint distribution with correlation $M$ relative to an independent set of variables with no correlations.  
+
+Mathematically, this is not complicated, but it is highly nontrivial in psychology applications where these log-likelihoods can give us precise quantitative information. 
+
+
+\section{Zulf's $Q_1$ Metric}
+
+We consider the scheme of the last section where $(X_1,X_2)$ are personality traits of a potential romantic couple, and $Q(x_1,x_2)$ then is conditional density function that will give us information about whether the couple ought to consider a relation with each other or not.
+
+We give code to compute this metric here:
+
+\section{Ruth Gaunt's Results on Gendered Personality Trait Profile Predicting Marriage Satisfaction}
+
+Bem Sex-Role Inventory (BSRI) for couples with correlations has correlation $r_m = 0.26$ and $r_f=0.24$ where $r_m$ is the correlation of gendered personality trait profile (which is a function of two BSRI vectors) to male marital satisfaction and $r_f$ is the female analogue.
+
+We can determine the Gendered Profile determined from big five vector $(v_m, v_f)$ using correlations with big five of all the BSRI items and call this $Q_2(v_m, v_f)$.  
+
+\section{Levy Process Models of Relationships with Buss 15 conflict factors}
+
+We can simulate the length of romantic relationship and let $Q_3(v_f, v_m)$ be the expected length divided by 50 years or an appropriate value so that $Q_3$ is comparable to $Q_1,Q_2$.
+
+\section{Zulf's Soul Mate Metric}
+We consider rankings of a large number of songs between 1 and 10 by both parties.  The soul mate distance is then the normalized euclidean distance on $\mathbf{R}^N$ where $N$ is the number of songs. Let this metric be called $d(v_f,v_m)$.  We let 
+\[
+Q_3(v_f,v_m) = \exp( - d(v_f,v_m))
+\]
+
+\section{Combining Multiple Metrics for Romantic Relation Satisfaction Prediction}
+
+We combine multiple metrics for romantic relations $Q_1, \dots, Q_K$ simply by taking positive sums $Q = a_1 Q_1 + \cdots + a_K Q_K$ with $a_1, \dots, a_K \ge 0$.  We do have to worry about choosing $a_1, \dots, a_K$ such that the sum predicts Relationship Satisfaction in an optimal manner.  
+
+We let $a = ( 0.50, 0.2, 0.2, 0.1)$ and then 
+\[
+Q = a_1 Q_1 + a_2 Q_2 + a_3 Q_3 + a_4 Q_4
+\]
+This allows us a single metric for romantic relationships.  Here $a$ is arbitrary but we can fine tune it by an optimization problem later.  
+
+\section{Applications:  Assess Romantic Partners}
+Life is short, and especially for women, the crucial ages 20-35 are childbearing years.  Not all couplings have a remote chance of producing any worthwhile relationships.  Therefore, careful quantitative models can be used to assess suitability quickly and accurately by checking $Q$ against the tail probabilities and reject all those who are not on the right end tail. 
+\end{document}

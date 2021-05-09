@@ -1,0 +1,37 @@
+PEW RESEARCH CENTER - Global Attitudes & Trends
+
+Spring 2014 44-Nation Survey
+
+It is important to read this information before using the Pew Research Center's Spring 2014 Global Attitudes survey dataset. 
+
+ 
+1.	General population weight:
+	
+	The weight that must be used when analyzing the attitudes and opinions of the general populations are:
+		
+	General population variable name:  Weight
+			
+	Weight by weight for this analysis. 
+
+
+2.	The full topline results are for the general populations, unless otherwise stated. To access topline trends, please use the Pew Global Attitudes & Trends Question Database on our website: http://www.pewglobal.org/question-search/     
+
+
+3.	The topline results exclude data for questions where there are fewer than 100 observations for a particular country. This data is, however, included in the full dataset. 
+
+
+4.	The sample in Ukraine includes all areas available for surveying in 2014, including the oblasts of Luhans'k, Donets'k, as well as Crimea.  
+
+
+5.	The questionnaire includes full question wording as well as answer category values.
+
+
+6.	Methodological overviews of each survey country, including sample design, mode, languages, fieldwork dates, sample size, margin of error, and representativeness are available on our methods website: http://www.pewglobal.org/international-survey-methodology/?year_select=2014
+
+
+7.	Certain variables have been eliminated from the dataset either because of disclosure sensitivities or because of administrative errors.
+
+  
+
+
+ 

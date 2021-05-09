@@ -1,0 +1,8 @@
+> smworld[,c("Religion","Single.parent")]
+        Religion Single.parent             All             4
+       Buddhist             2
+       Christian             7
+         Hindu             3
+           Jew             3
+Muslim             4
+Unaffiliated             3

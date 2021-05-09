@@ -1,0 +1,997 @@
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Error: package ‘purrr’ was installed before R 4.0.0: please re-install it
+Execution halted
+ERROR: lazy loading failed for package ‘tidyselect’
+* removing ‘/usr/local/lib/R/site-library/tidyselect’
+Warning in install.packages :
+  installation of package ‘tidyselect’ had non-zero exit status
+ERROR: dependency ‘tidyselect’ is not available for package ‘dplyr’
+* removing ‘/usr/local/lib/R/site-library/dplyr’
+Warning in install.packages :
+  installation of package ‘dplyr’ had non-zero exit status
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("tidyslect")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+Warning in install.packages :
+  package ‘tidyslect’ is not available for this version of R
+
+A version of this package for your version of R might be available elsewhere,
+see the ideas at
+https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
+> install.packages("tidyvrse")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+Warning in install.packages :
+  package ‘tidyvrse’ is not available for this version of R
+
+A version of this package for your version of R might be available elsewhere,
+see the ideas at
+https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
+> install.packages("tidyverse")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+also installing the dependencies ‘tidyselect’, ‘dplyr’
+
+trying URL 'https://cran.rstudio.com/src/contrib/tidyselect_1.1.0.tar.gz'
+Content type 'application/x-gzip' length 90842 bytes (88 KB)
+==================================================
+downloaded 88 KB
+
+trying URL 'https://cran.rstudio.com/src/contrib/dplyr_1.0.5.tar.gz'
+Content type 'application/x-gzip' length 949019 bytes (926 KB)
+==================================================
+downloaded 926 KB
+
+trying URL 'https://cran.rstudio.com/src/contrib/tidyverse_1.3.0.tar.gz'
+Content type 'application/x-gzip' length 712837 bytes (696 KB)
+==================================================
+downloaded 696 KB
+
+* installing *source* package ‘tidyselect’ ...
+** package ‘tidyselect’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Error: package ‘purrr’ was installed before R 4.0.0: please re-install it
+Execution halted
+ERROR: lazy loading failed for package ‘tidyselect’
+* removing ‘/usr/local/lib/R/site-library/tidyselect’
+Warning in install.packages :
+  installation of package ‘tidyselect’ had non-zero exit status
+ERROR: dependency ‘tidyselect’ is not available for package ‘dplyr’
+* removing ‘/usr/local/lib/R/site-library/dplyr’
+Warning in install.packages :
+  installation of package ‘dplyr’ had non-zero exit status
+ERROR: dependency ‘dplyr’ is not available for package ‘tidyverse’
+* removing ‘/usr/local/lib/R/site-library/tidyverse’
+Warning in install.packages :
+  installation of package ‘tidyverse’ had non-zero exit status
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("tidyselect")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/tidyselect_1.1.0.tar.gz'
+Content type 'application/x-gzip' length 90842 bytes (88 KB)
+==================================================
+downloaded 88 KB
+
+* installing *source* package ‘tidyselect’ ...
+** package ‘tidyselect’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Error: package ‘purrr’ was installed before R 4.0.0: please re-install it
+Execution halted
+ERROR: lazy loading failed for package ‘tidyselect’
+* removing ‘/usr/local/lib/R/site-library/tidyselect’
+Warning in install.packages :
+  installation of package ‘tidyselect’ had non-zero exit status
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("dplyr")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+also installing the dependency ‘tidyselect’
+
+trying URL 'https://cran.rstudio.com/src/contrib/tidyselect_1.1.0.tar.gz'
+Content type 'application/x-gzip' length 90842 bytes (88 KB)
+==================================================
+downloaded 88 KB
+
+trying URL 'https://cran.rstudio.com/src/contrib/dplyr_1.0.5.tar.gz'
+Content type 'application/x-gzip' length 949019 bytes (926 KB)
+==================================================
+downloaded 926 KB
+
+* installing *source* package ‘tidyselect’ ...
+** package ‘tidyselect’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Error: package ‘purrr’ was installed before R 4.0.0: please re-install it
+Execution halted
+ERROR: lazy loading failed for package ‘tidyselect’
+* removing ‘/usr/local/lib/R/site-library/tidyselect’
+Warning in install.packages :
+  installation of package ‘tidyselect’ had non-zero exit status
+ERROR: dependency ‘tidyselect’ is not available for package ‘dplyr’
+* removing ‘/usr/local/lib/R/site-library/dplyr’
+Warning in install.packages :
+  installation of package ‘dplyr’ had non-zero exit status
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("purrr")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/purrr_0.3.4.tar.gz'
+Content type 'application/x-gzip' length 375062 bytes (366 KB)
+==================================================
+downloaded 366 KB
+
+* installing *source* package ‘purrr’ ...
+** package ‘purrr’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c backports.c -o backports.o
+gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c coerce.c -o coerce.o
+gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c conditions.c -o conditions.o
+gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c flatten.c -o flatten.o
+gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
+gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c map.c -o map.o
+gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c pluck.c -o pluck.o
+gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c transpose.c -o transpose.o
+gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c utils.c -o utils.o
+gcc -shared -L/usr/local/lib/R/lib -L/usr/local/lib -o purrr.so backports.o coerce.o conditions.o flatten.o init.o map.o pluck.o transpose.o utils.o -L/usr/local/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/00LOCK-purrr/00new/purrr/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (purrr)
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("dplyr")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+also installing the dependency ‘tidyselect’
+
+trying URL 'https://cran.rstudio.com/src/contrib/tidyselect_1.1.0.tar.gz'
+Content type 'application/x-gzip' length 90842 bytes (88 KB)
+==================================================
+downloaded 88 KB
+
+trying URL 'https://cran.rstudio.com/src/contrib/dplyr_1.0.5.tar.gz'
+Content type 'application/x-gzip' length 949019 bytes (926 KB)
+==================================================
+downloaded 926 KB
+
+* installing *source* package ‘tidyselect’ ...
+** package ‘tidyselect’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (tidyselect)
+* installing *source* package ‘dplyr’ ...
+** package ‘dplyr’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c chop.cpp -o chop.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c filter.cpp -o filter.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c funs.cpp -o funs.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c group_by.cpp -o group_by.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c group_data.cpp -o group_data.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c imports.cpp -o imports.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c init.cpp -o init.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c mask.cpp -o mask.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c mutate.cpp -o mutate.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c slice.cpp -o slice.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c summarise.cpp -o summarise.o
+g++ -std=gnu++11 -shared -L/usr/local/lib/R/lib -L/usr/local/lib -o dplyr.so chop.o filter.o funs.o group_by.o group_data.o imports.o init.o mask.o mutate.o slice.o summarise.o -L/usr/local/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/00LOCK-dplyr/00new/dplyr/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (dplyr)
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("tidyselect")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/tidyselect_1.1.0.tar.gz'
+Content type 'application/x-gzip' length 90842 bytes (88 KB)
+==================================================
+downloaded 88 KB
+
+* installing *source* package ‘tidyselect’ ...
+** package ‘tidyselect’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (tidyselect)
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("tidyverse")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/tidyverse_1.3.0.tar.gz'
+Content type 'application/x-gzip' length 712837 bytes (696 KB)
+==================================================
+downloaded 696 KB
+
+* installing *source* package ‘tidyverse’ ...
+** package ‘tidyverse’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Error: package ‘broom’ was installed before R 4.0.0: please re-install it
+Execution halted
+ERROR: lazy loading failed for package ‘tidyverse’
+* removing ‘/usr/local/lib/R/site-library/tidyverse’
+Warning in install.packages :
+  installation of package ‘tidyverse’ had non-zero exit status
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("broom")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/broom_0.7.6.tar.gz'
+Content type 'application/x-gzip' length 631820 bytes (617 KB)
+==================================================
+downloaded 617 KB
+
+* installing *source* package ‘broom’ ...
+** package ‘broom’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Error: package ‘tidyr’ was installed before R 4.0.0: please re-install it
+Execution halted
+ERROR: lazy loading failed for package ‘broom’
+* removing ‘/usr/local/lib/R/site-library/broom’
+Warning in install.packages :
+  installation of package ‘broom’ had non-zero exit status
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("dplyr")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/dplyr_1.0.5.tar.gz'
+Content type 'application/x-gzip' length 949019 bytes (926 KB)
+==================================================
+downloaded 926 KB
+
+* installing *source* package ‘dplyr’ ...
+** package ‘dplyr’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c chop.cpp -o chop.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c filter.cpp -o filter.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c funs.cpp -o funs.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c group_by.cpp -o group_by.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c group_data.cpp -o group_data.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c imports.cpp -o imports.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c init.cpp -o init.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c mask.cpp -o mask.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c mutate.cpp -o mutate.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c slice.cpp -o slice.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c summarise.cpp -o summarise.o
+g++ -std=gnu++11 -shared -L/usr/local/lib/R/lib -L/usr/local/lib -o dplyr.so chop.o filter.o funs.o group_by.o group_data.o imports.o init.o mask.o mutate.o slice.o summarise.o -L/usr/local/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/00LOCK-dplyr/00new/dplyr/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (dplyr)
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("tidyverse")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+also installing the dependency ‘broom’
+
+trying URL 'https://cran.rstudio.com/src/contrib/broom_0.7.6.tar.gz'
+Content type 'application/x-gzip' length 631820 bytes (617 KB)
+==================================================
+downloaded 617 KB
+
+trying URL 'https://cran.rstudio.com/src/contrib/tidyverse_1.3.0.tar.gz'
+Content type 'application/x-gzip' length 712837 bytes (696 KB)
+==================================================
+downloaded 696 KB
+
+* installing *source* package ‘broom’ ...
+** package ‘broom’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Error: package ‘tidyr’ was installed before R 4.0.0: please re-install it
+Execution halted
+ERROR: lazy loading failed for package ‘broom’
+* removing ‘/usr/local/lib/R/site-library/broom’
+Warning in install.packages :
+  installation of package ‘broom’ had non-zero exit status
+ERROR: dependency ‘broom’ is not available for package ‘tidyverse’
+* removing ‘/usr/local/lib/R/site-library/tidyverse’
+Warning in install.packages :
+  installation of package ‘tidyverse’ had non-zero exit status
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> hps <- hp2 %>% group_by(country) %>% summarise( p = sum(help))
+Error in hp2 %>% group_by(country) %>% summarise(p = sum(help)) : 
+  could not find function "%>%"
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff,
+    setequal, union
+
+> hps <- hp2 %>% group_by(country) %>% summarise( p = sum(help))
+Error: Problem with `summarise()` input `p`.
+x ‘sum’ not meaningful for factors
+i Input `p` is `sum(help)`.
+i The error occurred in group 1: country = "Argentina".
+Run `rlang::last_error()` to see where the error occurred.
+> hps <- hp2 %>% group_by(country) %>% summarise( p = count(help))
+Error: Problem with `summarise()` input `p`.
+x no applicable method for 'count' applied to an object of class "factor"
+i Input `p` is `count(help)`.
+i The error occurred in group 1: country = "Argentina".
+Run `rlang::last_error()` to see where the error occurred.
+> install.packages("tidyr")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+also installing the dependency ‘cpp11’
+
+trying URL 'https://cran.rstudio.com/src/contrib/cpp11_0.2.7.tar.gz'
+Content type 'application/x-gzip' length 199530 bytes (194 KB)
+==================================================
+downloaded 194 KB
+
+trying URL 'https://cran.rstudio.com/src/contrib/tidyr_1.1.3.tar.gz'
+Content type 'application/x-gzip' length 707909 bytes (691 KB)
+==================================================
+downloaded 691 KB
+
+* installing *source* package ‘cpp11’ ...
+** package ‘cpp11’ successfully unpacked and MD5 sums checked
+mv: cannot move '/usr/local/lib/R/site-library/cpp11' to '/usr/local/lib/R/site-library/00LOCK-cpp11/cpp11': Permission denied
+ERROR: cannot remove earlier installation, is it in use?
+* removing ‘/usr/local/lib/R/site-library/cpp11’
+Warning in install.packages :
+  installation of package ‘cpp11’ had non-zero exit status
+* installing *source* package ‘tidyr’ ...
+** package ‘tidyr’ successfully unpacked and MD5 sums checked
+mv: cannot move '/usr/local/lib/R/site-library/tidyr' to '/usr/local/lib/R/site-library/00LOCK-tidyr/tidyr': Permission denied
+ERROR: cannot remove earlier installation, is it in use?
+* removing ‘/usr/local/lib/R/site-library/tidyr’
+Warning in install.packages :
+  installation of package ‘tidyr’ had non-zero exit status
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("cpp11")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/cpp11_0.2.7.tar.gz'
+Content type 'application/x-gzip' length 199530 bytes (194 KB)
+==================================================
+downloaded 194 KB
+
+* installing *source* package ‘cpp11’ ...
+** package ‘cpp11’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (cpp11)
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("tidyr")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/tidyr_1.1.3.tar.gz'
+Content type 'application/x-gzip' length 707909 bytes (691 KB)
+==================================================
+downloaded 691 KB
+
+* installing *source* package ‘tidyr’ ...
+** package ‘tidyr’ successfully unpacked and MD5 sums checked
+mv: cannot move '/usr/local/lib/R/site-library/tidyr' to '/usr/local/lib/R/site-library/00LOCK-tidyr/tidyr': Permission denied
+ERROR: cannot remove earlier installation, is it in use?
+* removing ‘/usr/local/lib/R/site-library/tidyr’
+Warning in install.packages :
+  installation of package ‘tidyr’ had non-zero exit status
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("tidyr")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/tidyr_1.1.3.tar.gz'
+Content type 'application/x-gzip' length 707909 bytes (691 KB)
+==================================================
+downloaded 691 KB
+
+* installing *source* package ‘tidyr’ ...
+** package ‘tidyr’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG  -I'/usr/local/lib/R/site-library/cpp11/include' -I/usr/local/include   -fpic  -g -O2  -c cpp11.cpp -o cpp11.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG  -I'/usr/local/lib/R/site-library/cpp11/include' -I/usr/local/include   -fpic  -g -O2  -c fill.cpp -o fill.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG  -I'/usr/local/lib/R/site-library/cpp11/include' -I/usr/local/include   -fpic  -g -O2  -c melt.cpp -o melt.o
+g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG  -I'/usr/local/lib/R/site-library/cpp11/include' -I/usr/local/include   -fpic  -g -O2  -c simplifyPieces.cpp -o simplifyPieces.o
+g++ -std=gnu++11 -shared -L/usr/local/lib/R/lib -L/usr/local/lib -o tidyr.so cpp11.o fill.o melt.o simplifyPieces.o -L/usr/local/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/00LOCK-tidyr/00new/tidyr/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (tidyr)
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> library(tidyr)
+> ans<-gather(hp2, country, help) %>%  count(help) %>% spread(help, n)
+> ans
+  Not important at all   1
+1                   75 115
+    2   3   4    5    6    7
+1 197 378 635 2068 2548 4471
+     8    9 Very important
+1 6566 6272          15131
+  Don’t know Refused
+1        139      25
+> altruism<-gather(hp2, country, help) %>%  count(help) %>% spread(help, n)
+> alt<-altruism[1:10,1]
+> alt
+ [1] 75 NA NA NA NA NA NA NA
+ [9] NA NA
+> alt<-altruism[1:10]
+> alt
+  Not important at all   1
+1                   75 115
+    2   3   4    5    6    7
+1 197 378 635 2068 2548 4471
+     8    9
+1 6566 6272
+> alt<-altruism[1:11]
+> alt
+  Not important at all   1
+1                   75 115
+    2   3   4    5    6    7
+1 197 378 635 2068 2548 4471
+     8    9 Very important
+1 6566 6272          15131
+> alt<-alt/sum(alt)
+> barplot(alt)
+Error in barplot.default(alt) : 'height' must be a vector or a matrix
+> alt2<-as.vector(alt)
+> barplot(alt2)
+Error in barplot.default(alt2) : 'height' must be a vector or a matrix
+> plot(alt2)
+Error in plot.new() : figure margins too large
+> alt2
+  Not important at all
+1          0.001950281
+            1           2
+1 0.002990431 0.005122738
+            3          4
+1 0.009829415 0.01651238
+           5          6
+1 0.05377574 0.06625754
+          7         8
+1 0.1162627 0.1707406
+          9 Very important
+1 0.1630955      0.3934627
+> barplot(1:11,alt2)
+Error in width/2 : non-numeric argument to binary operator
+In addition: Warning message:
+In mean.default(width) : argument is not numeric or logical: returning NA
+> barplot(1:11,values(alt2))
+Error in values(alt2) : could not find function "values"
+> barplot(1:11,value(alt2))
+Error in value(alt2) : could not find function "value"
+> alt3<-as.numeric(alt2)
+> alt3
+ [1] 0.001950281 0.002990431
+ [3] 0.005122738 0.009829415
+ [5] 0.016512378 0.053775744
+ [7] 0.066257541 0.116262742
+ [9] 0.170740587 0.163095486
+[11] 0.393462659
+> barplot(1:11,alt3)
+Error in plot.new() : figure margins too large
+> install.packages("ggplot2")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/ggplot2_3.3.3.tar.gz'
+Content type 'application/x-gzip' length 3058840 bytes (2.9 MB)
+==================================================
+downloaded 2.9 MB
+
+* installing *source* package ‘ggplot2’ ...
+** package ‘ggplot2’ successfully unpacked and MD5 sums checked
+mv: cannot move '/usr/local/lib/R/site-library/ggplot2' to '/usr/local/lib/R/site-library/00LOCK-ggplot2/ggplot2': Permission denied
+ERROR: cannot remove earlier installation, is it in use?
+* removing ‘/usr/local/lib/R/site-library/ggplot2’
+Warning in install.packages :
+  installation of package ‘ggplot2’ had non-zero exit status
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("ggplot2")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/ggplot2_3.3.3.tar.gz'
+Content type 'application/x-gzip' length 3058840 bytes (2.9 MB)
+==================================================
+downloaded 2.9 MB
+
+* installing *source* package ‘ggplot2’ ...
+** package ‘ggplot2’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+Error: package ‘gtable’ was installed before R 4.0.0: please re-install it
+Execution halted
+ERROR: lazy loading failed for package ‘ggplot2’
+* removing ‘/usr/local/lib/R/site-library/ggplot2’
+Warning in install.packages :
+  installation of package ‘ggplot2’ had non-zero exit status
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("ggplot2")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+also installing the dependency ‘gtable’
+
+trying URL 'https://cran.rstudio.com/src/contrib/gtable_0.3.0.tar.gz'
+Content type 'application/x-gzip' length 368081 bytes (359 KB)
+==================================================
+downloaded 359 KB
+
+trying URL 'https://cran.rstudio.com/src/contrib/ggplot2_3.3.3.tar.gz'
+Content type 'application/x-gzip' length 3058840 bytes (2.9 MB)
+==================================================
+downloaded 2.9 MB
+
+* installing *source* package ‘gtable’ ...
+** package ‘gtable’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (gtable)
+* installing *source* package ‘ggplot2’ ...
+** package ‘ggplot2’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+Error: package ‘scales’ was installed before R 4.0.0: please re-install it
+Execution halted
+ERROR: lazy loading failed for package ‘ggplot2’
+* removing ‘/usr/local/lib/R/site-library/ggplot2’
+Warning in install.packages :
+  installation of package ‘ggplot2’ had non-zero exit status
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("scales")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/scales_1.1.1.tar.gz'
+Content type 'application/x-gzip' length 515201 bytes (503 KB)
+==================================================
+downloaded 503 KB
+
+* installing *source* package ‘scales’ ...
+** package ‘scales’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+Error: package ‘munsell’ was installed before R 4.0.0: please re-install it
+Execution halted
+ERROR: lazy loading failed for package ‘scales’
+* removing ‘/usr/local/lib/R/site-library/scales’
+Warning in install.packages :
+  installation of package ‘scales’ had non-zero exit status
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("munsel")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+Warning in install.packages :
+  package ‘munsel’ is not available for this version of R
+
+A version of this package for your version of R might be available elsewhere,
+see the ideas at
+https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
+> install.packages("munsell")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/munsell_0.5.0.tar.gz'
+Content type 'application/x-gzip' length 182653 bytes (178 KB)
+==================================================
+downloaded 178 KB
+
+* installing *source* package ‘munsell’ ...
+** package ‘munsell’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Error: package ‘colorspace’ was installed before R 4.0.0: please re-install it
+Execution halted
+ERROR: lazy loading failed for package ‘munsell’
+* removing ‘/usr/local/lib/R/site-library/munsell’
+Warning in install.packages :
+  installation of package ‘munsell’ had non-zero exit status
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("colorspace")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/colorspace_2.0-0.tar.gz'
+Content type 'application/x-gzip' length 2203295 bytes (2.1 MB)
+==================================================
+downloaded 2.1 MB
+
+* installing *source* package ‘colorspace’ ...
+** package ‘colorspace’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c colorspace.c -o colorspace.o
+gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
+gcc -shared -L/usr/local/lib/R/lib -L/usr/local/lib -o colorspace.so colorspace.o init.o -L/usr/local/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/00LOCK-colorspace/00new/colorspace/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** demo
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (colorspace)
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> 
+> install.packages("munsell")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/munsell_0.5.0.tar.gz'
+Content type 'application/x-gzip' length 182653 bytes (178 KB)
+==================================================
+downloaded 178 KB
+
+* installing *source* package ‘munsell’ ...
+** package ‘munsell’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (munsell)
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("scales")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/scales_1.1.1.tar.gz'
+Content type 'application/x-gzip' length 515201 bytes (503 KB)
+==================================================
+downloaded 503 KB
+
+* installing *source* package ‘scales’ ...
+** package ‘scales’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (scales)
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> 
+> 
+> install.packages("ggplot2")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/ggplot2_3.3.3.tar.gz'
+Content type 'application/x-gzip' length 3058840 bytes (2.9 MB)
+==================================================
+downloaded 2.9 MB
+
+* installing *source* package ‘ggplot2’ ...
+** package ‘ggplot2’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+Error: package or namespace load failed for ‘ggplot2’:
+ .onAttach failed in attachNamespace() for 'ggplot2', details:
+  call: NULL
+  error: package ‘withr’ was installed before R 4.0.0: please re-install it
+Error: loading failed
+Execution halted
+ERROR: loading failed
+* removing ‘/usr/local/lib/R/site-library/ggplot2’
+Warning in install.packages :
+  installation of package ‘ggplot2’ had non-zero exit status
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("withr")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/withr_2.4.1.tar.gz'
+Content type 'application/x-gzip' length 91901 bytes (89 KB)
+==================================================
+downloaded 89 KB
+
+* installing *source* package ‘withr’ ...
+** package ‘withr’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (withr)
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> install.packages("ggplot2")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/src/contrib/ggplot2_3.3.3.tar.gz'
+Content type 'application/x-gzip' length 3058840 bytes (2.9 MB)
+==================================================
+downloaded 2.9 MB
+
+* installing *source* package ‘ggplot2’ ...
+** package ‘ggplot2’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (ggplot2)
+
+The downloaded source packages are in
+	‘/tmp/Rtmp6nz261/downloaded_packages’
+> library(ggplot2)
+> plot(alt3)
+Error in plot.new() : figure margins too large
+> 
+> 
+> fig<-plot()
+Error in xy.coords(x, y, xlabel, ylabel, log) : 
+  argument "x" is missing, with no default
+> fig<-plot(alt3)
+Error in plot.new() : figure margins too large
+> plot.new()
+Error in plot.new() : figure margins too large
+> 
+> 
+> plot.new()
+Error in plot.new() : figure margins too large
+> plot.new()
+Error in plot.new() : figure margins too large
+> 
+> 
+> fig<-plot(alt3)
+Error in plot.new() : figure margins too large
+> malt<-lm(log(alt3) ~ 1:11)
+Error in terms.formula(formula, data = data) : 
+  invalid model formula in ExtractVars
+> dalt<-1:11
+> malt<-lm(log(alt3) ~ dalt)
+> summary(malt)
+
+Call:
+lm(formula = log(alt3) ~ dalt)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.48589 -0.15564 -0.05591  0.16627  0.56389 
+
+Coefficients:
+            Estimate Std. Error t value
+(Intercept) -6.72576    0.18941  -35.51
+dalt         0.53982    0.02793   19.33
+            Pr(>|t|)    
+(Intercept) 5.51e-11 ***
+dalt        1.23e-08 ***
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.2929 on 9 degrees of freedom
+Multiple R-squared:  0.9765,	Adjusted R-squared:  0.9739 
+F-statistic: 373.6 on 1 and 9 DF,  p-value: 1.226e-08
+
+> malt<-lm(log(reverse(alt3)) ~ dalt)
+Error in reverse(alt3) : could not find function "reverse"
+> malt<-lm(log(alt3) ~ dalt)
+> reverse()
+Error in reverse() : could not find function "reverse"
+> alt3[,order(decreasing=T)]
+Error in alt3[, order(decreasing = T)] : incorrect number of dimensions
+> malt<-lm(log(alt3) ~ dalt)
+> summary(malt)
+
+Call:
+lm(formula = log(alt3) ~ dalt)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.48589 -0.15564 -0.05591  0.16627  0.56389 
+
+Coefficients:
+            Estimate Std. Error t value
+(Intercept) -6.72576    0.18941  -35.51
+dalt         0.53982    0.02793   19.33
+            Pr(>|t|)    
+(Intercept) 5.51e-11 ***
+dalt        1.23e-08 ***
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.2929 on 9 degrees of freedom
+Multiple R-squared:  0.9765,	Adjusted R-squared:  0.9739 
+F-statistic: 373.6 on 1 and 9 DF,  p-value: 1.226e-08

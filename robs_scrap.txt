@@ -1,0 +1,109 @@
+lm(formula = robs$Robbery ~ robs$SingleMother)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-66.34 -33.64 -13.97  14.33 126.85 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)  
+(Intercept)         -8.966     25.315  -0.354   0.7258  
+robs$SingleMother    3.965      1.531   2.590   0.0151 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 51.85 on 28 degrees of freedom
+Multiple R-squared:  0.1932,	Adjusted R-squared:  0.1644 
+F-statistic: 6.706 on 1 and 28 DF,  p-value: 0.01508
+
+> summary(unpolitical)
+Asymmetric Generalized Hyperbolic Distribution:
+
+Parameters:
+       lambda     alpha.bar            mu         sigma         gamma 
+ 1.573717e+00  1.506216e-08  7.134881e+01  6.751444e+00 -1.551440e+01 
+
+Call:
+fit.ghypuv(data = polint)
+
+Optimization information:
+log-Likelihood:                -300.7405 
+AIC:                           611.481 
+Fitted parameters:             lambda, alpha.bar, mu, sigma, gamma;  (Number: 5)
+Number of iterations:          362 
+Converged:                     TRUE
+
+> summary(fit.worldclose)
+Asymmetric Generalized Hyperbolic Distribution:
+
+Parameters:
+       lambda     alpha.bar            mu         sigma 
+   -14.766895 495164.067424     45.304490     15.949497 
+        gamma 
+     3.145018 
+
+Call:
+fit.ghypuv(data = worldclose)
+
+Optimization information:
+log-Likelihood:                -330.8918 
+AIC:                           671.7837 
+Fitted parameters:             lambda, alpha.bar, mu, sigma, gamma;  (Number: 5)
+Number of iterations:          142 
+Converged:                     TRUE 
+> summary(fit.wnc)
+Warning: fitting procedure did not converge!
+
+Asymmetric Generalized Hyperbolic Distribution:
+
+Parameters:
+   lambda alpha.bar        mu     sigma     gamma 
+ 1.333624  1.347152  1.514230  1.187686 14.882737 
+
+Call:
+fit.ghypuv(data = worldclose$wnc)
+
+Optimization information:
+log-Likelihood:                -278.1262 
+AIC:                           566.2524 
+
+> summary(fit.Right)
+Asymmetric Generalized Hyperbolic Distribution:
+
+Parameters:
+    lambda  alpha.bar         mu      sigma      gamma 
+-2.1495080  0.4024894 32.2949826 11.0989092  4.0825377 
+
+Call:
+fit.ghypuv(data = polright$Right)
+
+Optimization information:
+log-Likelihood:                -258.7619 
+AIC:                           527.5239
+x> summary(fit.Distrust)
+Asymmetric Generalized Hyperbolic Distribution:
+
+Parameters:
+    lambda  alpha.bar         mu
+  1.9160137  0.1824685 -0.3860730
+    sigma      gamma 
+4.0499804 21.2035606 
+
+Call:
+fit.ghypuv(data = distrust$Distrust)
+
+Optimization information:
+log-Likelihood:                -314.2183 
+AIC:                           638.4365
+
+Asymmetric Generalized Hyperbolic Distribution:
+
+Parameters:
+    lambda  alpha.bar         mu      sigma      gamma 
+  2.037325   1.410904  92.436760   6.865747 -11.568873 
+
+Call:
+fit.ghypuv(data = df$x)
+
+Optimization information:
+log-Likelihood:                -286.2451 
+AIC:                           582.4903

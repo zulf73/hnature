@@ -1,0 +1,80 @@
+\documentclass{amsart} 
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Single Motherhood Correlated with Robbery Rate With 30 Countries}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\epigraph{
+You used to make love under a red sunset,
+
+You were making promises you were soon to forget.
+
+She was pale as the lace of her wedding gown,
+
+But you left her standing before Zulf came to town.
+
+When Zulf comes to town you're gonna ride that train
+
+When Zulf comes to town you're gonna catch that plane
+
+Maybe you were wrong to ever let her down
+
+But you did what you did before Zulf came to town
+}{ With apologies to B. B. King}
+
+\section{Diatribe against unscientific ethnic focus}
+
+America has the horrible tendency to racialize the issues of single mother hood, and also crimes.  Scientific merit in these sorts of focus is abysmal and horrible. Single motherhood is a universal phenomena, increasing across the world in all ethnicities.
+
+\section{Fatherhood is not a religious issue}
+
+Romantic love and fatherhood are not religious conservative issues.  Our species have evolved away from chimpanzees around 6 million years ago and every step along the way, as the brain of these ancestors were too big compared to the hip width of females, and therefore the babies had long period of helplessness for the brain to grow to its full size, paternal investment was not an option to avoid extinction.  Fatherhood is conceptualized in a misguided manner by political ideologies as well as the religions.  It is naturally occurring and much more ancient than any settled civilization, and existed for all 6 million years in East Africa before diffusion of non-Africans around 75,000 years ago.  These deep evolutionary features of human race are necessary for our future flourishing.
+
+\section{Single Motherhood and Robbery Rate}
+
+The univariate model regressing robbery rates to single motherhood percent rate in 30 countries gives 
+\[
+R = 3.965 S - 8.966
+\]
+where $R$ is robbery rate and $S$ is single motherhood rate.  Robbery rate is quoted as robbery per 100,000 per year.
+
+Statistical significance of the coefficient of $S$ is $p = 0.0151$ which is close to 1 percent significance.
+
+
+
+\begin{verbatim}
+lm(formula = robs$Robbery ~ robs$SingleMother)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-66.34 -33.64 -13.97  14.33 126.85 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)  
+(Intercept)         -8.966     25.315  -0.354   0.7258  
+robs$SingleMother    3.965      1.531   2.590   0.0151 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 51.85 on 28 degrees of freedom
+Multiple R-squared:  0.1932,	Adjusted R-squared:  0.1644 
+F-statistic: 6.706 on 1 and 28 DF,  p-value: 0.01508
+\end{verbatim}
+
+\section{The data}
+\csvautotabular{smrob.csv}
+
+\section{Conclusion}
+It is not a conservative talking point that single motherhood leads to social problems.  Here I show that robbery rate of the entire country is correlated with single motherhood.  Around 20 percent of variation of robbery rate is explained by single motherhood alone.
+
+My mother lived with me and my siblings separated from my father for many years and I honour her.  This is not a matter of blaming women based on the results but rather one of some of the errors of Classical Liberalism where not enough serious attention is given to the right of men to be fathers with erroneous assumptions about the nature of the human male.  Fatherhood ought to have rights for men as well and the cost of not providing space for these in Classical Liberal foundations of most jurisprudence across the world will be macro-failure of Human Civilization.  
+
+
+\end{document}

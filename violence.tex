@@ -1,0 +1,66 @@
+\documentclass{amsart} 
+\usepackage{amsmath}
+\usepackage{verse}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{World's Violence Justification is Exponential with 82\% Variance Explained}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+World Value Survey Wave 6 V210 is a 1-10 rating for "Violence against other people is justified".
+
+
+\begin{verbatim}
+> mod.viol<-lm( log(crv$x) ~ t10)
+> summary(mod.viol)
+
+Call:
+lm(formula = log(crv$x) ~ t10)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.57713 -0.33750 -0.16284  0.00137  1.18123 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  3.43609    0.40873   8.407 3.05e-05 ***
+t10         -0.39777    0.06587  -6.038  0.00031 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.5983 on 8 degrees of freedom
+Multiple R-squared:  0.8201,	Adjusted R-squared:  0.7976 
+F-statistic: 36.46 on 1 and 8 DF,  p-value: 0.0003099
+\end{verbatim}
+
+\includegraphics[scale=0.7]{violjustexp.png}
+
+That is $(t,\log(x(t))$ plot for density justifying the exponential distribution.
+
+\section{White versus Nonwhite justification of extreme violence}
+
+Bill Gates has been considering all manner of white supremacist plans and has been doing vile horrific malevolent acts claiming 'white right' to my eyes quite convinced that white people are malevolnt by nature.  He is extremely wrong, as we find the following about percentage 7-10 by group 'n' for nonwhite country and 'w' for white country.
+
+\begin{verbatim}
+> gp.violence %>%
+ group_by(Group) %>%
+ summarise(m=mean(Always),s=sd(Always))
+# A tibble: 2 x 3
+  Group     m     s
+  <chr> <dbl> <dbl>
+1 n      4.51  5.26
+2 w      2.3   1.38
+> 
+\end{verbatim}
+High justification of violence is lower for whites than nonwhites.
+
+\end{document}
+

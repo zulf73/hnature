@@ -1,0 +1,48 @@
+\documentclass{amsart} 
+\usepackage{amsmath}
+\usepackage{verse}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Around the World Money Increases with Trusting outside Religion And Teaching Tolerance to Children}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+We don't provide an exact model but $R^2=0.2$, noisy model.
+
+\begin{verbatim}
+> summary(mod.money.trust)
+
+Call:
+lm(formula = Money ~ trustRel + childResp, data = xx)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-17.6843  -6.9793  -0.9577   7.0870  21.9378 
+
+Coefficients:
+            Estimate Std. Error t value
+(Intercept) -4.14680    5.32487  -0.779
+trustRel     0.15065    0.07708   1.954
+childResp    0.19908    0.09779   2.036
+            Pr(>|t|)  
+(Intercept)   0.4385  
+trustRel      0.0543 .
+childResp     0.0453 *
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 9.515 on 76 degrees of freedom
+Multiple R-squared:  0.2003,	Adjusted R-squared:  0.1793 
+F-statistic:  9.52 on 2 and 76 DF,  p-value: 0.0002044
+\end{verbatim}
+
+\end{document}

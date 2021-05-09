@@ -1,0 +1,49 @@
+\documentclass{amsart} 
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Trusting Nature explains 16.5\% of Happiness Variation in Humans}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+\epigraph{All I need is one
+
+One old man is enough
+
+Babe, you got it wrong
+
+Just turn your fears into trust, to trust}{LSD, "Thunderclouds"}
+
+
+\section{Results}
+
+\begin{verbatim}
+> summary(mod.haptrust)
+
+Call:
+lm(formula = Happy ~ trustMost, data = haptrust)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-28.9996  -3.5870   0.7568   4.4686  13.0354 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 80.51397    1.44953  55.545   <2e-16 ***
+trustMost    0.18364    0.04701   3.906    2e-04 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 7.473 on 77 degrees of freedom
+Multiple R-squared:  0.1654,	Adjusted R-squared:  0.1546 
+F-statistic: 15.26 on 1 and 77 DF,  p-value: 0.0001998
+\end{verbatim}
+
+\section{Interpretation}
+With $N=79$ countries data from World Values Survey, we can be extremely confident $p=0.0002$ that trusting all people will explain 16.5\% of the variance of happiness.  This implies that trusting people will make you happier.  This is not a guess.  It is {\em human nature}.  Trusting all people is not enough, but do turn your fears into trust more often.
+
+\end{document}

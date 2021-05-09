@@ -1,0 +1,116 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{pdflscape}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{epigraph}
+\title{Bill Gates Values are not American White Values}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Bill Gates wants the power to kill any non-white person at Will}
+
+I wanted to start off with inference of Bill Gates Values from what I have learned about him in the past six months dealing with him in meta.  He has revealed the desire for power to kill any nonwhite person in America at will.  He has also considered myself, an Asian-American a 'quarry'.  These are quite at odds immediately with American values which include anti-slavery and the securing of Natural Rights for all people.  But I am interested in examining whether we can get some quantitative estimates for deviation from the mean of American values and American White values.
+
+\section{World Values Survey Questions Q57--Q63 Trust}
+
+First we re-interpret the desire to wish for power to kill all non-whites in America, which is actually a standard attitude of Hellspawn Demons (not about nonwhites but about everyone), closer to Human norms, where we can re-interpret this in terms of {\em trust}.  The desire to wield power to kill all sorts of people implies a deep {\em distrust} of those people in human norms.  For Demons, you see, desire to have power to kill all sorts of other beings is not a matter of distrust but of just Demon Nature.  But since Bill Gates was born on Earth as Human, I will have to place him on Human scales and infer deep distrust of non-white people.
+
+World Values Survey 7 has some ethnicity questions but I will begin with maximal distrust of people of another religion and people of another nationality as proxy for Bill Gates.
+
+For America have 
+\[
+\lambda_{Q62} = 0.4564
+\]
+and
+\[
+\lambda{Q63} = 0.4552
+\]
+Let us now do simple inference on exponentials.  The possible choices were (a) trust completely, (b) trust somewhat,
+(c) do not trust very much, and (d) do not trust at all.
+
+The density of exponential is $p(x) = \lambda e^{-\lambda x}$ and the integral of right tail is 
+\[
+t(x) = e^{-\lambda x}
+\]
+The mean is
+\[
+m(\lambda) = \lambda^{-1}
+\]
+
+The mean in America for Q62 and Q63 are then
+\[
+m_{Q62} = 2.19
+\]
+and
+\[
+m_{Q63} = 2.2
+\]
+Now we put Bill Gates at (d) do not trust at all, the value is $x_0=4$, and we would have
+\[
+| x_0 - m_{Q62} | = 1.81
+\]
+and
+\[
+| x_0 - m_{Q63} | = 1.8
+\]
+The tail estimates in this case are
+\[
+P_{Q62}( x > x_0 ) = e^{-4*1.81} = 0.161
+\]
+and
+\[
+P_{Q63}( x > x_0 ) = e^{-4*1.8} = 0.162
+\]
+These are the p-values for someone with no trust for people of another religion and nation.
+
+\section{Desire for Power to Kill at Will is higher extreme of distrust than 4}
+
+We want to set Bill Gates level of distrust at a bit higher than 4 in the scheme above, and this is a creative interpretation here.  We want to set Bill Gates' level of distrust at $x_1 = 8$ in the above scale.  Then
+\[
+p_{Q62} = e^{-8*4.564} = 0.02596
+\]
+and
+\[
+p_{Q63} = e^{-8*0.4552} = 0.02621
+\]
+This then will put Bill Gates significantly far from the American mean at 5 percent significance.
+
+\section{Tolerance and Respect for other people in America}
+
+Around 70.8\% of Americans mention tolerance and respect for other people as important child quality.  This is Q12.  I will estimate Bill Gates' point in the following way.  I consider and exponential distribution with the following property.  I consider the interval $I=[0,10]$ and ask for an exponential distribution such that the total mass at midpoint 5 is 70.8\%.
+
+This is a high school calculus exercise, and we have
+\[
+1 - e^{-\lambda 5} = 0.708
+\]
+And we obtain
+\[
+\lambda = 0.2462
+\]
+So that is the exponential for tolerance and respect importance starting from very important at $x=0$ with less and less important.  Bill Gates does not think that tolerance and respect for nonwhites is important at all say at $x=10$. Now the mean of the distribution is
+\[
+1/\lambda = 4.06
+\]
+Let's look at the tail probability for Bill Gates putting him at $x=10$ and also $x=15$.
+
+\begin{verbatim}
+> exp(-0.2462*10)
+[1] 0.08526425
+> exp(-0.2462*15)
+[1] 0.0248972
+\end{verbatim}
+
+So if his disrespect is $x=15$ he is definitely significant large deviation from American tolerance and respect mean.
+
+\section{Re-estimate of Bill Gates $x$ from rarity of hateful attitude towards non-white people}
+
+I can't imagine even 500 people in all of American whites who would have responded to someone making them money with putting all sorts of shoes in romantic meta and latrines and other disgusting hateful things in reciprocity.  
+
+Since $p$-value is the tail mass, we can estimate $p = 500/200,000,000$ which gives us $x=52.4$ which is so deviant that it does not even fit in 5x the [0,10] normal scale.  Bill Gates is extremely abnormal in his hatred towards non-white people.
+
+\end{document}

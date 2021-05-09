@@ -1,0 +1,62 @@
+\documentclass{amsart} 
+\usepackage{amsmath}
+\usepackage{verse}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{How Important is Pondering Meaning of Life for Human Race?}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Need for a Sharp Answer}
+
+How important is pondering about meaning of life for the Human Race?
+
+The precise answer is that there is an exponential distribution with $\lambda=0.71$ that gives us the frequency in which any human being will ponder the meaning of life.  The variance of the distribution curve is 0.3-0.6\% so we can conclude it is invariant across the human race.
+
+\begin{verbatim}
+> crv
+          x        sx tf
+1 40.653737 0.6824371  1
+2 38.857712 0.6724928  2
+3 15.230868 0.5014494  3
+4  5.257682 0.3110573  4
+> t4<-1:4
+> summary(lm(log(crv$x)~t4))
+
+Call:
+lm(formula = log(crv$x) ~ t4)
+
+Residuals:
+      1       2       3       4 
+-0.2928  0.3693  0.1400 -0.2164 
+
+Coefficients:
+            Estimate Std. Error t value
+(Intercept)   4.7052     0.4652  10.115
+t4           -0.7073     0.1699  -4.164
+            Pr(>|t|)   
+(Intercept)  0.00963 **
+t4           0.05312 . 
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.3798 on 2 degrees of freedom
+Multiple R-squared:  0.8966,	Adjusted R-squared:  0.8449 
+F-statistic: 17.34 on 1 and 2 DF,  p-value: 0.05312
+\end{verbatim}
+
+\section{Implication for Thyself Inc.}
+
+The invariance of the curve implies that Thyself can assume that meaning in life is important for 41\% of the people in products and services.  It is helpful for 39\%, and not interesting at all for 20\% of people.
+
+The simplest way to handle this generally is to consider configurability of products and service components classified for 'meaning in life' and set the options per user to include them in their services.
+ 
+\end{document}

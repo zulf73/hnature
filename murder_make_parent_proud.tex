@@ -1,0 +1,67 @@
+\documentclass{amsart} 
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Robbery, Murder and Making Parents Proud as Goal in 18 Countries}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+We present two linear univariate predictions of Robbery and Murder Rates using proportion of people in a country who do {\em not} have making their parents proud as a major goal.
+
+\section{Murder is Predicted with close to 95 percent significance}
+
+\begin{verbatim}
+> summary(mod.murd.npp)
+
+Call:
+lm(formula = Murder ~ NoPProud, data = crms)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.0158 -0.8879 -0.4276  0.1988  4.9189 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)   
+(Intercept)  4.54813    1.20666   3.769  0.00168 **
+NoPProud    -0.10404    0.04993  -2.084  0.05359 . 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.916 on 16 degrees of freedom
+Multiple R-squared:  0.2134,	Adjusted R-squared:  0.1643 
+F-statistic: 4.341 on 1 and 16 DF,  p-value: 0.05359
+\end{verbatim}
+
+The coefficient is negative for NoPProud to predict Murder Rate.
+
+\section{Weaker result for Robbery}
+
+\begin{verbatim}
+
+> summary(mod.rob.npp)
+
+Call:
+lm(formula = Robbery ~ NoPProud, data = crms)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-90.217 -49.406   0.026  28.945 115.905 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)   18.109     38.388   0.472    0.643
+NoPProud       2.368      1.589   1.490    0.156
+
+Residual standard error: 60.96 on 16 degrees of freedom
+Multiple R-squared:  0.1219,	Adjusted R-squared:  0.06703 
+F-statistic: 2.221 on 1 and 16 DF,  p-value: 0.1556
+\end{verbatim}
+
+This I do not have any explanation for: the coefficient is positive but the p-value is 0.156 for NoPProud variable.
+
+
+\end{document}

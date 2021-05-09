@@ -1,0 +1,84 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{epigraph}
+\title{Independence Results For Religious Attitudes}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Independence of Variables}
+
+In probability theory, independence is $P(AB)=P(A)P(B)$. We will just consider this directly on some variables from World Values Survey.
+
+\section{Correction to Independence Test for Categorical Variables}
+
+\begin{verbatim}
+g<-function(x){
+  log(-log(x))
+}
+
+zulf.sigma<-function(z){
+  n<-length(z)
+  D<-matrix(0, nrow=n, ncol=n)
+  s<-0
+  for (j in 2:n){
+    for (k in 1:(n-1)){
+      gg = abs( z[j] - z[k])
+      D[j,k] <- gg
+      D[k,j] <- gg
+      s<-s + gg
+    }
+  }
+  out<- 2*s/(n^2-n)
+  out
+}
+
+zulf.chisq<-function( data ){
+  m<-dim(data)[1]
+  n<-dim(data)[2]
+  t<-0
+  v0<-g(data[1,1:(n-1)]/sum(data[1,1:(n-1)]))
+  sigma0 <- zulf.sigma( v0 )
+  mu0 <- mean(v0)
+  for (j in 2:m){
+    v<-g(data[j,1:(n-1)]/sum(data[j,1:(n-1)]))
+    sigma <- zulf.sigma( v )
+    mu <- mean(v)
+    t<- t + sum( ((v-mu)/sigma-(v0-mu0)/sigma0)^2)
+  }
+  df<-(n-1)*(m-1)
+  t0<-qchisq(0.95, df=df)
+  pval <- 1 - pchisq( t, df=df)
+  list(tstat=t,pval=pval,crit=t0)
+}
+\end{verbatim}
+
+\section{Importance of religion in Life and My Religion is only right religion are independent}
+
+I am examining the appropriate statistical test for independence in this situation.  I invented a chisquare test that is different from the standard Pearson chisquare test of independence.
+
+\begin{verbatim}
+> zulf.chisq(rtbl)
+$tstat
+[1] 2.158791
+
+$pval
+[1] 0.9887003
+
+$crit
+[1] 16.91898
+\end{verbatim}
+
+The null hypothesis is not rejected here and the variables are independent.
+
+
+
+This tells us that the rest of the rows have proportions too close to the first row to reject the null of all rows have same proportions.
+
+
+\end{document}

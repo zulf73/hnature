@@ -1,0 +1,16 @@
+lm(formula = robs$Robbery ~ robs$SingleMother)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-66.34 -33.64 -13.97  14.33 126.85 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)  
+(Intercept)         -8.966     25.315  -0.354   0.7258  
+robs$SingleMother    3.965      1.531   2.590   0.0151 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 51.85 on 28 degrees of freedom
+Multiple R-squared:  0.1932,	Adjusted R-squared:  0.1644 
+F-statistic: 6.706 on 1 and 28 DF,  p-value: 0.01508

@@ -1,0 +1,52 @@
+\documentclass{amsart} 
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{All Things Wrong With Character of a Nation}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{What is Politically Correct}
+Bill Gates' idea of what Bengali people do has to do with rickshaws, and I don't really know much about them.  So his assumptions about me, an American immigrant who graduated Princeton with magna cum laude in 1995, worked at Lehman Brothers as Fixed Income Quant for my first job, and had senior positions in Finance, Technology and Finance with lovers from Denmark, Argentina, America, are going to be a bit off.  This is the problem with stereotypes.  You can classify people in one way and when your classification scheme fails there is potential for misunderstanding.  People who have happily lived one sort of life are quite displeased when someone who does not know them makes assumptions about them which are not just wrong but sufficiently denigrating to generate natural murderous rage.  Then they will naturally want you to be executed immediately by the US Government for their brazen insolence.
+
+This is a universal problem in a world where there are many people we don't know, we don't have time to know, don't care to know, and frankly, should not waste our time knowing, but we still have to interact with them for whatever reasons.  
+
+"Political correctness" is one sort of solution to this problem.  There are other legitimate solutions, but this is not a bad solution.  It is based on behaving with people in a diplomatic respectful manner and not making assumptions about them that are not justified from your actual knowledge of them.
+
+Now for many people, including me, political correctness is not satisfactory.  I want to have some way of gauging and holding views about people.  What does membership in some group tell you about a person?  That is the problem of interest.  Racial prejudices, national character, and these sorts of things all turn around issues of {\em inference from group statistics and their validity for individuals}.   
+
+\section{Quick Review of Concepts of Population Statistics}
+
+Suppose $P$ is a probability distribution on $(\Omega, \mathcal{F})$, and $X$ is a random variable.  This means $X: \Omega \rightarrow \mathbf{R}^N$ is a measurable function.  The Borel sigma algebra on $\mathbf{R}^N$ is assumed.
+
+All problems of political correctness type are errors in understanding the probability distribution of certain functionals from $\mathcal{H}$ the set of humans to a set of metrics in $\mathbf{R}^N$ which represent qualities and traits.  For example suppose $\mathcal{H} = \mathcal{H}_0 \cup \mathcal{H}_1 \cup \mathcal{H}_2 \cup \cdots \cup \mathcal{H}_g$ is a partition of human race into groups, blacks, whites, Indians, Far East Asians, or what have you.  When you have some expected mean $h^0$ for $\mathcal{H}_k$, and an actual person $h^a$ from $\mathcal{H}_k$ appears, and you behave as though the actual person $h^a$ and $h^0$ are roughly equivalent, but they are not you are in the problem situation that you will piss them off by behaving as though $h^0 \equiv h^a$ because that is not who they are and they expect to be treated differently.
+
+You could be making various errors.  You could simply have $X(h^0)$ be different from the actual mean $E(X)$.  That is really bad socially because then you seem ignorant about $\mathcal{H}_k$ altogether.
+
+But assuming that your $X(h^0))$ did approximate mean $E(X)$ you still have to deal with the dispersion from the mean in the distribution $P$.  And that is the first serious statistical issue that matters.  Dispersion is very high in all $\mathcal{H}_k$ and so you do not have the option of ignoring deviation from mean.  Given that you do not want to spent the rest of your life getting to know the inner soul of all of $\mathcal{H}$ you have to find a cheap solution to engaging with $h^a$ with characteristics $X(h^a)$ that will not get anyone in a murderous rage.  
+
+Statistical inference is crucial in this problem.
+
+\section{Mean Traits of Nations}
+
+As the last section pointed out, there is a dispersion of all characteristics of individuals from groups, and so do not assume that means represent actual people from these countries.  
+
+\scalebox{0.4}{
+\csvautotabular{vc5df.csv}
+}
+
+Our virtue figures are determined from big five correlations computed from big five via some metrics used by Cosentino-Solano in 2017 \cite{CS}.  Then I just applied them to the big five means determined in \cite{MT}.
+
+
+\begin{thebibliography}{CCC}
+\bibitem{CS}{Cosentino and Solano, The High Five: Associations of the Five Positive Factors with the Big Five and Well-being, Front. Psychol., 25 July 2017}
+\bibitem{MT}{McRae and Terraciano, Personality Profiles of Cultures: Aggregate Personality Traits, Journal of Personality and Social Psychology 2005, Vol. 89, No. 3, 407– 425}
+
+\end{thebibliography}
+
+\end{document}

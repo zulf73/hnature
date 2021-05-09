@@ -1,0 +1,55 @@
+\documentclass{amsart} 
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Rough Estimate of Pathological Liars on Earth}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+The work of Serota, Levine and Boster \cite{SLB} leads to an $R^2=0.7$ fit of an exponential model of per-day lying with 60\% who do not lie at all and the liars following an exponential distribution with parameter $\lambda=0.42$.
+
+We define pathological liar as someone who tells 20+ lies per day.  The easy estimate for the number of pathological liars on Earth is
+\[
+p\ell = 56m
+\]
+Now 56 million people is quite a large estimate, but the rest would be quite bounded in their lies per day.  The total population of not too dishonest people is 7,744 million. 
+
+\section{Serota-Levine-Boster Distribution Fit by Exponential Distribution}
+
+\begin{verbatim}
+> summary(mod.lies)
+
+Call:
+lm(formula = log(lies + 1e-05) ~ tlies)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.8461 -0.3942  0.0153  0.7735  2.5377 
+
+Coefficients:
+            Estimate Std. Error t value
+(Intercept) -0.52010    0.74984  -0.694
+tlies       -0.42039    0.06577  -6.392
+            Pr(>|t|)    
+(Intercept)    0.497    
+tlies       6.69e-06 ***
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.57 on 17 degrees of freedom
+Multiple R-squared:  0.7062,	Adjusted R-squared:  0.6889 
+F-statistic: 40.86 on 1 and 17 DF,  p-value: 6.687e-06
+\end{verbatim}
+
+\begin{thebibliography}{CCC}
+\bibitem{SLB}{Serota, Levine, Boster, "Prevalence of Lying in America: Three Studies of Self-Reported Lying",Human Communication Research 36(2010) 2–25}
+
+\end{thebibliography}
+\end{document}

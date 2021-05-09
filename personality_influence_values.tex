@@ -1,0 +1,103 @@
+\documentclass{amsart} 
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Mean Correlation of 237 World Values With Personality is 10.2 with Standard Deviation 3.3 Percent}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+Our goal in this note is to justify a new intuition and rule of thumb for people in Social Science.  This is the aggregate result that across 237 of 430 World Values variables, the influence of personality traits is 10.2\% with standard deviation 3.3\%.
+
+\begin{verbatim}
+# Load dataset (Stata format)wvs <-import("WV6_Stata_v_2016_01_01.dta")# Code missing valuestrait.vars <-c("V160A", "V160B", "V160C", "V160D", "V160E","V160F", "V160G", "V160H", "V160I", "V160J")
+
+
+wvs[trait.vars][wvs[trait.vars] < 0] <- NA
+# Reverse code and save variables
+
+wp<-wvs
+wp$o1 <- wp$V160J
+wp$o2 <- (wp$V160E-6)*-1
+
+wp$c1 <- wp$V160H
+wp$c2 <- (wp$V160C-6)*-1
+
+wp$e1 <- wp$V160F
+wp$e2 <- (wp$V160A-6)*-1
+
+wp$a1 <- wp$V160B
+wp$a2 <- (wp$V160G-6)*-1
+
+wp$s1 <- wp$V160D
+wp$s2 <- (wp$V160I-6)*-1
+wp$male <- wvs$V240
+wp$male[wp$male < 0] <- NA
+wp$male[wp$male == 2] <- 0
+
+wp$age <- wvs$V242
+wp$age[wvs$age < 0] <- NA
+wp[wp<0]<-NA
+
+nms<-names(wp)
+r2s<-rep(0,430)
+for (k in 1:430){
+  print(k)
+  nu<-length(unique(wp[,k]))
+  fna <-sum(is.na(wp[,k])) 
+  if ( nu >1 && fna/length(wp[,k]) <0.2 ){
+    mk<-lm( wp[,k] ~ wp$o1 + wp$o2
+              + wp$c1 + wp$c2 
+              + wp$e1 + wp$e2
+              + wp$a1 + wp$a2
+              + wp$s1 + wp$s2 )
+        r2s[k]<-summary(mk)$r.squared
+    }
+}
+
+
+univ.r2s.wp<-data.frame(name=nms[1:430],r.squared=r2s)
+
+max.pcor<-function( r2sdf ){
+  nms<-r2sdf[,1]
+  correls<-rep(0,length(nms))
+  pvar <-c("o1","o2","c1","c2",
+           "e1","e2","a1","a2",
+           "s1","s2")
+  for ( k in 1:length(nms) ){
+    
+    cvec<-cor( wp[nms[k]],wp[,pvar],
+               use = "complete.obs")
+    
+    cmax<-0
+    imx<-which.max(abs(cvec))
+    if(length(imx)>0){
+      cmax<-cvec[imx]
+    }
+    correls[k]<-cmax
+  }
+  out<-data.frame(name=nms, mc=correls)
+  out  
+}
+\end{verbatim}
+
+Then
+\begin{verbatim}
+significant<-univ.r2s.wp[univ.r2s.wp$r.squared>0.01,]
+
+scorrs<-max.pcor(significant)
+
+mean(abs(scorrs$mc))
+sd(abs(scorrs$mc))
+\end{verbatim}
+
+\section{Conclusion}
+
+We can broadly infer a maximum correlation of 10.2\% of Personality traits to Values.
+
+\end{document}

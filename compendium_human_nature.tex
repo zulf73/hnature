@@ -1,0 +1,216 @@
+\documentclass{amsart} 
+\usepackage{amsmath}
+\usepackage{verse}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Compendium of Invariant Values in Human Race from World Values Survey 6}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Y002 Materialism}
+
+\begin{verbatim}
+           x          sx tf
+1 0.36922598 0.010924282  1
+2 0.54738527 0.011218078  2
+3 0.08338876 0.006310324  3
+\end{verbatim}
+
+\section{Y002 Materialism}
+
+\begin{verbatim}
+\end{verbatim}
+
+\section{V233 Amount of Freedom at Work 1-10 scale}
+
+\begin{verbatim}
+           x        sx tf
+1   6.808929 0.3833858  1
+2   3.941985 0.2983661  2
+3   5.786454 0.3515620  3
+4   6.249861 0.3649401  4
+5  13.673563 0.5288479  5
+6   9.944205 0.4539707  6
+7  12.123369 0.4995166  7
+8  14.405375 0.5381124  8
+9   8.892812 0.4289383  9
+10 18.173447 0.5819570 10
+\end{verbatim}
+
+\section{V210 }
+
+\begin{verbatim}
+           x        sx tf
+1  68.002804 0.6269100  1
+2  11.143841 0.4342164  2
+3   6.154341 0.3360016  3
+4   3.548607 0.2581349  4
+5   4.384063 0.2815316  5
+6   1.995008 0.1951036  6
+7   1.474886 0.1679276  7
+8   1.180241 0.1501631  8
+9   0.788201 0.1220709  9
+10  1.328008 0.1568038 10
+\end{verbatim}
+
+Here the stability is uncanny until we see that this is exponential with $R^2=0.8$.
+
+\begin{verbatim}
+Call:
+lm(formula = log(crv$x) ~ t10)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.5785 -0.3348 -0.1618  0.0011  1.1810 
+
+Coefficients:
+            Estimate Std. Error t value
+(Intercept)  3.43639    0.40849   8.412
+t10         -0.39784    0.06583  -6.043
+            Pr(>|t|)    
+(Intercept) 3.04e-05 ***
+t10         0.000308 ***
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.598 on 8 degrees of freedom
+Multiple R-squared:  0.8203,	Adjusted R-squared:  0.7978 
+F-statistic: 36.52 on 1 and 8 DF,  p-value: 0.0003083
+\end{verbatim}
+
+
+\section{V207 Justifiability of Suicide}
+
+\begin{verbatim}
+           x        sx tf
+1  64.000125 0.6551709  1
+2  10.120621 0.4237168  2
+3   6.004393 0.3367981  3
+4   3.481854 0.2517611  4
+5   6.009502 0.3320734  5
+6   3.001458 0.2369298  6
+7   2.114638 0.2012039  7
+8   1.869328 0.1897785  8
+9   1.114209 0.1467565  9
+10  2.283873 0.2105918 10
+\end{verbatim}
+
+
+\begin{verbatim}
+
+Call:
+lm(formula = log(crv$x) ~ t10)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.7099 -0.2774 -0.2197  0.1110  1.2292 
+
+Coefficients:
+            Estimate Std. Error t value
+(Intercept)   3.2537     0.4306   7.556
+t10          -0.3240     0.0694  -4.669
+            Pr(>|t|)    
+(Intercept) 6.57e-05 ***
+t10           0.0016 ** 
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.6304 on 8 degrees of freedom
+Multiple R-squared:  0.7316,	Adjusted R-squared:  0.698 
+F-statistic:  21.8 on 1 and 8 DF,  p-value: 0.001604
+\end{verbatim}
+
+\section{V206 Justifiability of Sex Before Marriage}
+
+\begin{verbatim}
+           x        sx tf
+1  34.554657 0.7160685  1
+2   6.007511 0.3521321  2
+3   5.411344 0.3358153  3
+4   5.179135 0.3347622  4
+5  12.386383 0.4974921  5
+6   6.134636 0.3593265  6
+7   5.271227 0.3360777  7
+8   6.388945 0.3663645  8
+9   4.667200 0.3131143  9
+10 13.998962 0.5231371 10
+\end{verbatim}
+
+\section{V206 Justifiability of Sex Before Marriage}
+
+\begin{verbatim}
+           x        sx tf
+1  73.339174 0.6016261  1
+2   9.919071 0.4130686  2
+3   5.071715 0.3051035  3
+4   2.779270 0.2260840  4
+5   3.046169 0.2435481  5
+6   1.803931 0.1833097  6
+7   1.325644 0.1584617  7
+8   0.960170 0.1340394  8
+9   0.709072 0.1178610  9
+10  1.045784 0.1413598 10
+\end{verbatim}
+
+
+
+\begin{verbatim}
+> mod.V200<-lm(log(crv$x) ~ t10)
+> summary(mod.V200)
+
+Call:
+lm(formula = log(crv$x) ~ t10)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.68221 -0.27747 -0.18484 -0.02096  1.35820 
+
+Coefficients:
+            Estimate Std. Error t value
+(Intercept)  3.34772    0.44655   7.497
+t10         -0.41083    0.07197  -5.708
+            Pr(>|t|)    
+(Intercept) 6.95e-05 ***
+t10          0.00045 ***
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.6537 on 8 degrees of freedom
+Multiple R-squared:  0.8029,	Adjusted R-squared:  0.7783 
+F-statistic: 32.59 on 1 and 8 DF,  p-value: 0.00045
+\end{verbatim}
+
+
+\section{V187 Under some circumstances war is necessary for justice}
+
+\begin{verbatim}
+         x        sx tf
+1 35.29157 0.6737171  1
+2 64.70843 0.6737171  2
+\end{verbatim}
+
+This result is odd because country averages seem to differ more than I would expect.  I wonder if setting minimum spread is averaging too much. Regardless, this says 64.7\% of the world are opposed to war altogether and 35.3\% believe it is sometimes needed.  
+
+\section{V167 Older People are a burden on society}
+
+\begin{verbatim}
+          x        sx tf
+1  4.861837 0.3074748  1
+2 13.196683 0.4770157  2
+3 44.771177 0.7098711  3
+4 37.170303 0.6883089  4
+\end{verbatim}
+
+
+\end{document}

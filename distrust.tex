@@ -1,0 +1,37 @@
+\documentclass{amsart} 
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Human Nature Variable:  Distrust of People You Know Percent}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+The percentage of people in a country that distrust people they know.
+
+\includegraphics[scale=0.7]{distrust.png}
+
+\begin{verbatim}
+> summary(fit.Distrust)
+Asymmetric Generalized Hyperbolic Distribution:
+
+Parameters:
+    lambda  alpha.bar         mu
+  1.9160137  0.1824685 -0.3860730
+    sigma      gamma 
+4.0499804 21.2035606 
+
+Call:
+fit.ghypuv(data = distrust$Distrust)
+
+Optimization information:
+log-Likelihood:                -314.2183 
+AIC:                           638.4365
+\end{verbatim}
+
+
+\end{document}

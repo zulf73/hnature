@@ -1,0 +1,26 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{epigraph}
+\title{Ordering Issues For Markov Moral Model}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Combinatorial Explosion Problem}
+
+Ordering has to be determined among 16 variables.  Now 16 factorial is outrageously large.
+
+Here I consider alternative paths.  The path that occurs immediately is to order them by closeness to {\em stationary distribution} of the Markov generator. 
+
+Recall from Markov Chain theory that if $P$ is the Markov generator matrix, then 
+$P^m$ will tend to a matrix with all rows identical.  Then the rows are the stationary distribution.
+
+Our algorithm is to use $P_0$ which is fit with ordering Q177--Q195 (excluding some).  Then we just reorder the variables from the right end by ordering of distance to the stationary distribution.
+
+
+\end{document}

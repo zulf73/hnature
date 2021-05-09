@@ -1,0 +1,166 @@
+\documentclass{amsart} 
+\usepackage{amsmath}
+\usepackage{verse}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{A Method to Discover Universal Human Nature Laws from Global Surveys}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Abstract setting}
+Let $\mathcal{H}$ be a reprepresentation of the human race.  Suppose we have a function $\pi: \mathcal{H} \rightarrow S$ where $S$ is a finite set.
+
+We will consider the function $\pi$ to be a Human Nature function if the following holds.  For any two sufficiently large subsets $K_1, K_2 \subset \mathcal{H}$, the probability distributions $\pi_*(K_1)$ and $\pi_*(K_2)$ are close to each other in $Prob(S)$, the space of probability measures on $S$.  I will make this definition more precise in the future. Since $S$ is finite, the space of probability measures is just a filled simplex on $\mathbf{R}^{|S|}$ so this definition does not produce enormous difficulties.
+
+\section{Intuition Behind the Above}
+
+Some feature is Human Nature if there is an invariance across the Human Race.  Regardless of what the actual distribution is on $S$, we can say the distribution is {\em stable} with respect to resampling if it does not vary much if the sampling is repeated with a random subselection from $\mathcal{H}$.  
+
+\section{Practical Implementation}
+
+I will give some R code that I use and then explain the rationale.
+
+\begin{verbatim}
+# We are given a vector X of categorical 
+# values v_1, ..., v_p
+# We want to randomly sample from X
+# and examine the probability distribution 
+# in the simplex of R^p
+# This we will apply to questions of 
+# Human Nature 
+# we set p=4 to use with Pew 2014 globatt
+# data
+# we want to get a nice density 2D plot
+# with the intensity
+freq_dist<-function(X0, ssize=1000, nsampling=1){
+  X <- X0[ !is.na(X0) ]
+  out<-matrix(0,nrow=nsampling,ncol=4)
+  tf<-1:4
+  N <- length(X)
+  for (k in 1:nsampling){
+    y <- sample(X, ssize)
+    fmed<-table(y)
+    fmed<-fmed[1:4]
+    fmed<-fmed/sum(fmed)
+    out[k,]<-fmed
+  }
+  out
+}
+
+freq_dist_minspread<-function(X0, ssize=1000, nsampling=1,
+                              minspread=20){
+  countries<-X0[,1]
+  X <- X0[,2]
+  nc<-length(unique(na.omit(X)))
+  out<-matrix(0,nrow=nsampling,ncol=nc)
+  tf<-1:nc
+  N <- length(X)
+  for (k in 1:nsampling){
+    
+    spread_met <- F
+    idxy <- sample(seq(1,N), ssize)
+    while (!spread_met){
+
+      if (length(unique(countries[idxy])) > minspread){
+        y <- X[idxy]
+        break;
+      }
+      idxy <- sample(seq(1,N), ssize)
+    }
+    fmed<-table(y)
+    fmed<-fmed[1:nc]
+    fmed<-fmed/sum(fmed)
+    out[k,]<-fmed
+  }
+  out
+}
+
+stat_curve<-function( rawdata ){
+  nc<-dim(rawdata)[2]
+  x<-rep(0,nc)
+  sx<-rep(0,nc)
+  for (jj in 1:nc){
+    x[jj]<-mean(rawdata[,jj],na.rm=T)
+    sx[jj]<-sd(rawdata[,jj],na.rm=T)
+  }
+  tf<-1:nc
+  curve.data <-data.frame(x=x,sx=sx,tf=tf)
+  curve.data
+}
+
+shaded_curve<-function( rawdata ){
+  curve.data <- stat_curve( rawdata )
+  fig<-ggplot(curve.data, aes(x = tf , y = x)) +
+    geom_line() +
+    geom_ribbon(aes(ymin = x - sx,
+                    ymax = x + sx),
+                fill = "#00abff",
+                alpha = 0.2)
+  fig
+}
+
+all_stability_estimate<-function(){
+  nms <- names(wp)[1:430]
+  sds<-rep(0,430)
+  for (k in 1:430){
+    print(k)
+    df <- data.frame( country=wp$V2, 
+                      v=wp[,nms[k]])
+    fdf<-freq_dist_minspread(df,ssize=5000,
+                             nsampling=3000,
+                             minspread=20)
+    cdf<-stat_curve(fdf)
+    sds[k]<-mean(cdf$sx)
+  }
+  out<-data.frame( name=nms, sds=sds)
+}
+
+\end{verbatim}
+
+I won't give a line-by-line analysis of the above, but the method I use is check the standard deviation over the finite distribution by Monte Carlo subsampling.  When the mean standard deviation is small I declare the variable to be "Human Nature" since there is independence of country, ethnicity, religion, culture, language.
+
+\section{Examples from World Values Survey Wave 6 2010--2014}
+
+Consider V216 chosen randomly.  The question is "I see myself as an autonomous individual".  The following is the mean and standard deviation of the frequency.
+
+
+\begin{verbatim}
+> rawdata<-freq_dist_minspread(wvs[,c("V2","V216")],ssize=20000,nsampling=1000,minspread=20)
+> crv_V216 <- stat_curve( rawdata)
+> crv_V216
+           x           sx tf
+1 0.00042960 0.0001298295  1
+2 0.00930055 0.0006193471  2
+3 0.01340450 0.0006969185  3
+4 0.03961435 0.0012150320  4
+5 0.30437030 0.0029394963  5
+6 0.36520830 0.0030451616  6
+7 0.16612735 0.0024181184  7
+8 0.10154505 0.0019264837  8
+\end{verbatim}
+ 
+The coding aside, we can see here that the standard deviation is very tight, and therefore we can safely consider the distribution about as a Human Nature Law.
+
+\section{There Exist Many Human Nature Laws in World Values Survey}
+
+The method above is powerful in determining {\em nontrivial} Human Nature Laws.  The Autonomy Distribution from V216 is an example, and there are hundreds more.  Not all of the variables are.  
+
+The most important implications of our method are
+\begin{itemize}
+\item Nontrivial Laws of Human Nature can be discovered without an underlying theory by country-independence and also independence of language, religion, culture, ethnicity.  
+\item The distribution is often extremely nontrivial and thus the independence of population set producing it leads to highly nontrivial invariants of Human Nature
+\end{itemize}
+
+\section{Single Human Race is not Cosmetic}
+
+American political discourse considers Single Human Race to be an excess of the liberal optimistic generosity and 'political correctness' rather than simply the hard truth that is profound and deep.  I have been scouring through the evolutionary history of human race and genetic diversity studies for some years and I was compelled that it is a deep truth which ought to have stronger consequences than are allowed within the bounds of respectable opinion today. My method here will provide us with many invariants that do not have simple explanations but support the thesis that there are many invariances in the Human Race whose basis is our common ancestry to East Africa 75,000 years ago (for non-Africans) and they will provide us with a far more accurate understanding of Human Nature than theories of Ancient philosophers and eighteenth century Enlightenment as well as Eastern philosophers.  These early attempts of theories of Human Nature were based on simply not having enough data about genetic history and sufficient global measurements.
+
+\end{document}

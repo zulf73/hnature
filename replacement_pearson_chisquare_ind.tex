@@ -1,0 +1,110 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{epigraph}
+\title{Zulf's Formal Replacement for Pearson Chi-Square Independence Test}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Pearson Chi-Square Independence Does not Tell us Proportions being same or not}
+
+Karl Pearson's Chi-square independence test does not do what I would like from a frequency table.
+
+Suppose I have two categorical variables $X$ and $Y$.  Then I make a frequency table.  Suppose $X \in \{ x_1, \dots, x_m\}$ and $Y \in \{ y_1, \dots, y_n \}$.  I have now a table with say $x_1, x_2 , \dots x_m$ as row labels and $y_1, y_2, \dots, y_n$ as column labels.  Then I fill up the table by counts for $(X,Y)$ measurements of the same subjects.
+
+I now have a rectangular array of non-negative integers.  
+
+What I would like to know if whether the first row proportions, say $q^1_1,\dots, q^1_n$ are statistically identical to all the other rows or not.
+
+\section{What is Chi-Square and Why One Needs Care to use Chi-Square}
+
+This is extremely elementary but professional scientists do not need to unpack it so often.  The Chi-square distributions are sums of squares of normal distributions.  For example, $\chi^2_5$ the Chi-square distribution with 5 degrees of freedom is just the distribution of $Z_1^2 + \cdots + Z_5^2$ where $Z_1,\dots, Z_5 \sim N(0,1)$ are all standard normal.  This is really beautiful except there is trouble in paradise when proportions arise. 
+
+Suppose you take proportions of the first row normalized to 1.  So $(q^1_1,\dots, q^1_n)$; they will sum to 1 and satisfy 
+\[
+0 \le q^1_s \le 1
+\]
+for $s=1,\dots,n$.  Where are normal distributions going to arise here at all?  You can't just randomly say $q^1_s$ is remotely normal.  And then you say, well, fine, it's {\em log}-normal.  It's not.
+
+\[
+\log(q^1_s) \in (-\infty, 0]
+\]
+So the natural thing that could be normal (regardless of standard deviation) is actually:
+
+\[
+g(q^1_s) =: g_{\mathrm{propnorm}}( q^1_s ) = \log( -\log(q^1_s))
+\]
+
+This proportion-normalizer is totally outside the range of vision of statistical analysts of categorical data.  Now we actually get full coverage of $\mathbf{R}$ by $g(q)$ where $q$ is a proportion.  
+
+And this is my suggestion for one part of the problem, find some normal variable candidates.  The second part of the problem is what to do about the standard deviation.
+
+For this problem, I say just use the standard deviation of the set 
+\[
+\{ g(q^1_1),\dots, g(q^1_n) \}
+\]
+if $n >> 2$.  Otherwise just use something like average absolute differences, i.e. average over $|g(q^1_a) - g(q^1_b)|$ as $a,b \in \{1,\dots, n\}$.  Let's call this $\sigma$.  Then let 
+\[
+\mu = \frac{1}{n} \sum_s g(q^1_s)
+\]
+Finally produce the test statistic
+\[
+t = \sum_{1 \le r \le m-1,1 \le s \le n-1} (g(q^r_s)-g(q^1_s))^2/\sigma^2
+\]
+The last column is missing because probabilities sum to 1.
+Finally, this statistic can be checked against a Chi-square distribution with some justification.  Let's see, the degrees of freedom will be 
+\[
+df = (n-1)*(m-1)
+\]
+So this is my proposal.  Use this statistic and check against chi-square with $df$ degrees of freedom.
+
+\section{Full R Implementation}
+
+\begin{verbatim}
+g<-function(x){
+  log(-log(x))
+}
+
+zulf.sigma<-function(z){
+  n<-length(z)
+  D<-matrix(0, nrow=n, ncol=n)
+  s<-0
+  for (j in 2:n){
+    for (k in 1:(n-1)){
+      gg = abs( z[j] - z[k])
+      D[j,k] <- gg
+      D[k,j] <- gg
+      s<-s + gg
+    }
+  }
+  out<- 2*s/(n^2-n)
+  out
+}
+
+zulf.chisq<-function( data ){
+  m<-dim(data)[1]
+  n<-dim(data)[2]
+  t<-0
+  v0<-g(data[1,1:(n-1)]/sum(data[1,1:(n-1)]))
+  sigma0 <- zulf.sigma( v0 )
+  mu0 <- mean(v0)
+  for (j in 2:m){
+    v<-g(data[j,1:(n-1)]/sum(data[j,1:(n-1)]))
+    sigma <- zulf.sigma( v )
+    mu <- mean(v)
+    t<- t + sum( ((v-mu)/sigma-(v0-mu0)/sigma0)^2)
+  }
+  df<-(n-1)*(m-1)
+  t0<-qchisq(0.95, df=df)
+  pval <- 1 - pchisq( t, df=df)
+  list(tstat=t,pval=pval,crit=t0)
+}
+\end{verbatim}
+
+
+\end{document}

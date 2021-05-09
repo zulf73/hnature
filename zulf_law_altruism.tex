@@ -1,0 +1,67 @@
+\documentclass{amsart} 
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Zulf's Law of Altruism}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Most Precise Law in History for Altruism}
+
+We show that a simple proxy for Altruism, the importance of people helping each other, across 44 countries and $N=38620$ people surveyed by Pew, follows an {\em exponential distribution} as an almost exact law.  The fit is not just remarkably good but almost perfect by Social Science standards, with $R^2 = 0.976$.
+
+\section{Result}
+
+\begin{verbatim}
+> malt<-lm(log(alt3) ~ dalt)
+> summary(malt)
+
+Call:
+lm(formula = log(alt3) ~ dalt)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.48589 -0.15564 -0.05591  0.16627  0.56389 
+
+Coefficients:
+            Estimate Std. Error t value
+(Intercept) -6.72576    0.18941  -35.51
+dalt         0.53982    0.02793   19.33
+            Pr(>|t|)    
+(Intercept) 5.51e-11 ***
+dalt        1.23e-08 ***
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.2929 on 9 degrees of freedom
+Multiple R-squared:  0.9765,	Adjusted R-squared:  0.9739 
+F-statistic: 373.6 on 1 and 9 DF,  p-value: 1.226e-08
+\end{verbatim}
+
+\section{Data Processing}
+We simply tabulated a Likert 11-point scale score surveyed from "Not important" to "Very important" for $N=38,620$ people from 44 countries.  Then we simply normalized it and fit against axis $x=(1,2,\dots,11)$.
+
+\section{Source of Data}
+
+Pew does periodic global attitude surveys.  We took the dataset from their 2014 survey \cite{Pew14}.  The data comes from Q14F.  We simply removed the missing values and used the remaining data to fit our model.
+
+\section{Comments on Implications}
+
+Philosophy, especially Western Philosophy, has been theorizing on issues of selfishness and altruism in Human Nature for some millenia.  We present here the case for considering {\em beliefs about importance of Altruism} to follow {\em universal mathematical laws}.  We do not believe that various ethnicity-culture-language-nation and other divisions are primary drivers of levels of altruism in people, and that much more elementary genetic structures vastly shared by all human beings of all ethnicities have the dominant effect on Altruism.  We expect the exponential parameter to be {\em stable} over long periods of history for this reason.  The exponential distribution is fairly steep and so vast majority of people congregate around holding altruism in high regard in their views.  This is Human Nature, and this is measured Human Nature.  
+
+We are also {\em Selfish} by Nature as well.  The sorts of altruistism that people are actually willing to do by great sacrifices is a separate matter in our view.  And it is here that people have confusions.  Altruism is strongly Human Nature, but Selfishness of particular types are necessary as well.  Some schools of philosophy tend to seek some 0-1 solution to altruism or selfishness.  The problem there is obviously the demand for 0-1.  If we are selfish in some ways, it does not imply at all that we are not strongly Altruistic as a race regardless.  These sorts of dichotomies are problems of demanding too much from the concept of Altruism or Selfishness rather than questions of great intellectual merit.
+
+\begin{thebibliography}{CCC}
+\bibitem{Pew2014}{\url{https://www.pewresearch.org/global/dataset/2014-spring-global-attitudes/}}
+\end{thebibliography}
+\end{document}

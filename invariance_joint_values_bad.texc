@@ -1,0 +1,22 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{epigraph}
+\title{Zulf's Invariance of Pairwise Joint Distribution of Values for Bad People}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+I report approximate invariance for joint probability distribution of reduced moral values for bad people.
+
+By Values I refer to Q177--Q195 of World Values Survey Wave 7.
+
+I remap the answers into classes $(1,2,3)\rightarrow Good$, then $(4,5,6,7)\rightarrow Gray$ and $(8,9,10)\rightarrow 3$.
+
+
+
+\end{document}

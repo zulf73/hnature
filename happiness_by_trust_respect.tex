@@ -1,0 +1,43 @@
+\documentclass{amsart} 
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Trusting everyone and Teaching Kids Respect and Tolerance explains 33\% of Happiness Variation}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\begin{verbatim}
+> summary(mod.haptrust)
+
+Call:
+lm(formula = trustMost ~ Happy + childResp, data = haptrust)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-29.996 -11.533   0.071  11.567  38.429 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -79.5511    18.9127  -4.206 7.03e-05 ***
+Happy         0.8173     0.2090   3.910 0.000199 ***
+childResp     0.5367     0.1254   4.280 5.40e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 14.93 on 76 degrees of freedom
+Multiple R-squared:  0.3294,	Adjusted R-squared:  0.3117 
+F-statistic: 18.66 on 2 and 76 DF,  p-value: 2.551e-07
+\end{verbatim}
+
+\section{Teaching Kids Respect is Proxy for being Respected oneself}
+
+Tay and Diener decomposed SWB into five factors.  Beyond Basic needs, they had Social/Respect and Autonomy/Respect.  We took teaching kids tolerance and respect as a proxy.  So with two factors we can explain 33\% of the variation of happiness with $N=79$ countries.  Both variables are very strongly significant.
+
+What is really interesting is that correlation between trust and teaching respect to kids is not zero but $\rho=0.44$ so these are not orthogonal variables.  It is interesting to consider trust as a separate variable but in the Tay-Diener scheme it would fall under "Social Needs".  Trust is obviously much more specific than general social needs.  
+
+\end{document}

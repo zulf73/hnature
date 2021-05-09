@@ -1,0 +1,58 @@
+\documentclass{amsart} 
+\usepackage{amsmath}
+\usepackage{verse}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{Happiness Prediction with 53 percent Explained Variation}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+
+\section{Results}
+
+\begin{verbatim}
+> summary(mod.xx)
+
+Call:
+lm(formula = happy ~ finsat + lessWork + trustMost + Autonomy, 
+    data = xx)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-21.375  -3.212   0.524   4.184  11.229 
+
+Coefficients:
+            Estimate Std. Error t value
+(Intercept) 56.27512    3.58631  15.692
+finsat       0.37943    0.05760   6.587
+lessWork     0.09572    0.04344   2.203
+trustMost    0.17174    0.05510   3.117
+Autonomy    -0.20675    0.11292  -1.831
+            Pr(>|t|)    
+(Intercept)  < 2e-16 ***
+finsat      5.73e-09 ***
+lessWork      0.0307 *  
+trustMost     0.0026 ** 
+Autonomy      0.0711 .  
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 5.708 on 74 degrees of freedom
+Multiple R-squared:  0.5321,	Adjusted R-squared:  0.5068 
+F-statistic: 21.03 on 4 and 74 DF,  p-value: 1.297e-11
+\end{verbatim}
+
+\section{Interpretation}
+
+Previously I had announced a $R^2=0.5$ model with trustMost, finsat, and Autonomy.  Here I am adding lessWork.  This is the percentage of people who thing less work in the future is a good thing or they don't mind it.  
+
+\end{document}

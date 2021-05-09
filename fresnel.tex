@@ -1,0 +1,54 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{epigraph}
+\title{Fresnel Integral Computation}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+This is not research but a complex analysis exercise from Stein-Shakarchi Complex Analysis.
+
+Compute
+\[
+\int_0^\infty \sin(x^2) dx
+\]
+
+\section{Major Steps}
+
+The key step is to note that rotation by fourth root of unity $\theta_4 = e^{i\pi/4}$ allows us to consider the following scenario.
+
+On the slanted line we have $e^{-t^2}$.  On the horizontal line we have $\sin(x^2)+i \cos(x^2)$.
+
+This is the crucial step because the slanted line integral is known.  It is
+\[
+\int_0^{\infty} e^{-x^2} dx = \sqrt{\pi}/2
+\]
+
+
+We need to take limit as $R\rightarrow\infty$ and integrate around a closed contour.  The arc will have
+\[
+| \int_0^{\pi/4} e^{-R^2 g(\theta)} d\theta| \le C e^{-R^2}
+\]
+So it will vanish in the limit.
+
+The algebra for exact computation is
+\[
+\frac{\sqrt{\pi}}{2} = | a + i a|
+\]
+This then leads to
+\[
+2a^2 = \pi/4
+\]
+This gives $\sqrt{\pi/8} = \sqrt{2\pi/16} = \sqrt{2 \pi}/4$.  
+
+\section{Beauty of Mathematics Here}
+
+The use of $\int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\pi}$ by rotation in the complex plane is just remarkable.  This is an eighteenth century affair with complex plane entering calculus.  It was Augustin-Louis Cauchy who wanted a rigorous theory of functions to explain how these miraculous change of variables produced correct answers, which developed into the standard vanishing of the arc integral.  Here it is a simple estimate. The last part in algebra.
+
+
+\end{document}

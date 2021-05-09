@@ -1,0 +1,98 @@
+\documentclass{amsart} 
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{epigraph}
+\title{There is no Character of a Nation Strong Enough For Crime Rate Prediction}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Introduction}
+The human race is a single race.  Our ancestors were part of the same meta-tribe in East Africa, at least for the non-Africans among us around 75,000 years ago.  This is the most well-established theory in science today \cite{SM18}.  Scientists have known now for a long time that human genetic variation across the planet is small: around 93-7 percent of variation are within continental groups and 3-7 percent are due to group differences.  I have to keep emphasizing this because unfortunately since Carl Linnaeus had produced speculations of five races, nineteenth century thinkers like Arthur de Gobineau had written tomes such as Inequality of Races and these are scientifically just atrociously bad theories.  
+
+The project of "Character of Nation" or "Character of Race" is not a valuable project and will cause untold harm for us and our descendents and every wise man in science ought to be aware that the academics of nineteenth century bear strong responsibility for the horrors that resulted from racial supremacy theories.  We cannot escape our culpability in the harm that results from our work by vapid and disingenuous appeal to scientific liberty.  
+
+The results in this note are not meant to produce a theory of "Character of a Nation" and I will be quite reactive to those who use my work in this strongly erroneous direction.  
+
+\section{Mean Personality Traits of Nations and Their Proper Use}
+
+We are not interested in foolish quests to determine any Character of Nations that lead to prejudices and criminalization of entire groups of people.  We believe that we are a Single Race of Unique Individuals.  At the same time we want to have some sense of how Personality trait means could have some indicative relationship to some crime rates.  
+
+In order to emphasize that this is a foolish venture to seek 'Character of Nation' for crime statistics in the name of objectivity, the sort of horrible lack of generosity of spirit that Murray and Herrstein had displayed in "The Bell Curve" some decades ago, we will point out that we did not find any sharp results for Murder Rates and Rape Rates based on mean personality traits.  We hope that future researchers in this direction will present the p-values of every factor because it is in the p-values of factors where we will see if there is actual value in these models.  Linear models are remarkably finicky on small data sets.
+
+\section{Model for Robbery in terms of Conscientiousness and Openness}
+
+We were able to predict Robbery Rates in terms of mean values of Personality Traits of the nations, specifically Openness and Conscientiousness. 
+
+\begin{verbatim}
+> mbrobs<-lm(Robbery~C+O,data=robs2)
+> summary(mbrobs)
+
+Call:
+lm(formula = Robbery ~ C + O, data = robs2)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-92.48 -34.51 -11.72  24.29  93.91 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   59.976     13.632   4.400 0.000517 ***
+C            -17.750      8.505  -2.087 0.054365 .  
+O             14.262      6.251   2.282 0.037538 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 54.09 on 15 degrees of freedom
+Multiple R-squared:  0.3519,	Adjusted R-squared:  0.2654 
+F-statistic: 4.072 on 2 and 15 DF,  p-value: 0.03868
+\end{verbatim}
+
+\section{The data}
+\csvautotabular{smrob.csv}
+
+\section{Examples of Bad Models}
+I present these as unacceptable models because the p-values for the factors are dismal.  It is very bad science to just push some of these weak models to make claims about 'Character of a Nation' and such.
+\begin{verbatim}
+> badmod<-lm(Rape ~ O+C+E+A+N,data=robs2)
+> summary(badmod)
+
+Call:
+lm(formula = Rape ~ O + C + E + A + N, data = robs2)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-29.875 -12.044  -6.899   4.833  53.994 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)   
+(Intercept) 23.29963    6.86248   3.395  0.00532 **
+O            3.07453    3.14453   0.978  0.34750   
+C           -2.36580    4.24367  -0.557  0.58744   
+E            3.85986    2.64793   1.458  0.17060   
+A           -0.07755    3.51545  -0.022  0.98276   
+N            1.58012    3.68703   0.429  0.67583   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 26.59 on 12 degrees of freedom
+Multiple R-squared:  0.2342,	Adjusted R-squared:  -0.08483 
+F-statistic: 0.7341 on 5 and 12 DF,  p-value: 0.6118
+\end{verbatim}
+
+\section{Why Bad}
+The model above has an R-squared of 0.23 but the adjusted R-squared is -0.08.  Every single factor has low significance.  The happy conclusion is that Murder rates are not well-predicted by mean Personality Traits.  This is very good.  It tells us that "Character of a Nation" of murderers is not feasible from means.  
+
+\section{My interest in these models}
+
+I am more interested in Character distribution of all human beings and that is a valid enterprise.  Arthur de Gobineau not just made a horrible error in "Inequality of Races" of 1854 but he made this a fundamental intellectual project of his life.  We should learn from the errors of people like him and not repeat them.
+
+
+\begin{thebibliography}{CCCC}
+\bibitem{SM18}{Pontus Skoglund and Iain Mathieson, "Ancient Genomics of Modern Humans: The First Decade", Ann. Rev. Genomics, 2018, 19:381-404}
+\end{thebibliography}
+\end{document}
