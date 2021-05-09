@@ -22,5 +22,66 @@ $P^m$ will tend to a matrix with all rows identical.  Then the rows are the stat
 
 Our algorithm is to use $P_0$ which is fit with ordering Q177--Q195 (excluding some).  Then we just reorder the variables from the right end by ordering of distance to the stationary distribution.
 
+\section{reordering code}
+
+\begin{verbatim}
+# Reorder variables according to
+# stationary distribution of generator
+b<-check_moral_markov(res2$solution)
+steady<-matrix.power(transitionMatrixFromPars(res2$solution),
+                     50)[1,]
+steady.dist<-rep(0,16)
+for (r in 1:16){ 
+  steady.dist[r]<-norm(b$I[r,]-steady,type="2")
+}
+var.idx<-order( steady.dist, decreasing=T)
+backup.vars<-vars
+vars<-backup.vars[var.idx]
+\end{verbatim}
+
+\section{Sufficient Evidence For Improvement}
+
+The best error for {\em unordered} fitting was $\epsilon=0.85$ roughly.  Reordering does improve upon this
+
+\begin{verbatim}
+> a<-check_moral_markov(res3$solution)
+[1] "calculating l2 distance"
+[1] "hits= 16"
+[1] 0.7739401
+\end{verbatim}
+
+\section{Scientific Conclusions}
+
+This exercise established two conclusions:
+
+\begin{itemize}
+\item{Reordering concretely improved on error so reordering matters for the data}
+\item{Reordering specifically by closeness to steady state matters}
+\end{itemize}
+
+These two simple inferences are extremely important, because they support the Markov Chain hypothesis for Morals, which is extremely nontrivial for the Scientific model.  We have thus established that there is support for the {\em existence of an ordering implicit in human beings for moral values}.  In other words, this result, which is elementary in computations, is far more serious for our scientific hypothesis.  These support the highly nontrivial claim that there exists an ordering of values that produce a stochastic cascade along moral values {\em at the human race scale}.
+
+
+\section{Direct Maximum Likelihood Fit Gives higher error}
+
+There is a canonical fit we can do with a long string of all values.  This is easy to call by flattening the data across rows and calling 'markovchainFit'.  It is fast but gives us a $P$ with $L^2$ error 0.81 which is a bit worse than our 0.77.
+
+\begin{verbatim}
+# Assume that the given sequence is
+# Markov and estimate the parameters
+# directly by MLE.  Check whether 
+# L2 distribution is better than 
+# e=0.77
+library(ramify)
+wvs7<-readRDS("wvs7.rds")
+data0<-na.omit( data.matrix(wvs7[,vars]))
+data<-flatten(data0)
+mcFit<-markovchainFit(data,laplacian=1,confidencelevel = 0.99)
+b3<-check_moral_markov(parsFromTransitionMatrix(mcFit$estimate))
+
+[1] "calculating l2 distance"
+[1] "hits= 16"
+[1] 0.8120664
+\end{verbatim}
 
 \end{document}

@@ -131,7 +131,7 @@ moral_markov_obj<-function( x ){
     A <-log(Imtx[r,]+1e-6) - log(Jmtx[r,]+1e-6)
     d <- norm( Imtx[r,] - Jmtx[r,], type="2")
     suplogd <-norm( as.matrix(A), type="I")
-    dl <- suplogd + 10*d
+    dl <- suplogd + 80*d
     #print(paste("r=",r,"d1=",d1,"d2=",d2,"d=",d))
     if (!is.na(d)){
       hits<-hits+1
@@ -158,6 +158,7 @@ moral_markov_obj<-function( x ){
 
 library(nloptr)
 # Get an init value
+if (FALSE){
 lambda <- 0.52
 p11 <- 0.6
 P <- matrix(0,nrow = 10, ncol=10)
@@ -171,9 +172,12 @@ for (k in 2:10){
 for ( r in 1:10){
   P[r,]<-P[r,]/sum(P[r,])
 }
+
 P0<-P
 
 x0<-parsFromTransitionMatrix(P0)
+}
+x0<-res3$solution
 xlen <- length(x0)
 l0 <- rep(0,xlen)
 u0 <- rep(1,xlen)
@@ -188,7 +192,7 @@ eval_g0<-function( x ){
 }
 
 # Solve using NLOPT_LN_COBYLA without gradient information
-res2 <- nloptr( x0=x0,
+res4 <- nloptr( x0=x0,
                 eval_f=moral_markov_obj,
                 lb = l0,
                 ub = u0,
@@ -196,4 +200,4 @@ res2 <- nloptr( x0=x0,
                             "xtol_rel"=1.0e-6,
                             "maxeval"=5000,
                             "print_level"=1))
-print( res2 )
+print( res4 )
