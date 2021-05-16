@@ -68,6 +68,15 @@ check_moral_markov<-function( x ){
   list(I=Imtx,J=Jmtx,res=residuals.df)
 }
 
+rownrm<-function(A){
+  n<-dim(A)[1]
+  B<-A
+  for (k in 1:n){
+    B[k,]<-nrm(B[k,])
+  }
+  B
+}
+
 tts<-function(var){
   X<-na.omit(polv[,c("eth",var)])
   print(dim(X))
@@ -213,3 +222,32 @@ moral.comp<-function( vars, data1, data2 ){
   names(out)<-c("var", "explained")
   out
 }
+
+stack.plot<-function( A, title ){
+  par(mar=c(3.5,2,2,3))
+  q<-plot( A[1,], type='l',lwd=3,ylim=c(0,1.0), col=1+1, main=title)
+  n<-dim(A)[1]
+  for ( j in 2:n){
+    lines(A[j,], lwd=3, col=j+1)
+  }
+  legend("topright",legend=row.names(A),col=seq(2,1+n),lwd=3,
+         cex=0.5)
+  q
+}
+
+pref.eth<-function(v,data){
+  A<-rownrm(table(data[,c("eth",v)]))
+  print(dim(A))
+  eth<-row.names(A)
+  
+  mv <- colSums(A)/6.0
+  A0 <- matrix( 0, nrow=6, ncol=dim(A)[2])
+  for (r in 1:6){ A0[r,]<-mv }
+  S <- A - A0
+  explained.var<-rep(0,6)
+  for (s in 1:6){
+    explained.var[s]<-sum(S[s,]^2)/sum(A[s,]^2)
+  }
+  data.frame(eth=eth,explained=explained.var*100)
+}
+

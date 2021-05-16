@@ -1,6 +1,9 @@
 # load data
 wvs7<-readRDS("wvs7.rds")
-vars<-c("Q290","Q46", "Q57","Q177","Q178","Q179","Q180","Q181","Q182","Q183","Q184","Q185","Q186","Q187","Q188","Q189","Q190","Q191","Q192","Q193","Q194","Q195","Q275","Q192")
+vars<-c("Q290","Q46", "Q57","Q177","Q178","Q179","Q180","Q181","Q182","Q183","Q184","Q185","Q186","Q187","Q188","Q189","Q190","Q191","Q192","Q193","Q194","Q195","Q275",
+        "Q192","Q199","Q64","Q65","Q66","Q67","Q68","Q69",
+        "Q70","Q71","Q72","Q73","Q74","Q75","Q76","Q77","Q78",
+        "Q79","Q80", "Q81", "Q82")
 
 # Create ethnicity table 
 # by mapping various detailed
@@ -171,6 +174,7 @@ eval_g0<-function( x ){
 }
 
 # Solve using NLOPT_LN_COBYLA without gradient information
+if (FALSE){
 res1 <- nloptr( x0=x0,
                 eval_f=moral_markov_obj,
                 lb = l0,
@@ -180,3 +184,4 @@ res1 <- nloptr( x0=x0,
                             "maxeval"=5000,
                             "print_level"=1))
 print( res1 )
+}
