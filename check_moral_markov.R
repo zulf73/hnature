@@ -223,14 +223,17 @@ moral.comp<-function( vars, data1, data2 ){
   out
 }
 
-stack.plot<-function( A, title ){
+stack.plot<-function( A, title, position="topleft", t=NULL){
+  if (is.null(t)){
+    t<-1:dim(A)[2]
+  }
   par(mar=c(3.5,2,2,3))
-  q<-plot( A[1,], type='l',lwd=3,ylim=c(0,1.0), col=1+1, main=title)
+  q<-plot(t, A[1,], type='l',lwd=3,ylim=c(0,1.0), col=1+1, main=title)
   n<-dim(A)[1]
   for ( j in 2:n){
-    lines(A[j,], lwd=3, col=j+1)
+    lines(t,A[j,], lwd=3, col=j+1)
   }
-  legend("topright",legend=row.names(A),col=seq(2,1+n),lwd=3,
+  legend(position,legend=row.names(A),col=seq(2,1+n),lwd=3,
          cex=0.5)
   q
 }
