@@ -1,0 +1,52 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{epigraph}
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}\title{Relatively Simple Things to Bring Sanity to My Life}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Discrete Time Markov Chains with State Space $\mathbf{R}$}
+
+Suppose $X_1,X_2,\dots$ is a Markov Chain with values in $\mathbf{R}$.  We let time go by, and let's assume that over time, the distribution of $X_r$, which is a probability distribution on $\mathbf{R}$ converges.  We want to understand simple things, so we don't worry about the conditions that guarantee convergence, etc.  Let's denote by $D(X_r)$ to be the distribution of $X_r$ and let's assume that 
+\[
+\lim_{r\rightarrow\infty } D(X_r) = \delta(x)
+\]
+This is our notation for many things going on here.  We assume that the distribution converges to a probability measure on $\mathbf{R}$ which happens to be absolutely continuous with respect to Lebesgue measure, and the density is $\delta(x)$.  This does not always happen and we don't care about all the possible problems where there are failures, and assume that $X_r$ satisfies various conditions so there is no problem in convergence of distributions.
+
+\section{Map to the Circle}
+
+Now we consider $s:\mathbf{R}\rightarrow S^1$ by
+\[
+s(x) = e^{2 \pi i x}
+\]
+
+What is the distribution of the $s(X_1),\dots$?
+
+We consider the following function:
+\[
+\rho(t) = \sum_{k= -\infty} ^ {\infty} \delta( t + 2\pi k)
+\]
+The infinite series converges absolutely since $\delta(x)$ is a probability density.
+
+\section{Lesson From the Above}
+
+The above result is a general simple issue, that if you have a stochastic process on the state space $\mathbf{R}$ then pushing it forward under $s(x)$ leads to taking all the mass accumulated in the $(2\pi k, 2\pi (k+1)]$ intervals and then summing them up.  We are then left with a density on the circle.
+
+\section{Is the Only Possible Invariant Measure on $S^2$ the Lebesgue Measure?}
+
+I do not know the answer to this, so I will just do this as an exercise.  I am interested in measures on $S^2$ that arise from geometric Markov chains that move around in $S^2$.  I don't know what invariant measures in $S^2$ can arise in this way.  There are many sorts of theorems that tell us that invariant measures on compact spaces like this are restricted to just the Lebesgue measure.  
+
+Suppose we have the stereographic projection $\tau:S^2-{\infty} \rightarrow
+\mathbf{C}$.  Suppose $\mu_0$ is the rotation-invariant Lebesgue measure on $S^2$,  then $\tau_*(\mu_0)$ can be calculated explicitly.  We want to know if this is related closely to the Barndorff-Nielsen density on $\mathbf{R}$.
+
+
+\end{document}

@@ -1,0 +1,213 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{epigraph}
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}\title{Mystical Conjecture Regarding Relation Between Barndorff-Nielsen Density and Four-Sphere}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Quaternionic Projective Line}
+
+It is known that $S^4(1)$ is the quaternionic projective line.  Ignoring $j,k$ we have an embedded complex projective line in a slice, topologically $S^2$.
+
+Now we consider the Barndorff-Nielsen Density
+\[
+z^{\lambda-1} e^{-\frac{1}{2}(a/x + bx)}
+\]
+We are interested in understanding how the geometry of the complex projective line leads to this sort of density naturally for $\mathbf{CP}^1=S^2$.  
+
+This is a mystical speculative leap.  
+
+\section{Zulf's Hidden Agenda}
+
+As the pioneer of Four-Sphere Theory I have the hidden agenda for proving that no noise in the universe can be unaffected by Four-Sphere global geometry.  And then I want to conclude that {\em and so this is the real story of Barndorff-Nielsen Densities} and then Four-Sphere Theory will be even more indispensable to understanding even {\em noise} in the actual universe and Zulf's Immortality will be unshakable for millions of years!
+
+\section{Speculations}
+
+I was sure that this universe would not have any localised particles at all if it were non-compact.  It was the zonal harmonics that saved the universe from perpetual ghostly field structure with no localised particles.
+
+In the same way, I suspect noise would have no finite dispersion at all if the source were not compactness of the universe, and measurements would have no statistical inference at all.  I think this Gaussian distribution is a toy that has nothing to do with noise in the universe.  It's the compactness of the universe that produces any localization of noise too, so I suspect either Riemann sphere or some compact hyperbolic Riemann surface will  just contain all the piece of Barndorff-Nielsen density as natural simple ordinary random walk density which feels natural.  
+
+\section{Approximation by Three Densities}
+
+Suppose $\lambda<-3$ for convenience, so $x^{\lambda-1}$ is a probability density on $[0,\infty)$ after normalisation.  Consider the grid $\{0,1,\dots\}$ and consider the associated mass density call it $\delta_{\lambda}$.  
+
+Now consider independently two grids $G_1 = \{ 0, 1, \dots \}$ and 
+$G_2 = \{ 1/g : g \in G_1 \}$.  Consider two independent Poisson random variables of rate 1/2 and let their densities be $\delta_{poisson}$ and $\delta_{ipoisson}$.  These have
+\[
+\delta_{poisson}( X=k) = C e^{-k/2}
+\]
+and
+\[
+\delta( X = 1/k ) = C e^{-1/2k}
+\]
+This should be ok since the region of integration is $(0,1)$.
+
+Then we consider the independent sums $A + B + C$ from these distributions.  The density approximates the Barndorff-Nielsen distribution by independence.
+
+\section{Another Attempt Two Parts}
+
+I just verified with Copson's book that we have a Gamma in the mix.
+
+Let $p_1(x)$ be defined in two parts.
+\[
+p_1(x) = x^{\lambda-1} e^{-ax/2}
+\]
+for $x \in (0,1)$ and 
+\[
+p_1(x) = x^{\lambda-1} e^{-ax/2 - b/2x}
+\]
+for $x\ge 1$.  This is a modified Gamma density, and since $e^{-b/2x}\rightarrow 1$ as $x\rightarrow \infty$ this thing is just a small perturbation of Gamma.
+
+Then we let 
+\[
+p_2(y) = e^{-b/2y}
+\]
+for $0<y<1$ and cut it off for $y\ge 1$.
+
+This allows us to take iid $A+B$ with $A \sim p_1$ and $B \sim p_2$.
+
+This tells us how to get a modified Gamma and an independent var with support in (0,1).
+
+Now it is the second part that needs geometric explanation from compacting the Riemann sphere.
+
+The problem is far from solved, but this is progress.
+
+\section{Hand Waving}
+
+Consider two copies of $\mathbf{C}$ that will be patched together to form the Riemann sphere $\mathbf{C}\cup\{\infty\}$.
+
+The first copy is just ordinary complex plane.  Now put a radial Gamma distribution on it.  This is the modified Gamma density $p_1(r)$ on $(0,\infty)$ with ordinary $d\theta$ measure on the level circles.
+
+Now consider the second complex plane with variable $w$.  Relative to $w$ origin, consider the measure with density 
+\[
+q(w) = e^{-b|w|/2} dr d\theta
+\]
+That's just an exponential density along the radial lines.
+
+Now let $w=1/z$.  
+
+This is not the solution yet, but we are looking for a stochastic process with paths in $\mathbf{C}\cup\{\infty\}$ with steady state distribution is $p_1*p_2(z)$ where $p_2$ is the push-forward $g_*(q)$ with $g(w)=1/w$.
+
+What is the reason for this mess?  We think these distributions arise naturally on the projective line but we don't know how or why yet.
+
+\section{Equilibrium Distribution of Levy Processes on Compact Lie Groups are normalized Haar measures}
+
+A wonderful paper of Ming Liao \cite{Liao04} proves that the equilibrium distribution of Levy Processes on {\em compact} Lie groups converge to the normalised Haar measure.  
+
+In particular, we can now conjecture the following.  There exists a Lie Group $G$ and a homogeneous manifold $G/H$ such that the Barndorff-Nielsen distribution is the push-forward of a stationary distribution of some Levy process on $G/H$. 
+
+We make the conjecture general for the moment because we are not sure yet what is true.  We are hoping that $G/H=S^2$ or $G/H=S^4$ will suffice.  If so then we will be celebrating, because in these cases the Haar measure is clear.  In case it is a non-compact space $G/H$ then we will have to work harder and obtain less satisfactory results.
+
+Let me be quite clear.  The actual universe is a scaled four-sphere so it makes little sense that in the end, the Barndorff-Nielsen measures are not pushforward of the measure on $S^2$ or $S^4$ by some natural map to $\mathbf{C}$ restricted to the real line $\mathbf{R}\subset\mathbf{C}$.
+
+Now we conjecture that $\sigma^2$ parameter is associated to the radius of a 2-sphere, the $\mu$ just choice of location.  The other three parameters we cojecture to be in one-to-one correspondence with $SL_2(\mathbf{R})$ which are the fractional linear automorphisms of the Riemann 2-sphere.  So our conjectured scheme is that Barndorff-Nielsen distributions are parametrised by $\mu$, the location on $\mathbf{R}$ and the rest of it are radius and automorphisms of the Riemann 2-sphere, isomorphic to $SL_2(\mathbf{R})$.
+
+\section{Elementary Calculus}
+
+Suppose $h: \mathbf{R}\rightarrow\mathbf{R}$ is a smooth function.  Then the push-forward 
+\[
+h_*( dr ) = h'(r) dr
+\]
+In other words, the density of the push-forward is $h'(r)$.
+
+
+\section{Opening the 2-sphere}
+
+Parametrise the sphere from south pole in polar coordinates $(r,\theta)$ Now consider the map
+\[
+h(r) = \int_{0}^{r} s^{\lambda-1} e^{-\frac{1}{2}( as + b/s)} ds
+\]
+Then $h(0)= 0$ and $h(\infty)<\infty$ and $h(r)>0$ for 
+$0<r<\infty$.
+Therefore we can find $r_{max}$ where $h(r_{max})$ is maximum.  Then we can rescale this function to ensure that $r_{max}$ corresponds to north pole, and $h(r)$ is monotonically increasing till it reaches $r_{max}$.  Then 
+\[
+(h(r),\theta)
+\]
+gives us a map to a disk $D( h(r_{max})) \subset \mathbf{C}$.  By the elementary theorem of the last section, the density is the barndorff-nielsen density.
+
+\section{Real Substance of This Effort}
+
+There are many mathematical errors above.  None of those errors are showstoppers.  I am interested in Nature, not pretending my considerations are now precise and eternal mathematical proofs.  Those things are not substantial.  What is really substantial here is a far deeper feature of Nature, and that feature is that Gaussians were never right, and fooled us into complacency for more than a century.  In truth, no noise model that could give us any peace of mind that multiple measurements and taking means would produce any match to Nature's truth might have existed at all.  The real substance of this consideration is that push-forward of invariant measure on two-sphere will {\em always always} produce a concentration of probability in a compact region of $\mathbf{C}$.  That is because $S^2$ is compact, so it can't uniformly spread out to the entire plane.  And {\em that} is the reason there is any valid inference of scientific models in {\em this} universe, the actual one.  In other possible universes, no concentration of noise might even exist.  It is because the noise in our actual universe is a push-forward of the Lebesgue measure of a sphere do we have any hope of doing any scientific inference.  And it's not because Gaussians are nature's noise.  
+
+\section{Some Fixes}
+
+I will obviously rewrite this paper more carefully after I have a clear sense of the issues.  It occurs to me that I did not use the correct volume density of a 2-sphere before.
+
+Let's restart.  Suppose we have density on $\mathbf{R} \subset \mathbf{C}$ that we are attempting to target.  Our setting is that we have a map 
+\[
+\phi: S^2 \rightarrow \mathbf{C}
+\]
+We let $dv_{S^2}$ be the surface measure of $S^2$.  We let $dr$ be the Lebesgue on $\mathbf{R}$.
+
+Now suppose we have a target density $f_{target}(r) dr$ in the image.  We are trying to solve
+\begin{equation}
+\label{phig}
+\phi_*( g(x) dv_{S^2} ) = f_{target}(r) dr
+\end{equation}
+
+The goal is to understand what $\phi$ should we pick and what $g(x)$ should we pick so that \eqref{phig} is satisfied.
+
+I love this because it's nice and soft and fluffy and it's correct.  
+
+What we had been doing wrong before was that we were wrong in form of $dv_{S^2}$ where we had quickly just taken $dr$ and not worried about the actual form of the surface measure.  This is known, so we looked it up and we found that if we use $(t,\theta)$ parametrisation with $t$ an angle rather than a radius which is confusing but this is fine because convention uses r for the radius in $\mathbf{R}^3$ the volume element is
+\[
+dv_{S^2} = \sin^2(t) \sin(\theta) dt d\theta
+\]
+We can ignore the circle measure in $\theta$ but not $\sin^2(t)$.
+
+So our generic solution is
+\begin{equation}
+\label{Gsol}
+G(t) = \int_0^t sin^{-2}(s) f_{target}(s) ds.
+\end{equation}
+Using $G$ we define $\phi(t,\theta) = G(t)$.
+
+This then has t
+he appropriate derivative and gets us the target density on $\mathbf{R}$.
+
+\section{Simple Calculus Gives Absolute Convergence of Integral}
+
+We want to consider maps from metrically large spheres, of radius $R$.  Let's choose the $R$ to ensure some sanity.  Let $\varepsilon= 10^{-20}$ just to ensure some value that is so small that we don't care about this and zero {\em in Science}.  I remind my reader that our concern is Science.  In Science we cannot tell the difference between $\varepsilon=10^{-15}$ and zero because our best theories can get 12 decimal figures, and so in Science $\varepsilon=10^{-20}$ is actually zero.  
+
+You see, in Mathematics, if we see the target density
+\[
+f_{target}(t) = t^{\lambda-1} e^{-\frac{1}{2}(at+b/t)}
+\]
+we can make a huge hue and cry about how the support of this density is $\mathbf{R}$.  Well, in Science, this is not how things are.  In Science, if we pick $t_0$ so large that for $t>t_0$,
+\[
+|f_{target}(t) | <\varepsilon
+\]
+this does not mean that it's {\em small} after $t_0$.  It means it's {\em zero} well before $t_0$, i.e. the actual support is {\em compact}.  Now many physicists love mathematics, and so they are respectful to mathematical conventions.  Only some will get quite irritated when Mathematicians will actually think that the density here is not compactly supported.  You will not be able to get computer programs that will actually care about these small numbers.  Probably the zeta function programs are the only ones that care about precision at these values.
+
+The above discussion will seem pedantic until you realise that Zulf has an agenda to keep thinking of these distributions as having non-compact support.  Beyond $t_0$ the values are actually useless for every possible Scientific interest. It's {\em zero} ok?  It's not positive etc. It's zero, and it ought to be zero and should never pretend that it is positive.  And now we just cut it out of existence and consider $\pi R\ge t_0$ and consider the density on $(0,\pi R) \subset \mathbf{R}$  The density is indistinguishable from zero outside this region anyway, and not just small.  Now we consider a 2-sphere of radius $R$ and this is big enough to fit the actual mass of the distribution.
+
+The mapping from the sphere to the complex plane is not going to actually get so far.
+
+Now we inform you that we are interested in $\lambda>3$ so that L'H\^opital's rule gives us
+\[
+\lim_{t\rightarrow}\frac{t^{\lambda-1}}{\sin(t)} = (\lambda - 1) t^{\lambda-2}/\cos(t) = 0
+\]
+
+Now that's nice.  
+
+Let's look at the other factor by taking logarithm.
+\[
+\lim_{t\rightarrow} \frac{ax^2+b}{2x} = \lim \frac{2ax}{2}= 0.
+\]
+That's really nice.  Great.  Great, and the integral is actually defined from zero.
+
+
+
+\begin{thebibliography}{CCCC}
+\bibitem{Liao04}{ Ming Liao, "Levy Processes and Fourier Analysis on Compact Lie Groups", Annals of Probability, 2004}
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,56 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{epigraph}
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}\title{The Final Law of Scientific Inference}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Data and Model}
+
+We assume for now a univariate scientific model 
+\begin{equation}
+\label{generic}
+y = f(x; \zeta) + \varepsilon
+\end{equation}
+
+Since this is a Scientific Model, we have
+\[
+\varepsilon \sim g(\theta)
+\]
+with $\theta \in \mathbf{R}^5$ and $g(\theta)$ is the Barndorff-Nielsen Distribution, i.e. a Generalised Hyperbolic Distribution.
+
+\section{Recap for Normal Errors}
+
+If we assumed that $\varepsilon \sim N(0,\sigma^2)$ we would just least square fit.  This works because negative log-likelihood of Normal is a sum of squares.
+
+\section{Barndorff-Nielsen Version}
+
+We ought to find
+\begin{equation}
+\label{optprob}
+\argmin_{(\zeta,\theta)\in\mathbf{R}^{p+5}} -\ell( y-f(x;\zeta);\theta )
+\end{equation}
+
+Here $\ell( w; \theta)$ is an explicit expression for Barndorff-Nielsen density function. We don't care about it's actual form for that is an implementation detail.  
+
+We observe that we expect $\zeta^*$ to differ from the least-square parameters, and we expect $\theta^*$ in general to have nonzero $\gamma$ and other non-Gaussian features.  
+
+The outcome of this optimization is explicit inference regarding noise parameters too.
+
+\section{Why This is Superior to Least Squares}
+
+People work very hard to produce scientific models.  Nature's actual noise is Barndorff-Nielsen.  We expect inference to be more accurate and the fit to data much more effective in separating actual noise from data by our proposal.  This is because Nature's noise is perfectly Barndorff-Nielsen.
+
+\section{Consequences}
+In fields like physics, the consequences will be minimal; in fields like macroeconomics and social sciences, signal to noise is so dreadful that this approach will produce signal for the first time.  The impact there will be monumental because {\em Nature's Noise is Barndorff-Nielsen}.  Even Benoit Mandelbrot's approach is not as good.  Nature's Noise is Barndorff-Nielsen and only Barndorff-Nielsen.
+
+\end{document}

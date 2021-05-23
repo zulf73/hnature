@@ -1,0 +1,260 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{epigraph}
+\title{May 23 2021:  My Health Condition Degenerates Further} 
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Wake Up With Difficulties Breaking and Messed up Meta and Bill Gates Clearly intent on Continuing to Harm Me}
+
+Since I arrived to America in 1987 to, say, 2019, I have never imagined a situation where someone in America of wealth and privilege literally is malevolent and spends his time violating people's Natural Rights in America and keeps getting accolades from Washington instead of just being taken to the wall and shot in the head.  We, America, have killed 60\% over homicides in the world since 1945, with invasions in 37 countries, and we can't kill a single criminal murderer, Bill Gates, who runs amok causing harm and misery in America.  That is just outrageously absurd.  I feel that maybe I could just label the geographic area where Bill lives as a foreign country with oil underground and immediately we will invade him without any reason and occupy his land.
+
+Bill Gates has literally committed a {\em crime against humanity} by Geneva Conventions and Hague consider by harming my interior and body meta and yet, this horrific, malevolent, criminal, abomination, this murderer still is free in America while he is continuing to harm me every single day and night and the US Senate is silent, unresponsive, and they think that this will not permanently destroy their family name, not put them as moral equivalent of Nazi war criminals in the eyes of the future.   Just the mere thought of what Nazis could have done to Albert Einstein produces horrors, while I, a great genius who have overthrown Einstein and Erwin Schroedinger, is mistreated in my own country where a murderer is considered to be more important to the country than myself.  Wonders never cease when America is involved.  To say that I am outraged at the mute response of US Government at continuing horrors in my life due to their wrong-headed actions is an understatement.
+
+\section{Substantial Work}
+
+I am considering the issue of statistical inference of eleven variables, Q7-Q17, from Wave 7 of World Values Survey.  The data are beautiful. Total sample is $N=19077$.  I am fascinated by the issues of statistical estimation of the true value of the Bernoulli parameters for these data.  
+
+\section{Latent Exponential Model for Q7-Q17}
+
+We consider a latent exponential model.  Even though the data is Bernoulli, we consider the following generation of the data.
+
+People choose values in $[0,1]$ according to the truncated Exponential distribution.
+\[
+X \sim \frac{\lambda e^{-\lambda t}}{1-e^{-\lambda}}
+\]
+Then their choice is transformed by the function
+\[
+\zeta( x ) = 
+    \begin{cases}
+      0, & \text{if}\ x \le 1/2 \\
+      1, & \text{otherwise}
+    \end{cases}
+\]
+The actual labelling of data is 1/2.  We use the convention that $x=0$ represents the end of the higher mass of the two.
+
+\section{All Things Fleeting Are Washed Away in Tides of Fate}
+
+Some things persist in Human Affairs.  Other things are washed away like sandcastles on the beach.  When I see these things, I am filled with melancholy for I know deep in my heart that they will be swept away in time, as Nature's forces will wash them away.  This is why even in Mathematics, I was not enthusiastic about many topics.  I remember sitting in the Mathematics Library at Columbia, and reading many things in Mathematics.  In the winter, it was comfortable, and quiet, behind the stacks.  The journals were lined up in the shelves, and I marvelled at the production of Man.  I was interested in many topics then.  I was happy in marriage and lived in 113th street.  Years later I am still impressed by just how much of the Mathematical ouvre has been forgotten.  Millions of pages of work replaced by clearer understanding by later generations, much no longer considered anything but technicality, of historical interest alone.  I consider things that persist even for five centuries in Human Affairs, and they too are fleeting and will be washed away as well.  I am instinctively resistant to evade immortality and I am not interested in things that will lose their importance in five centuries.  And Man cannot give this to me.  Perhaps this is the reason for my fascination with Rilke.  "Ah, whom can we turn to in our need?  Not angels, not humans, and already the knowing animals are aware that we are not really at home in our interpreted world".  I am motivated my immortality, and there is nothing special, for we are all motivated by our immortality.  What is interesting, however, is that it is very clear to me now that this is a fundamental motivation that persists, is as human as one can imagine.  
+
+\section{Correspondence between Bernoulli and Exponential}
+
+\[
+p = \frac{1-e^{-\lambda/2}}{1-e^{-\lambda}} = \frac{1}{1+e^{-\lambda/2}}
+\]
+
+And
+
+\[
+\lambda = - 2 \log\left( \frac{1-p}{p} \right) = 2 \log( p/(1-p))
+\]
+This is the log-odds.  Generalised Linear Models with binomial family is the appropriate statistical model.  This is a beautiful connection between fairly sophisticated statistical models and pure mathematics that ought to be clarified and explored by mathematicians as well.
+
+\section{Creating Artificial Exponential Data}
+
+\begin{verbatim}
+# We will use logistic regression
+# with x variable artificially created for Q7-Q17
+# We take N=500 points to determine p, lambda
+# Then we use these to assign random x values
+# for all the other values
+# then we fit logistic regression on the (x,g)
+
+samp.binary.exp<-function( grps, lambda ){
+  n <- length(grps)
+  gvals <- unique(grps)
+  bval <- 0
+  sval <- 1
+  if ( length(gvals) == 2 ){
+    if ( sum(gvals==gvals[1]) >= n/2 ){
+      bval <- gvals[1]
+      sval <- gvals[2]
+    } else {
+      sval <- gvals[1]
+      bval <- gvals[2]
+    }
+  } else {
+    return(NULL)
+  }
+  xs<- rep( 0, n)
+  for ( r in 1:n ){
+    done <- F
+    
+    while ( done == F){
+      pickx <- rexp(lambda)
+      if (pickx <= 5){
+        if ( grps[r] == sval){
+          xs[r] <- pickx
+          done <- T
+        }  
+      }
+      if (pickx > 5){
+        if ( grps[r] == bval){
+          xs[r] <- pickx
+          done <- T
+        }  
+      }
+    }
+  }
+  xs
+}
+\end{verbatim}
+
+We will create artificial data from the exponential distribution, and then assess the fit of a generalised linear model with the $x$ values and the Bernoulli variable as group labels.
+
+\section{My Assessment of Bill Gates}
+
+I am harmed but I also have a responsibility to my Beloved People, the Human Race.  The way I see this is that Bill Gates had been extremely malevolent against the interests of a man, myself, who had shared with him some of my best work in Finance, the Medium Frequency Strategy, that is the culmination of many decades in Finance, and instead of reciprocating, he cut into my eyes and destroyed my Ancestral, Family meta, and exercised enormous power against my interest and blocked my American Dream and violated my Natural Rights.  I am therefore obligated to ensure, both for my own sake and for the benefit of the Human Race, my recommendation that he be wiped out with lethal force, and all achievements of his burned to cinders and he be removed from History of Human Race altogether, and his reputation be scorched and his memory be erased from the Collective Human Consciousness.  One could consider this the bitter response from ressentiment, but I am superior to him morally and intellectually, and I have no envy for his money. Now \$120 million with D. E. Shaw \& Co. is not his money but my Private Property.  United States Government ought to wipe him out from existence.
+
+\section{Structure of My Argument To Extinguish All Race Theories}
+
+We will consider 11 variables Q7 to Q17 of World Values Survey.  For each, we will consider six ethnicity groups, (a) Arab, (b) Black, (c) East Asian, (d) Indian, (e) Other, (f) White.
+
+There are seven series of Bernoulli values, totalling $N=19077$ points.  
+
+For each we will find $\lambda$ such that logit model 
+\[
+p=(1+e^{\lambda/2})^{-1}
+\]
+Then we will consider statistics of these $\lambda$ for each of the variables and record the variation due to ethnicity.  
+
+If we find that a small variation versus $\lambda_{HR}$ for $\lambda_1,\dots,\lambda_6$ results then we conclude that the influence of ethnicity on human race child rearing values is this standard deviation.  It this is smaller than say 30\% we can be assured that moral superiority or inferiority is inadmissible for the human race based on ethnicity.
+
+\begin{verbatim}
+# We will use logistic regression
+# with x variable artificially created for Q7-Q17
+# We take N=500 points to determine p, lambda
+# Then we use these to assign random x values
+# for all the other values
+# then we fit logistic regression on the (x,g)
+
+samp.binary.exp<-function( grps, lambda ){
+  grps<-as.vector(t(grps))
+  n <- length(grps)
+  print(n)
+  gvals <- unique(grps)
+  #print(gvals)
+  bval <- 0
+  sval <- 1
+  if ( length(gvals) == 2 ){
+    if ( sum(gvals==gvals[1]) >= n/2 ){
+      bval <- gvals[1]
+      sval <- gvals[2]
+    } else {
+      sval <- gvals[1]
+      bval <- gvals[2]
+    }
+  } else {
+    return(NULL)
+  }
+  xs<- rep( 0, n)
+  for ( r in 1:n ){
+    done <- F
+    
+    while ( done == F){
+      pickx <- rexp(1,rate=1/lambda)
+      #print(pickx)
+      if (pickx <= 5){
+        if ( grps[r] == sval){
+          xs[r] <- pickx
+          done <- T
+        }  
+      }
+      if (pickx > 5){
+        if ( grps[r] == bval){
+          xs[r] <- pickx
+          done <- T
+        }  
+      }
+    }
+  }
+  xs
+}
+\end{verbatim}
+
+\section{Why is this Timeless?}
+
+For about a millenia in the past, Human Race has been confused about the effects of ethnicity on moral qualities of individuals.  Our result will be valid for many millenia in the future.  Therefore it is not ephemeral, and this is the interest for me in these questions.
+
+\section{Zulf Picks His Battles With Care}
+
+There are numerous people with whom I could have chosen to be in conflict; for example, I could have been in conflict with Henry Jarecki for various reasons but I chose not to do this because it's not worth my time.  However, it is Bill Gates who forced my hand, and I decided that it was worth my time to pick a fight with Bill Gates and this is a wise choice.  I will prevail here of course because I am not rash and malevolent.  He is also plebian, so he will fall.
+
+\section{Formality is Important}
+
+We now have some code to test out our ideas about fitting Generalised Linear Models.  We're not seeing beautiful fits yet.
+
+\begin{verbatim}
+# We will use logistic regression
+# with x variable artificially created for Q7-Q17
+# We take N=500 points to determine p, lambda
+# Then we use these to assign random x values
+# for all the other values
+# then we fit logistic regression on the (x,g)
+
+samp.binary.exp<-function( grps, lambda ){
+  grps<-as.vector(t(grps))
+  n <- length(grps)
+  print(n)
+  gvals <- unique(grps)
+  #print(gvals)
+  bval <- 0
+  sval <- 1
+  if ( length(gvals) == 2 ){
+    if ( sum(gvals==gvals[1]) >= n/2 ){
+      bval <- gvals[1]
+      sval <- gvals[2]
+    } else {
+      sval <- gvals[1]
+      bval <- gvals[2]
+    }
+  } else {
+    return(NULL)
+  }
+  xs<- rep( 0, n)
+  for ( r in 1:n ){
+    done <- F
+    
+    while ( done == F){
+      pickx <- rexp(1,rate=1/lambda)
+      #print(pickx)
+      if (pickx <= 5){
+        if ( grps[r] == sval){
+          xs[r] <- pickx
+          done <- T
+        }  
+      }
+      if (pickx > 5){
+        if ( grps[r] == bval){
+          xs[r] <- pickx
+          done <- T
+        }  
+      }
+    }
+  }
+  xs
+}
+
+dataset.logit<-function(var,lambda){
+  y<-na.omit(polv[,var])
+  print(head(y))
+  x<-samp.binary.exp( y, lambda)
+  G<-as.numeric(as_factor(t(y)))-1
+  out<-data.frame( x=(x-min(x))/(max(x)-min(x)),G=G)
+  names(out) <- c("x","G")
+  out
+}
+
+\end{verbatim}
+
+
+
+
+\end{document}
