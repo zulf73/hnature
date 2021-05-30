@@ -1,0 +1,17 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{epigraph}
+\title{Zulf Waxes Poetic About Reminiscences of Princeton} 
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Princeton Made Me Feel Normal}
+
+I don't know what reputation Princeton has to the external world but for me it was a magical place.  I did not even realise how magical it was for me till well after I had to deal with people who are not lofty and high falutin by nature.

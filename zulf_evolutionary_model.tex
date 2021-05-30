@@ -1,0 +1,162 @@
+\documentclass{amsart}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{epigraph}
+\title{Evolutionary Density Model of Human Moral Values} 
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\newtheorem{proposition}
+\maketitle
+
+Let the total number of human morals be $N_{morals}$.  We consider the model
+\[
+p: \mathbf{R}\times \mathbf{R}^{N_{morals}} \rightarrow \mathbf{R}
+\]
+We consider $p(t,x)$ with $t$ as time axis and $x$ as an element of $\mathbf{R}^{N_{morals}}$.  We want $t$ to traverse around 2 million years.
+
+We let $T=WVS7$ measurement time, at the end of the period, and we determine $p(T,x)$ from measurements.
+
+Our scientific model is an evolutionary model, with final distribution known. We do not specify the {\em evolution law} for $p(t,x)$ at the moment, and consider its determination to be a major Scientific Problem for us. 
+
+Our intuition is just that this ought to be like a parabolic equation, and so we like the Markov generator approach.  One consideration is to think of $p(t,x)$ as the transition density of a Levy process for the sake of parsimony.
+
+\section{Only a Psychopathic Cunt With Undeveloped Moral Compass Calls Morality a Hoax}
+
+We have measured data for human moral nature.  Christopher Boehm has a nice book on Moral Origins.  A Japanese group have found neural correlates of morals.  We can safely conclude that {\em psychopathic cunts without any moral compass who are underdeveloped in their human natural growth} would call morality a 'Hoax'.  And so we find that {\textbf{Bill Gates}} considers morality a Hoax.  How convenient.  A psychopath without moral compass and without any empathy for other people's suffering should consider morality a 'hoax'.  What a glib little ignorant malevolent shit he is.
+
+\section{We Reduce to Showing A Specific Construction Produces Infinitely Divisible Distributions}
+
+Since we have a {\em vertical} Markov Moral Model that succeeds, we reduce from $N_{moral}$ to one dimensional case.
+
+Then we want to show that the specific constructions we have for univariate fits for morality are in fact infinitely divisible.  Then we go back 2 million years in time and consider the univariate Levy Process with this infinitely divisible law. 
+
+Then we can declare the whole Levy process model a success for Moral Values Evolution for the Human Race.
+
+\section{Warm Up Exercise}
+
+Consider the measure 
+\[
+\nu = C e^{x^2} 1_{|x| \le 1/2} dx
+\]
+with $C$ chosen so this is a probability measure.  Then make this the jumping measure of a Levy process using the Levy-Khinchine formula.  Obtain a pure jump Levy Process associated with it by the Levy Process theory.  
+
+This is what the Moral Process will be like.  We can follow the process of identifying the biased Binomial fit so that in log-scale it's just a line.  Then we are taking a quadratic.  We map the situation with some care to a Levy jump measure and then after fitting declare the associated Levy Process as the process for evolution of moral value number such and such.  This will then give us a highly exotic Levy Process -- i.e. a Levy Process that was never even examined in Quantitative Finance where diligent quants examine anything that moves as potential element of their next great option pricing model.  I know this because I have some of those myself; as a Finance quant, it is obligatory to find all sorts of things that have nothing to do with anything and put them in the option pricing model and declare miraculous ways that this will generate alpha to various non-technical but quite greedy clients.  It turns out that it will be {\em they} who are the predators and not the Finance people.  I won't go into the process here.
+
+Anyway, this is more serious.  No one has actually produced any model for Human Moral Values, so I don't need to do some of these more esoteric sales tactics here.
+
+\section{The Pure Jump Part of Levy-Khinchine Formula}
+
+David Applebaum has a succinct form of Levy-Khinchine formula.  For a pure jump Levy process with Levy measure $\nu$ we have
+\[
+\log \varphi(u) = \int (e^{i u y} - 1 - i uy) \nu(dy)
+\]
+
+We don't care about the diffusion part.  Once we have the characteristic function at time $t=1$ we can then get it for all time by extrapolation of the characteristic function since Levy processes have simple interpolation behaviour for characteristic functions.
+
+Our measure will be 
+\[
+\nu(dy) = e^{Q(y)}1_{|y| \le 1} dy
+\]
+Here $Q(y)$ is a quadratic.  We are interested in some analytic form that can at least be evaluated exactly numerically. 
+
+Our model of a single moral for the past two million years will then just be the pure jump Levy process.  This will be our scientific model.  We can test it out for predictions versus Nature.
+
+
+\section{Vast Gap Between Mathematical and Scientific Thought}
+
+Except for small set of remarkable phenomena, Man has not penetrated the depths of Nature sufficiently well to produce mathematical axioms which will always yield Truth of Nature.  This is not accidental; it is too much to expect a race of only two million years to have mastered and codified the axioms of Nature.  We don't know the axioms of Nature and perhaps we never shall know them.  
+
+Scientific progress continuously seeks the axioms of Nature.  This constant uncertainty about the foundational axioms is alien to the Mathematical Mind, where the axioms are much more stable, and infinitely easier in a sense, because Man has control over them. Nature's mysterious axioms are permanently distant from us.  
+
+This produces a giant gap for Scientists and Mathematicians.  Scientists take for granted this permanent state of uncertainty, and understand their purpose to bring order than can be brought.  Mathematicians, when they are not actually doing Science expect nothing extraordinary in the axioms and seek theorems of uncanny and beautiful depths.  Thus quite often very good Mathematics has no Scientific content whatsoever, and even more often very good Science is poor Mathematics because of the sense of permanent irrelevance of the foundational axioms.  
+
+\section{Formulae For Characteristic Function of Morals Levy Processes}
+
+Let $K>1$ be some sufficiently large constant and let
+\[
+G_0(z) = \int_{-K}^z e^{z^2} dz
+\]
+In terms of this function, we can produce some formulae for the characteristic function of a "Morals Levy Process". We write arbitrary univariate quadratic as
+\[
+Q(x) = (a_1 x + a_2)^2
+\]
+It is a matter of some changes of variables and some completing the squares and so on to produce a formula for the log-characteristic function of the Morals Levy Process.  Although this is not 'closed form' in the elementary calculus sense, it is certainly closed form for fast numerical evaluations.  And this is our scientific task, to produce efficient fast numerical evaluation for the log-characteristic function.
+
+\section{Contour Integrals on Complex Plane}
+
+Skipping details for now, the key to analytic control of the log-characteristic function is to consider a rectangular region on the complex plane with two horizontal lines.  We will have two constants $c_1 < c_2 \in mathbf{R}$. Then we will have to evaluate the integral of form
+\[
+\int_{c_1+iu}^{c_2+iu} f(z) dz
+\]
+where $f(z)$ is holomorpic.  We can evaluate this by going down first to the $x$-axis, picking up a constant from $c_1$ to $c_2$ and going vertically up to $c_2+iu$.
+
+This then gives us a real constant and two sinusoids.
+
+This is the main term; the other terms are a constant and a linear term in $iu$.
+
+The characteristic function then will turn out to have form
+
+\[
+\varphi(u) = s_1(u)e^{s_2(u
+)}
+\]
+
+where $s_1,s_2$ are sinusoids in $u$.  The conclusion will be that the characteristic function of our Levy process is controlled by several explicit sinusoids.  Passage of time $t$ will then update $u$ to $tu$ for Levy processes which will give us an understanding of the driving force of our Levy process model of morals.
+
+Details will be forthcoming.  The key point is that the explicit mathematical analysis by classical complex analytic methods is feasible in this model.
+
+\section{Elementary Computations}
+
+\begin{proposition}
+
+The following holds true.
+
+\begin{equation}
+\int_{c_0}^{c_0+iu} e^{z^2} dz =
+ e^{c_0^2} \int_{0}^{u} e^{-t^2}( i \cos(2 c_0 t) + \sin( 2c_0 t))dt.
+\end{equation}
+\end{proposition}
+
+The result follows from some change of variables. Now consider the contour integrals of $g(z) = e^{z^2}$.  We will be in the situation where for 
+
+$$0< u \in \mathbf{R}
+$$
+
+we want to be able to compute
+
+\[
+\int_{c_0+iu}^{c_1+iu} g(z) dz
+\]
+
+We consider the constant
+
+\[
+A = \int_{c_0}^{c_1} g(z) dz
+\]
+
+This particular constant will cancel from the computation of $\log \varphi(u)$ and will not contribute.  We will have two vertical terms and a linear term in $iu$.
+
+\section{Diatribe Against People Who Are Confused About Science}
+
+Science has the serious purpose about producing models that faithfully describe Nature.  It is a serious and purposeful effort that is important to the Human Race.  It is not a vaudeville farce.  Science is not a performance to dazzle the crowd with mathematical whiz-bang.  Those are not the serious purpose of Science.  It had been my serious Scientific judgment for some years that Levy Processes are appropriate for wider natural phenomena than had been anticipated in the past.  The model in this note is a sophisticated pure jump Levy Process model for univariate moral value distribution evolving in time.  I am completely frustrated by people who think that the purpose of Science is to dazzle the onlookers with mathematical whiz-bangery.  
+
+The Complex Analysis techniques are natural here, and are not deep mathematics.  They clarify the way in which the empirically fitted model interacts with the Levy-Khinchine formula.  We want clarity for the model here.
+
+Let me remind the dear reader that we chose a Levy Process model not because we think Levy Processes are funky and cool but because we believe that Levy Process model are {\em the best faithful description of the natural phenomena under investigation}.  Nature is not a joke.  We do not have arbitrary freedom to try to fit anything that pleases our sense of fancy and expect success.  We have to be serious and seek the correct description of Nature, which we do not control.
+
+\section{Identification of a Special Function For Moral Levy Process Characteristic Function}
+We consider the function
+\begin{equation}
+Z(u; a) = e^{a^2}\int_0^u e^{-t^2} e^{-2it a} dt
+\end{equation}
+This function is the key nontrivial computational component of the Levy Process Characteristic Function for univariate Moral Values Models for human race population.  There is appearance here of the Error Function, but might show new behaviour that we need to understand.
+
+The other component is linear in $iu$ and therefore possible to compute explicitly.
+
+\end{document}

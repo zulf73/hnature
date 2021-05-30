@@ -1,0 +1,79 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{epigraph}
+\title{May 29 2021:  Zulf's Moral Special Function} 
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+We claim discovery of a special function that we will call {\em Zulf's Moral Special Function} and leave alternative analysis putting it in the context of other Special Functions later.
+
+\[
+Z(u;a) = \int_{a}^{a+iu} e^{z^2} dz
+\]
+
+We will consider pure jump Levy processes with characteristic functions as follows.
+
+Suppose our linear fit for biased Bernoulli lead to log-fit of line $L(x) = c_2 x+c_1$.  
+
+Let
+\[
+a = (c_2-c_1)/2
+\]
+and
+\[
+b = (-c_2 - c_1)/2
+\]
+
+Then let
+
+\begin{equation}
+\log \varphi(u) = Z(u;b) - Z(u; a) - iu [e^{a^2}-e^{b^2}]
+\end{equation}
+
+We claim this is a very good general form for pure jump Levy process characteristic function for models of moral distribution evolution for human race.
+
+\section{Fits of Coefficients $c_2,c_1$ for Q177-Q195}
+
+% latex table generated in R 4.0.3 by xtable 1.8-4 package
+% Sat May 29 19:56:43 2021
+\begin{table}[ht]
+\centering
+\begin{tabular}{rlrr}
+  \hline
+ & var & c2 & c1 \\ 
+  \hline
+1 & Q177 & 1.0295 & 0.7412 \\ 
+  2 & Q178 & 0.9239 & 1.0327 \\ 
+  3 & Q179 & 1.0520 & 1.5664 \\ 
+  4 & Q180 & 0.9325 & 1.5123 \\ 
+  5 & Q181 & 1.0025 & 1.5207 \\ 
+  6 & Q182 & 1.2403 & 0.4892 \\ 
+  7 & Q183 & 1.0859 & 0.8628 \\ 
+  8 & Q184 & 1.2195 & 0.5917 \\ 
+  9 & Q185 & 1.0629 & 0.3027 \\ 
+  10 & Q186 & 1.1871 & 0.3252 \\ 
+  11 & Q187 & 1.1174 & 1.1208 \\ 
+  12 & Q188 & 1.1975 & 0.5310 \\ 
+  13 & Q189 & 1.1860 & 1.3365 \\ 
+  14 & Q190 & 1.0970 & 0.8541 \\ 
+  15 & Q191 & 0.8999 & 1.7826 \\ 
+  16 & Q192 & 1.0982 & 1.4021 \\ 
+  17 & Q193 & 1.2007 & 0.5476 \\ 
+  18 & Q194 & 0.9382 & 1.6307 \\ 
+  19 & Q195 & 1.1902 & 0.4107 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+These are actual fits to data for coefficients for the Levy Process Moral Model.  We will assess the model further in the future.
+
+
+
+\end{document}

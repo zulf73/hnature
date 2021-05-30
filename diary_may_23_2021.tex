@@ -254,6 +254,624 @@ dataset.logit<-function(var,lambda){
 
 \end{verbatim}
 
+\section{A $p=0.10$ Success for Q11}
+
+\begin{verbatim}
+> logit.q11<-data.frame( x = x, G=G)
+> o = glm( G ~ x, family=binomial(ling="logit"),data=logit.q11)
+Error in binomial(ling = "logit") : unused argument (ling = "logit")
+> o = glm( G ~ x, family=binomial(link ="logit"),data=logit.q11)
+Warning messages:
+1: glm.fit: algorithm did not converge 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+> summary(o)
+
+Call:
+glm(formula = G ~ x, family = binomial(link = "logit"), data = logit.q11)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.2932   0.0000   0.0000   0.0000   0.2285  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)   -79718      49547  -1.609    0.108
+x              15943       9909   1.609    0.108
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 1.9976e+04  on 19076  degrees of freedom
+Residual deviance: 1.6825e-01  on 19075  degrees of freedom
+AIC: 4.1682
+
+Number of Fisher Scoring iterations: 25
+\end{verbatim}
+
+\section{My Assessment of this Success}
+
+This is a greater success and achievement than all achievements of Bill Gates between the years 1955 to 2021.  He has only produced menial trivia by comparison in this period.
+
+\section{Some Failures and Successes}
+
+When there is no asymmetry in frequency $p$ and $1-p$ there are difficulties.  There are also other failures of the exponential model.  I will record some successes now.
+
+\begin{verbatim}
+
+# We will use logistic regression
+# with x variable artificially created for Q7-Q17
+# We take N=500 points to determine p, lambda
+# Then we use these to assign random x values
+# for all the other values
+# then we fit logistic regression on the (x,g)
+
+samp.binary.exp<-function( grps, lambda ){
+  grps<-as.vector(t(grps))
+  n <- length(grps)
+  print(n)
+  gvals <- unique(grps)
+  #print(gvals)
+  bval <- 0
+  sval <- 1
+  if ( length(gvals) == 2 ){
+    if ( sum(gvals==gvals[1]) >= n/2 ){
+      bval <- gvals[1]
+      sval <- gvals[2]
+    } else {
+      sval <- gvals[1]
+      bval <- gvals[2]
+    }
+  } else {
+    return(NULL)
+  }
+  xs<- rep( 0, n)
+  for ( r in 1:n ){
+    done <- F
+    
+    while ( done == F){
+      pickx <- rexp(1,rate=1/lambda)
+      #print(pickx)
+      if (pickx <= 5){
+        if ( grps[r] == sval){
+          xs[r] <- pickx
+          done <- T
+        }  
+      }
+      if (pickx > 5){
+        if ( grps[r] == bval){
+          xs[r] <- pickx
+          done <- T
+        }  
+      }
+    }
+  }
+  xs
+}
+
+dataset.logit<-function(var,lambda){
+  y<-na.omit(polv[,var])
+  G<-as.numeric(as_factor(t(y)))-1
+  #print(head(y))
+  G<-as.numeric(as_factor(t(y)))-1
+  p<-sum(G==0)/length(G)
+  if ( p < 0.5) {
+    G<-1-G
+  }
+  p<-sum(G==0)/length(G)
+  print(p)
+  
+  x<-samp.binary.exp( G, lambda)
+  out<-data.frame( x=x,G=G)
+  names(out) <- c("x","G")
+  out
+}
+
+dataset.logit.fixed.lambda<-function(var){
+  y<-na.omit(polv[,var])
+  G<-as.numeric(as_factor(t(y)))-1
+  p<-sum(G==0)/length(G)
+  if ( p < 0.5) {
+    G<-1-G
+  }
+  p<-sum(G==0)/length(G)
+  print(p)
+  lambda <- 2*log( p/(1-p) )
+  #print(head(y))
+  x<-samp.binary.exp( y, lambda)
+  out<-data.frame( x=x,G=G)
+  names(out) <- c("x","G")
+  out
+}
+
+lq14<-dataset.logit.fixed.lambda("Q14")
+mq14 = glm( G ~ x, family="binomial",data=lq14)
+summary(mq14)
+
+> summary(mq13)
+
+Call:
+glm(formula = G ~ x, family = "binomial", data = lq13)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.4388   0.0000   0.0000   0.0000   0.5289  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)   -83257      52211  -1.595    0.111
+x             341065     213883   1.595    0.111
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2.3156e+04  on 19076  degrees of freedom
+Residual deviance: 4.7344e-01  on 19075  degrees of freedom
+AIC: 4.4734
+
+Number of Fisher Scoring iterations: 25
+
+> summary(mq14)
+
+Call:
+glm(formula = G ~ x, family = "binomial", data = lq14)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.2713   0.0000   0.0000   0.0000   0.2460  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)  
+(Intercept)   -71933      43085   -1.67    0.095 .
+x              14387       8617    1.67    0.095 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2.3663e+04  on 19076  degrees of freedom
+Residual deviance: 1.6948e-01  on 19075  degrees of freedom
+AIC: 4.1695
+
+Number of Fisher Scoring iterations: 25
+\end{verbatim}
+
+
+Let's put down some bad fits.
+
+\begin{verbatim}
+> summary(mq12)
+
+Call:
+glm(formula = G ~ x, family = "binomial", data = lq12)
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-0.02413   0.00000   0.00000   0.00000   0.01379  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)    -8150      19404   -0.42    0.674
+x              27328      65031    0.42    0.674
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2.5174e+04  on 19076  degrees of freedom
+Residual deviance: 1.6848e-03  on 19075  degrees of freedom
+AIC: 4.0017
+
+Number of Fisher Scoring iterations: 25
+
+> summary(mq10)
+
+Call:
+glm(formula = G ~ x, family = "binomial", data = lq10)
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-0.08018   0.00000   0.00000   0.00000   0.05986  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)   -24855      28620  -0.868    0.385
+x               4972       5725   0.868    0.385
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2.4090e+04  on 19076  degrees of freedom
+Residual deviance: 1.4022e-02  on 19075  degrees of freedom
+AIC: 4.014
+
+Number of Fisher Scoring iterations: 25
+
+\end{verbatim}
+
+So Q8,Q9,Q15 have $p$ too close to 0.5.  We're getting bad fits for Q10,Q11,Q12,Q16,Q17
+
+We get good fits for Q13, Q14.
+
+\section{Exploration Asymmetric Bad Fits}
+
+It's surprising to me that Asymmetric ($p>0.6$ for example) would produce bad fits to GLM with binomial logit link.
+
+We'll explore this next.
+
+\section{Why Failures are Part of the Show In Science}
+
+Only total illiterate idiots think that failures are bad in Science.  What is a failure?  It is a hypothesis about Nature that does not apply to measured data. Only numbskulls with pea-brains without an iota of respect for the delicate issue of Truth of Nature thinks that failures of Hypotheses concerning actual functioning of Nature is a problem.  These morons should not be allowed anywhere near Science for they disrupt the Purity of Devotion in the Sacred Temple of Science.  And this is Science, the Devotion to the Sacred Law of Nature.
+
+\section{A Success for Q17}
+
+\begin{verbatim}
+> lq17<-dataset.logit("Q17",2.6)
+[1] 0.6545054
+[1] 19077
+> mq17 = glm( G ~ x, family="binomial",data=lq17)
+Warning messages:
+1: glm.fit: algorithm did not converge 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+> summary(mq17)
+
+Call:
+glm(formula = G ~ x, family = "binomial", data = lq17)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.6882   0.0000   0.0000   0.0000   0.5703  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)  
+(Intercept)    79718      47151   1.691   0.0909 .
+x             -15944       9430  -1.691   0.0909 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2.4595e+04  on 19076  degrees of freedom
+Residual deviance: 8.2198e-01  on 19075  degrees of freedom
+AIC: 4.822
+
+Number of Fisher Scoring iterations: 25
+\end{verbatim}
+
+I will just tweak $\lambda$ by hand to see if I can make the rest come alive.
+
+\section{A Success For Q8}
+
+\begin{verbatim}
+> lq8<-dataset.logit("Q8",2.62)
+[1] 0.5428002
+[1] 19077
+> mq8 = glm( G ~ x, family="binomial",data=lq8)
+Warning messages:
+1: glm.fit: algorithm did not converge 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+> summary(mq8)
+
+Call:
+glm(formula = G ~ x, family = "binomial", data = lq8)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.3227   0.0000   0.0000   0.0000   0.3483  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)   -64486      41019  -1.572    0.116
+x              12897       8204   1.572    0.116
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2.6306e+04  on 19076  degrees of freedom
+Residual deviance: 2.2705e-01  on 19075  degrees of freedom
+AIC: 4.227
+
+Number of Fisher Scoring iterations: 25
+\end{verbatim}
+
+\section{Success For Q10}
+
+\begin{verbatim}
+> lq10<-dataset.logit("Q10",2.65)
+[1] 0.6739005
+[1] 19077
+> mq10 = glm( G ~ x, family="binomial",data=lq10)
+Warning messages:
+1: glm.fit: algorithm did not converge 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+> summary(mq10)
+
+Call:
+glm(formula = G ~ x, family = "binomial", data = lq10)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.5018   0.0000   0.0000   0.0000   0.7284  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)  
+(Intercept)  -112769      54442  -2.071   0.0383 *
+x              22554      10888   2.071   0.0383 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 24089.7442  on 19076  degrees of freedom
+Residual deviance:     1.1164  on 19075  degrees of freedom
+AIC: 5.1164
+
+Number of Fisher Scoring iterations: 25
+\end{verbatim}
+
+\section{Success for Q11}
+
+\begin{verbatim}
+> lq11<-dataset.logit("Q11",2.598)
+[1] 0.7826178
+[1] 19077
+> mq11 = glm( G ~ x, family="binomial",data=lq11)
+Warning messages:
+1: glm.fit: algorithm did not converge 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+> summary(mq11)
+
+Call:
+glm(formula = G ~ x, family = "binomial", data = lq11)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.2536   0.0000   0.0000   0.0000   0.3582  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)  
+(Intercept)   -80223      47451  -1.691   0.0909 .
+x              16044       9490   1.691   0.0909 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 1.9976e+04  on 19076  degrees of freedom
+Residual deviance: 2.3367e-01  on 19075  degrees of freedom
+AIC: 4.2337
+
+Number of Fisher Scoring iterations: 25
+\end{verbatim}
+
+\section{Success for Q12}
+
+\begin{verbatim}
+> lq12<-dataset.logit("Q12",2.61)
+[1] 0.6284007
+[1] 19077
+> mq12 = glm( G ~ x, family="binomial",data=lq12)
+Warning messages:
+1: glm.fit: algorithm did not converge 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+> summary(mq12)
+
+Call:
+glm(formula = G ~ x, family = "binomial", data = lq12)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.2614   0.0000   0.0000   0.0000   0.2624  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)   -67049      43036  -1.558    0.119
+x              13410       8607   1.558    0.119
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2.5174e+04  on 19076  degrees of freedom
+Residual deviance: 1.4979e-01  on 19075  degrees of freedom
+AIC: 4.1498
+
+Number of Fisher Scoring iterations: 25
+\end{verbatim}
+
+
+\section{New Hypothesis}
+
+There exists a $\lambda$ near 2.6 such that GLM with logit link produces good fits for these data.
+
+\section{Success With Q14}
+
+\begin{verbatim}
+> lq14<-dataset.logit("Q14",2.7)
+[1] 0.6886303
+[1] 19077
+> mq14 = glm( G ~ x, family="binomial",data=lq14)
+Warning messages:
+1: glm.fit: algorithm did not converge 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+> summary(mq14)
+
+Call:
+glm(formula = G ~ x, family = "binomial", data = lq14)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.5052   0.0000   0.0000   0.0000   0.6095  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)   -80592      50285  -1.603    0.109
+x              16118      10057   1.603    0.109
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2.3663e+04  on 19076  degrees of freedom
+Residual deviance: 6.3093e-01  on 19075  degrees of freedom
+AIC: 4.6309
+
+Number of Fisher Scoring iterations: 25
+\end{verbatim}
+
+\section{Success for Q9}
+
+\begin{verbatim}
+> lq9<-dataset.logit("Q9",2.55)
+[1] 0.5285946
+[1] 19077
+> mq9 = glm( G ~ x, family="binomial",data=lq9)
+Warning messages:
+1: glm.fit: algorithm did not converge 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+> summary(mq9)
+
+Call:
+glm(formula = G ~ x, family = "binomial", data = lq9)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.8816   0.0000   0.0000   0.0000   0.7879  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)  
+(Intercept)    88062      52662   1.672   0.0945 .
+x             -17613      10532  -1.672   0.0945 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 26383.9100  on 19076  degrees of freedom
+Residual deviance:     1.5488  on 19075  degrees of freedom
+AIC: 5.5488
+
+Number of Fisher Scoring iterations: 25
+\end{verbatim}
+
+\section{Success For Q7}
+
+\begin{verbatim}
+> lq7<-dataset.logit("Q7",2.8)
+[1] 0.8114483
+[1] 19077
+> mq7 = glm( G ~ x, family="binomial",data=lq7)
+Warning messages:
+1: glm.fit: algorithm did not converge 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+> summary(mq7)
+
+Call:
+glm(formula = G ~ x, family = "binomial", data = lq7)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.5486   0.0000   0.0000   0.0000   0.6403  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)  
+(Intercept)   -99145      53591   -1.85   0.0643 .
+x              19829      10718    1.85   0.0643 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 1.8471e+04  on 19076  degrees of freedom
+Residual deviance: 7.6356e-01  on 19075  degrees of freedom
+AIC: 4.7636
+
+Number of Fisher Scoring iterations: 25
+\end{verbatim}
+
+\section{Success for Q13}
+
+\begin{verbatim}
+> lq13<-dataset.logit("Q13",2.85)
+[1] 0.7046181
+[1] 19077
+> mq13 = glm( G ~ x, family="binomial",data=lq13)
+Warning messages:
+1: glm.fit: algorithm did not converge 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+> summary(mq13)
+
+Call:
+glm(formula = G ~ x, family = "binomial", data = lq13)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.3538   0.0000   0.0000   0.0000   0.3142  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)  
+(Intercept)   -80273      47140  -1.703   0.0886 .
+x              16055       9428   1.703   0.0886 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2.3156e+04  on 19076  degrees of freedom
+Residual deviance: 2.4163e-01  on 19075  degrees of freedom
+AIC: 4.2416
+
+Number of Fisher Scoring iterations: 25
+\end{verbatim}
+
+\section{Success for Q15}
+
+\begin{verbatim}
+> summary(mq15)
+
+Call:
+glm(formula = G ~ x, family = "binomial", data = lq15)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.4840   0.0000   0.0000   0.0000   0.5595  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)  
+(Intercept)   -93424      54802  -1.705   0.0882 .
+x              18685      10960   1.705   0.0882 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2.6273e+04  on 19076  degrees of freedom
+Residual deviance: 5.8049e-01  on 19075  degrees of freedom
+AIC: 4.5805
+
+Number of Fisher Scoring iterations: 25
+\end{verbatim}
+
+\section{Success For Q16}
+
+\begin{verbatim}
+> mq16 = glm( G ~ x, family="binomial",data=lq16)
+Warning messages:
+1: glm.fit: algorithm did not converge 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+> summary(mq16)
+
+Call:
+glm(formula = G ~ x, family = "binomial", data = lq16)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.3016   0.0000   0.0000   0.0000   0.2706  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)  
+(Intercept)    54967      32808   1.675   0.0939 .
+x             -10994       6562  -1.675   0.0938 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2.1353e+04  on 19076  degrees of freedom
+Residual deviance: 1.8695e-01  on 19075  degrees of freedom
+AIC: 4.1869
+
+Number of Fisher Scoring iterations: 25
+\end{verbatim}
 
 
 
