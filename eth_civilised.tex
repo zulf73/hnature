@@ -1,0 +1,155 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{epigraph}
+\title{Ethnicity versus Teaching Kids to be Civilised:Tolerance and Respect for Others}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{East Asians Care Less than Even Whites For Tolerance and Respect for Others in Kids}
+
+After one encounters a totally Malevolent Evil Murderous Cunt like Bill Gates among any Ethnicity, in this case White, one does tend to quickly examine whether there is a Racial Trait of Evil and Barbaric for White People.  That's inevitable, because we are all Bayesians whenever it suits us.
+
+Now my actual serious position is that Human Race is a Single Race.  But today I want to be extremely Racial.  Today I want to be pompous, arrogant, a certain Zulf de Gobineau with his own {\em Inequality of Races}.  What will be my Racial Hierarchy?
+
+% latex table generated in R 4.0.3 by xtable 1.8-4 package
+% Sun May 30 12:47:01 2021
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrr}
+  \hline
+ & 1 & 2 \\ 
+  \hline
+Arab & 0.8154 & 0.1846 \\ 
+  Indian & 0.7268 & 0.2732 \\ 
+  Black & 0.7027 & 0.2973 \\ 
+  Other & 0.6427 & 0.3573 \\ 
+  White & 0.6195 & 0.3805 \\ 
+  East Asian & 0.5211 & 0.4789 \\ 
+   \hline
+\end{tabular}
+\end{table}
+In this Racial Hierarchy, Arabs are top and East Asians at bottom, Whites are below par of "Other" and Indians a bit higher than average.  
+
+How set in stone is our Racial Hierarchy based on this metric?
+
+\section{Oh No You Don't}
+
+I hate it when Bill Gates decides that He will be overlooking all the lesser races and stand above all etc.  So I will quickly claim I am an Archangel Soul and here is me overlooking all of Humanity.
+
+\includegraphics[scale=0.4]{over.jpg}
+
+US SENATE WHAT IS YOUR MAJOR MALFUNCTION WIPE OUT BILL GATES IMMEDIATELY
+Inbox
+
+
+US Senate,
+
+No one allows these Racial Cunts like Bill Gates who cut up people's eyes to survive.  Europe does not allow it, China does not allow it.  WHY THE FUCK DOES UNITED STATES ALLOW A TOTALLY MALEVOLENT RACIAL CUNT TO CUT UP MY EYES AND HARM ME WHILE YOU DON'T DO YOUR GODDAM JOB AND WIPE HIM OUT?
+
+He is not necessary for US Economy.  In fact he is a total obstruction to US Economic growth because he is a MALEVOLENT PSYCHOPATHIC RACIAL CUNT. 
+
+What exactly is the problem with you doing your goddam jobs of securing Natural Rights of Americans?  You don't understand your job or what?
+
+Thanks,
+ZULFIKAR MOINUDDIN AHMED
+
+\section{How Reliable Are These Frequencies}
+
+Now the data are from World Values Survey Q12 on childrearing values, and we want to return to the question of whether they are in any sense close to {\em truth of nature}.
+
+Let's consider first sample size, and our focus will be to understand the precision to which we can trust that the figures before us are close to the true values of these parameters in Nature.
+
+\section{Bayesian Exercise from Jim Albert's Bayesian Computation with R}
+
+Suppose $D=\mathrm{Bernoulli}(p)$ with unknown parameter $p$.  We consider the Bayesian paradigm for estimating the parameter from data.  Jim Albert's {\em Baysian Computation with R} p. 20 tells us the method.
+
+Suppose we are at a state where we have a density $g(p)$ for $0<p<1$ for the true parameter.  Then we obtain new samples $x_1, \dots, x_n$.  The Bayesian method is to update the density for $p$ by the prescription
+\[
+g(p| x_1, \dots, x_n) = g(p) L(p)
+\]
+where $L(p)$ is the likelihood of the data.  In this case it is
+\[
+L(p) = p^s (1-p)^f
+\]
+where $s$ are successes and $f$ are failures in $x_1,\dots,x_n$.
+
+\section{Is Arab Racial Superiority over Whites Ephemeral or is it Permanent?}
+
+In the first paragraph we quickly estimated the Racial Hierarchy du jour.  And Arabs were Superior to Whites (and East Asians, Indians, etc. but we focus on White people).  
+
+So at first glance it looks to us quite solid that Arabs are racially superior to White people in our Respect and Tolerance for other metric.  
+
+Being wise, we decide to examine this in more rigorous detail.  Are Arabs going to be superior to White people for centuries?  How strong is the estimate for $p$ for each; do they cleanly separate with $p_{Arab}>p_{White}$ with strong statistical significance which is for today the be all and end all of all superiority?  Or will it be ephemeral and fleeting, and some fads in the Midwest for tolerance changing the parameters like the willow tree swaying in the wind?  Those are the important questions du jour.
+
+\section{A Fair Comparison With $N=150$ samples each}
+
+\includegraphics[scale=0.6]{tolerance_150.png}
+
+Arabs seem to be winning the Racial Hierarchy du jour handily here with $N=150$ sample points.
+
+Let us display our code so there is no controversy here.
+
+\begin{verbatim}
+# Bayesian Comparison of sampling
+# from an empirical distribution
+
+data <- na.omit(polv[,c("eth","Q12")])
+tolerance<-table(data)
+
+# Examine the distribution with N samples of each
+eth.success.failures<-function( eth, N, data){
+  sdata <- as.numeric(unlist(data[data$eth == eth,2]))
+  samp <- sample(sdata, N,replace=TRUE)
+  print(head(samp))
+  st<-table(samp)
+  print(st)
+  print(as.numeric(st[1]))
+  list(s=st[1],f=st[2])
+}
+
+ps<-seq(0,1,by=0.001)
+N <- 200
+eths<-row.names(tolerance)
+pdensities<-function(N){
+  out<-data.frame()
+  for (e in 1:6){
+    eth<-eths[e]
+    sf<-eth.success.failures( eth, N, data)
+    s<-sf$s
+    f<-sf$f
+    vs<-exp(s*log(ps)+f*log(1-ps))
+    vs<-1000*vs/sum(vs)
+    print(paste(s,f))
+    for (r in 1:length(ps)){
+      p<-ps[r]
+      v<-vs[r]
+      out<-rbind(out, c(eth,p,v ))
+    }
+  }
+  names(out)<-c("eth","p","val")
+  out$p<-as.numeric(out$p)
+  out$val<-as.numeric(out$val)
+  out
+}
+ggplot(aes(x=p,y=val,group=eth,colour=eth),data=pden)+geom_line(lwd=3)
+
+\end{verbatim}
+
+\section{The Problem With Racial Hierarchy Theories}
+
+The major problems of Racial Hierarchy Theories are
+\begin{itemize}
+\item{If you are race $X$ and someone else of race $Y$ is attempting to establish superiority of race $Y$ you have no rational incentive to comply at all, and you would be going against your fundamental drives as a living being if you accepted their reasoning}
+\item{Arbitrary set of criteria will produce arbitrary racial hierarchies which can be checked on real data too}
+\end{itemize}
+
+In other words, racial hierarchy theories are intellectually frivolous and without substance.  People who hold them are intellectually underdeveloped.  Don't hold racial hierarchy theories seriously.
+
+\end{document}

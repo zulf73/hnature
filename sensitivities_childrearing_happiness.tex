@@ -1,0 +1,81 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{hyperref}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{epigraph}
+\title{Sensitivities of Child-rearing values on Happiness of Individuals}
+\author{Zulfikar Moinuddin Ahmed}
+\date{\today}
+\begin{document}
+\maketitle
+
+I want to attempt to understand the effects of the child-rearing values Q7-Q17 on Happiness (Q49).
+
+\section{Mappings to Simplex $S_n \subset \mathbf{R}^n$}
+
+For Q49, we will have $n=10$.  The simplex $S_10$ will be defined as
+\[
+S_{10} = \{(x_1,\dots,x_{10}): 0 \le x_r \le 1, \sum_{r=1}^{10} x_r = 1.0 \}
+\]
+This simplex is a manifold without boundary.  Now data from WVS is giving us $p_0 \in S_{10}$, a probability vector.  We are interested in the sensitivity of $p_0$ to variations in $(Q_7,\dots, Q_{17})$.
+
+\section{Linear Dependence}
+
+I calculate the sensitivity of each variable as the difference between the success versus failure state for each of the 11 variables; I multiply them by 1000 to obtain figures that are in a reasonable scale.  The 11 rows of the following matrix result.  The important observation is that the rank of this matrix is 9.  This is a remarkable result.  This tells us that the various child moral values has a spanning effect for all 10 levels of happiness.
+
+
+% latex table generated in R 4.0.3 by xtable 1.8-4 package
+% Mon May 31 02:42:21 2021
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ 
+  \hline
+1 & 10.65 & 3.68 & 0.72 & 0.06 & 0.88 & -21.34 & -12.46 & -26.95 & -8.88 & 53.63 \\ 
+  2 & -0.19 & -2.67 & -2.22 & 4.09 & 10.53 & 2.32 & 10.88 & 3.76 & -7.05 & -19.47 \\ 
+  3 & 18.37 & 8.40 & 11.12 & 12.12 & 26.27 & 13.72 & -1.95 & -5.96 & -20.18 & -61.92 \\ 
+  4 & -13.70 & -3.30 & -5.02 & -11.06 & -10.28 & -2.20 & 16.20 & 16.75 & 1.44 & 11.17 \\ 
+  5 & -11.73 & -2.30 & 2.78 & 5.42 & 9.37 & 21.00 & 35.36 & 5.61 & -14.59 & -50.92 \\ 
+  6 & 3.03 & -3.40 & -2.62 & -6.57 & -11.43 & -7.73 & 4.69 & 7.13 & 9.14 & 7.76 \\ 
+  7 & -8.15 & -1.99 & 2.74 & 3.32 & 16.10 & 14.88 & 9.50 & -0.65 & -6.26 & -29.50 \\ 
+  8 & -9.25 & 2.03 & -3.25 & 7.55 & 13.46 & 23.64 & 26.50 & 10.93 & -2.44 & -69.18 \\ 
+  9 & 10.87 & 2.72 & -0.21 & -0.75 & -2.83 & -20.82 & -34.94 & -21.29 & 9.27 & 57.98 \\ 
+  10 & -3.36 & -0.43 & 7.17 & 8.23 & -1.20 & -5.51 & -27.87 & 0.50 & 16.23 & 6.25 \\ 
+  11 & 12.91 & 1.62 & 4.89 & 6.99 & 6.78 & -17.17 & -51.54 & -32.51 & -5.19 & 73.22 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\section{The Happiest Combination of Child-rearing Values}
+
+I am not going to solve a realistic problem here.  Instead, I will pretend that fractional values are possible for $(Q_7,\dots, Q_{17})$.  Then I want to find the nearest solution to 
+\[
+B\alpha = (1,0,\dots,0)-p_0
+\]
+Here $p_0$ will be the happiness distribution of the world and vector $(1,0,\dots,0)$ is the distribution of all people being happiest.  
+
+\begin{verbatim}
+alpha<-solve(B %*% t(B) + 0.01*I) %*% B %*% ( c(1,rep(9,0))-nrm(table(polv[,"Q49"])))
+
+> alpha
+             [,1]
+ [1,]  0.04968583
+ [2,] -0.01633079
+ [3,]  0.60380135
+ [4,] -0.40973663
+ [5,]  0.01465029
+ [6,] -0.13418065
+ [7,]  0.05145027
+ [8,]  0.12786788
+ [9,]  0.07979219
+[10,]  0.15644850
+[11,]  0.17824637
+\end{verbatim}
+This is the combination of child-rearing values that would be consistent with all people being happiest.
+
+I think it is worth thinking about more seriously.  At the moment, this is not sensible yet but I think there is substance here.  
+\end{document}
