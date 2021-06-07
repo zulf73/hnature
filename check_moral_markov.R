@@ -254,3 +254,13 @@ pref.eth<-function(v,data){
   data.frame(eth=eth,explained=explained.var*100)
 }
 
+sq4<-function(mtx){
+  a<-dim(mtx)[1]
+  b<-dim(mtx)[2]
+  out<-matrix(0,nrow=2,ncol=2)
+  out[1,1]<-sum(mtx[1:(a/2),1:(b/2)])
+  out[1,2]<-sum(mtx[1:(a/2),((b/2)+1):b])
+  out[2,2]<-sum(mtx[((a/2)+1):a,((b/2)+1):b])
+  out[2,1]<-sum(mtx[((a/2)+1):a,1:(b/2)])
+  out
+}
