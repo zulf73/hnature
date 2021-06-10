@@ -2,13 +2,24 @@
 # Life Satisfaction Q49
 # How do these vary with other finite variables?
 
+sq4<-function(mtx){
+  a<-dim(mtx)[1]
+  b<-dim(mtx)[2]
+  out<-matrix(0,nrow=2,ncol=2)
+  out[1,1]<-sum(mtx[1:(a/2),1:(b/2)])
+  out[1,2]<-sum(mtx[1:(a/2),((b/2)+1):b])
+  out[2,2]<-sum(mtx[((a/2)+1):a,((b/2)+1):b])
+  out[2,1]<-sum(mtx[((a/2)+1):a,1:(b/2)])
+  out
+}
+
 hsensitivity<-function( variable ){
   dh<-table(na.omit(polv[,c("Q46",variable)]))
   ds<-table(na.omit(polv[,c("Q49",variable)]))
   Bh<-sq4(dh)
   Bs<-sq4(ds)
-  hl <- Bh[1,1]/sum(Bh[,1])
-  hh <- Bh[1,2]/sum(Bh[,2])
+  hh <- Bh[1,1]/sum(Bh[,1])
+  hl <- Bh[1,2]/sum(Bh[,2])
   sh<- Bs[2,1]/sum(Bs[,1])
   sl<- Bs[2,2]/sum(Bs[,2])
   list(htable=dh,stable=ds,hsq=Bh,ssq=Bs,hh=hh,hl=hl,sh=sh,sl=sl)  
@@ -67,3 +78,17 @@ happiness.morals.sensitivity<-function(){
     out$desc<-mdesc
     out
 }
+nvars<-c("Q18","Q19","Q20","Q21","Q22","Q23","Q24","Q25","Q26")
+
+nhs<-happiness.var(nvars)
+
+nhs$sd<-nhs$sh-nhs$sl
+
+nhs$hd<-nhs$hh-nhs$hl
+
+data.frame(v=nhs$v,sd=nhs$sd,hd=nhs$hd)
+
+ndesc<-c("drug addicts", "other race", "AIDS", "immigrants","homosexuals", "other religion","heavy drinkers", "unmarried couples", "other language")
+memdesc<-c("church", "sports", "art", "labor" ,"political","environment" ,"pro","charitable","consumer" ,"selfhelp","women","other")
+memvars<-c("Q94","Q95","Q96","Q97","Q98","Q99","Q100","Q101","Q102","Q103","Q104","Q105")
+
